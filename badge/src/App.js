@@ -1,11 +1,12 @@
 import './App.css';
+import firebase from "./firebase"
 
-function App() {
+const App = () => {
   return (
-    <div >
-      <h3>Happy coding team</h3>
+    <div>
+      
     </div>
-  );
+  )
 }
 
 export default App;
