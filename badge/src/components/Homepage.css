@@ -1,0 +1,27 @@
+.HomepageContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.NavbarContainer {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+}
+
+.BadgePanelContainer {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 80%;
+    background-color: #111;
+    overflow: scroll;
+}
