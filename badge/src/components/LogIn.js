@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react'
 
-const Auth = () => {
+const LogIn = () => {
     // state = {
     //     user1 : {
     //         email : "rk394@nau.edu",
@@ -99,4 +99,4 @@ const Auth = () => {
     )
 }
 
-export default Auth
+export default LogIn
