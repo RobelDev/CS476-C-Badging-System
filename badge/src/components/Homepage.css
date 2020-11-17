@@ -15,6 +15,15 @@
     background-color: #111;
 }
 
+.WaterfallFeedContainer {
+    height: 100%;
+    width: 60%;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    background-color: rgb(36, 33, 33);
+}
+
 .BadgePanelContainer {
     height: 100%;
     width: 20%;

@@ -19,7 +19,7 @@ class Homepage extends Component {
                     <MainNav />
                 </div>
                 <div class="WaterfallFeedContainer">
-                    
+                    <WaterfallFeed />
                 </div>
                 <div class="BadgePanelContainer">
                     <BadgePanel />
