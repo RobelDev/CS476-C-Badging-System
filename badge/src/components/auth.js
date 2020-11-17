@@ -1,44 +1,44 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
-const auth = () => {
-    state = {
-        user1 : {
-            email : "rk394@nau.edu",
-            password : "123456"
-        }
-        ,
-        user2 : {
-            email : "rrr@nau.edu",
-            password : "899888"
-        }
-        ,
-        user3 : {
-            email : "lk34@nau.edu",
-            password : "99999"
-        }
-        ,
-        user4: {
-            email : "aaa8@nau.edu",
-            password : "1111111"
-        }
-        ,
-        user5 : {
-            email : "yx4444@nau.edu",
-            password : "333333"
-        }
-        ,
-        user5 : {
-            email : "tk4444@nau.edu",
-            password : "123999"
-        }
-    }
+const Auth = () => {
+    // state = {
+    //     user1 : {
+    //         email : "rk394@nau.edu",
+    //         password : "123456"
+    //     }
+    //     ,
+    //     user2 : {
+    //         email : "rrr@nau.edu",
+    //         password : "899888"
+    //     }
+    //     ,
+    //     user3 : {
+    //         email : "lk34@nau.edu",
+    //         password : "99999"
+    //     }
+    //     ,
+    //     user4: {
+    //         email : "aaa8@nau.edu",
+    //         password : "1111111"
+    //     }
+    //     ,
+    //     user5 : {
+    //         email : "yx4444@nau.edu",
+    //         password : "333333"
+    //     }
+    //     ,
+    //     user5 : {
+    //         email : "tk4444@nau.edu",
+    //         password : "123999"
+    //     }
+    // }
 
     const [data, setData] = useState({
         email: "",
         password: "",
       });
     
-      const { email, password } = formData;
+      const { email, password } = data;
     
       const onChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -46,12 +46,13 @@ const auth = () => {
     
       const onSubmit = async (e) => {
         e.preventDefault();
-        login({ email, password });
+        console.log("signedin an email" +  email + "  password " + password)
+        // login({ email, password });
       };
     return (
             <Fragment>
 
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} class="center">
                     <div>
                         <label for="email">Email</label>
                         <input type="email"
@@ -69,6 +70,7 @@ const auth = () => {
                             value={password}
                             placeholder="Password"
                             onChange={onChange}
+                            minLength="8"
                             required />
                     </div>
 
@@ -97,4 +99,4 @@ const auth = () => {
     )
 }
 
-export default auth
+export default Auth
