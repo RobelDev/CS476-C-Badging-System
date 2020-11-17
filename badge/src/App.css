@@ -1,0 +1,81 @@
+.log-in-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(43, 39, 39);
+}
+
+.log-in-title {
+    padding-bottom: 5vh;
+}
+
+.log-in-div img {
+    border-radius: 50%;
+}
+
+.log-in-div {
+    padding-top: 2vh;
+    direction: flex;
+    flex-direction: row;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+}
+
+.log-in-page button {
+    width: 20vw;
+    height: 5vh;
+    margin-top: 1vh;
+    margin-left: 40vw;
+    border-radius: 10px;
+    border: solid;
+    border-width: 2px;
+    background-color: white;
+}
+
+.log-in-page footer {
+    border: solid;
+    border-bottom: 2px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: gray;
+    position: absolute;
+    bottom: 0;
+    color: white;
+    min-height: 15vh;
+    background-color: crimson;
+    min-width: 100vw;
+}
+
+.log-in-text {
+    padding-top: 10vh;
+    font-size: 35px;
+}
+
+.footer-div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    padding: 1vw 3vw 0vw 3vw;
+}
+
+.column-title {
+    font-size: 20pt;
+}
+
+.member-name {
+    font-size: 10pt;
+}
+
+.copyright-text {
+    padding-top: 3vh;
+    bottom: 0;
+    text-align: center;
+}
