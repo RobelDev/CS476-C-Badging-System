@@ -3,6 +3,7 @@
 }
 
 .feed-title {
+    position: sticky;
     margin-top: 3vh;
     margin-left: auto;
     margin-right: auto;
@@ -16,5 +17,6 @@
 
 .feed-div {
     color: white;
-    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
 }

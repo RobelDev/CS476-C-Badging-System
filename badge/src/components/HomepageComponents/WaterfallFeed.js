@@ -1,5 +1,7 @@
 import React from "react"
 
+import MessageObject from "./WaterfallFeedComponents/MessageObject"
+
 import "./WaterfallFeed.css"
 
 class WaterfallFeed extends React.Component {
@@ -15,7 +17,27 @@ class WaterfallFeed extends React.Component {
                 Reward Feed
             </div>
             <div class="feed-div">
-                Feed
+                <ul>
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                    <MessageObject />
+                </ul>
             </div>
         </div>
 
