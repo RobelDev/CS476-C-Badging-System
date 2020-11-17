@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import './App.css';
-
-import Homepage from "./Components/Homepage";
-import LogIn from "./Components/LogIn"
+import React from "react";
+import { useAuthState } from 'react-firebase-hooks/auth'
 
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-import { useAuthState } from 'react-firebase-hooks/auth'
+import Homepage from "./Components/Homepage";
+import LogIn from "./Components/LogIn"
 
+import './App.css';
 
 const auth = firebase.auth();
 
@@ -19,28 +18,10 @@ function App() {
     return (
         <div>
             <section>
-                {user ? <Homepage /> : <SignIn />}
+                {user ? <Homepage /> : <LogIn />}
             </section>
         </div>
     );
-}
-
-
-function SignIn() {
-    const signInWithGoogle = () => {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider);
-    }
-
-    return (
-        <button onClick={signInWithGoogle}>Sign in with Google</button>
-    )
-}
-
-function SignOut() {
-    return auth.currentUser && (
-        <button onClick={() => auth.signOut()}>Sign Out</button>
-    )
 }
 
 export default App;
