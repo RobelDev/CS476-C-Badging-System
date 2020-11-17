@@ -18,10 +18,21 @@ function App() {
     return (
         <div>
             <section>
-                {user ? <Homepage /> : <LogIn />}
+                {user ? <Homepage /> : <SignIn />}
             </section>
         </div>
     );
+}
+
+function SignIn() {
+    const signInWithGoogle = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider);
+    }
+
+    return (
+        <button onClick={signInWithGoogle}>Sign in with Google</button>
+    )
 }
 
 export default App;
