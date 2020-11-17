@@ -12,18 +12,28 @@ class MessageObject extends React.Component {
 
     render() {
         return(
-            <li style={{display: "flex"}}>
-                <img src={logo}/>
+            <li style={{listStyle: "none"}}>
                 <div class="message-container">
                     
-                    <p class="message-id">
-                    Team Badgers Badge
-                    </p>
+                    <div class="message-part-1">
+                        <p class="message-id">
+                            <a href="#user-link">Tristan Marcus</a> recieved the Team Badgers Badge!
+                        </p>
+                        <div class="icon-container">
+                            <img class="reward-icon" src={logo}/>
+                        </div>
+                        
+                    </div>
                     
-                    <p class="message-description">
-                        This badge is a template for the UI to show where a badge would be!
-                    </p>
+                    <div class="message-part-2">
+                        <p class="message-description">
+                        Here is the message description. This is where the personal message will be.
+                        </p>
+                    </div>
+                    
+
                 </div>
+                
             </li>
         );
     }

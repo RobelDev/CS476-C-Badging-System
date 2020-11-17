@@ -1,4 +1,18 @@
 .message-container {
     display: flex;
     flex-direction: column;
+    font-size: 20px;
+    padding-bottom: 5vh;
+}
+
+.message-part-1 {
+    display: flex;
+}
+
+.icon-container {
+    padding-left: 10vw;
+}
+.reward-icon {
+    border-radius: 50%;
+    width: 5vh;
 }

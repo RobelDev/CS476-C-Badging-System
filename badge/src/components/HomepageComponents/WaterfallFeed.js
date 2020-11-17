@@ -30,13 +30,7 @@ class WaterfallFeed extends React.Component {
                     <MessageObject />
                     <MessageObject />
                     <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
-                    <MessageObject />
+                    
                 </ul>
             </div>
         </div>
