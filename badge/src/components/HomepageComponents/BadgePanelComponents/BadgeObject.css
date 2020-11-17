@@ -1,0 +1,4 @@
+.badge-info-div {
+    display: flex;
+    flex-direction: column;
+}

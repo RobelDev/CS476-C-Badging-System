@@ -19,6 +19,7 @@ class MainNav extends React.Component {
                 <li><a href="#spend-kudos">Spend Kudos</a></li>
                 <li><a href="#print-badge">Badge Printing</a></li>
                 <li><a href="#generate-email">Generate Email Signature</a></li>
+                <li><a href="#log-out">Log Out</a></li>
             </ul>                
         </div>
 

@@ -1,5 +1,5 @@
 .navbar-div {
-    overflow-x: hidden;
+    overflow: hidden;
     height: 100%;
 }
 
@@ -9,11 +9,13 @@
     padding: 0;
     background-color: #f1f1f1;
     height: 100%;
+    border-right: solid;
+    border-radius: px;
 }
 
 .navbar-div li {
-    height: 13.5%;
-    border-top: 5px solid rgb(0, 0, 0);
+    height: 12.4%;
+    border-top: 1px solid rgb(0, 0, 0);
 }
 
 .navbar-div li a {

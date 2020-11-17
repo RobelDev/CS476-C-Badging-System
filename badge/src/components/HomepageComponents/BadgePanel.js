@@ -25,8 +25,7 @@ class BadgePanel extends React.Component {
                 <BadgeObject />
                 <BadgeObject />
                 <BadgeObject />
-
-            </ul>                
+            </ul>
         </div>
 
         );

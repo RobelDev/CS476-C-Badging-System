@@ -24,8 +24,6 @@ class Homepage extends Component {
                 <div class="BadgePanelContainer">
                     <BadgePanel />
                 </div>
-                    
-                    
             </div>
         )
     }

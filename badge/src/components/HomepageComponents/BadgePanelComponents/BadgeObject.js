@@ -1,6 +1,8 @@
 import React from "react"
 
-import logo from '../../../Assets/Team_Badgers_Logo.png';
+import './BadgeObject.css'
+
+import logo from '../../../Assets/Team_Badgers_Logo.png'
 
 class BadgeObject extends React.Component {
     constructor() {
@@ -10,11 +12,16 @@ class BadgeObject extends React.Component {
 
     render() {
         return(
-            <li><img src={logo}/>
-                <div>
+            <li style={{display: "flex"}}>
+                <img src={logo}/>
+                <div class="badge-info-div">
+                    
+                    <p class="badge-name">
                     Team Badgers Badge
-                    <p>
-                        This badge is awarded to people who are developing the project
+                    </p>
+                    
+                    <p class="badge-description">
+                        This badge is a template for the UI to show where a badge would be!
                     </p>
                 </div>
             </li>
