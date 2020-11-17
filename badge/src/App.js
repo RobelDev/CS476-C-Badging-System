@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase"
 import './App.css';
+import Auth from "./components/Auth"
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class App extends Component {
   render() {
       return (
           <div>
+              <Auth />
           </div>
       );
   }
