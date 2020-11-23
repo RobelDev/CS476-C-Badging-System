@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import MainNav from "../Components/HomepageComponents/MainNav"
-import BadgePanel from "../Components/HomepageComponents/BadgePanel"
-import WaterfallFeed from "../Components/HomepageComponents/WaterfallFeed"
+import MainNav from "./HomepageComponents/MainNav"
+import BadgePanel from "./HomepageComponents/BadgePanel"
+import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
