@@ -21,10 +21,7 @@ firebase.initializeApp({
 const auth = firebase.auth();
 
 class MainNav extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+    
 
     state = {
         seen: false
