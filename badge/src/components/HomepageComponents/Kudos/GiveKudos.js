@@ -9,8 +9,8 @@ class GiveKudos extends React.Component {
 
     render() {
         return(
-            <div class="modal">
-                <div class="modal-content">
+            <div >
+                <div >
                     <span className="close" onClick={this.handleClick}>
                         &times;
                     </span>

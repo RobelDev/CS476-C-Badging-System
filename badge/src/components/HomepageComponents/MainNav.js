@@ -1,4 +1,6 @@
 import React from "react"
+import Popup from 'reactjs-popup'
+import 'reactjs-popup/dist/index.css'
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
@@ -37,15 +39,41 @@ class MainNav extends React.Component {
         return(
         <div class="navbar-div">
             <ul>
-                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">State Farm</button></li>
-                <li><button onClick="#home">Home</button></li>
-                <li><button onClick="#give-badge">Give A Badge</button></li>
-                <li><button onClick={this.togglePop}>Give Kudos</button></li>
-                {this.state.seen ? <GiveKudos toggle={this.togglePop} /> : null}
-                <li><button onClick="#spend-kudos">Spend Kudos</button></li>
-                <li><button onClick="#print-badge">Badge Printing</button></li>
-                <li><button onClick="#generate-email" data-toggle="modal">Generate Email Signature</button></li>
-                <li><button onClick={<SignOut />}>Log Out</button></li>
+                <li>
+                    <Popup trigger={<button>Home</button>} position="right center">
+                        <div>Popup content here !!</div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Give a Badge</button>} position="right center">
+                        <div>Popup content here !!</div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Give Kudos</button>} position="right center">
+                        <div><GiveKudos /></div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Spend Kudos</button>} position="right center">
+                        <div>Popup content here !!</div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Badge Printing</button>} position="right center">
+                        <div>Popup content here !!</div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Generate Email Signature</button>} position="right center">
+                        <div><Card /></div>
+                    </Popup>
+                </li>
+                <li>
+                    <Popup trigger={<button>Log Out</button>} position="right center">
+                        <div><SignOut /></div>
+                    </Popup>
+                </li>
             </ul>
         </div>
 

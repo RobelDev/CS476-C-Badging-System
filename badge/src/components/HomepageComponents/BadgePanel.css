@@ -26,3 +26,10 @@
     padding-top: 5vh;
     padding-left: 5vh;
 }
+
+.kudos-count {
+    position: sticky;
+    bottom: 0;
+    height: 5vh;
+    width: 5vw;
+}

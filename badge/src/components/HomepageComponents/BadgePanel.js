@@ -21,11 +21,13 @@ class BadgePanel extends React.Component {
                 <BadgeObject />
                 <BadgeObject />
                 <BadgeObject />
-                <BadgeObject />
-                <BadgeObject />
-                <BadgeObject />
-                <BadgeObject />
             </ul>
+            <div class="kudos-div">
+                <div class="kudos-text">
+                    Your Kudos: 10
+                </div>
+                
+            </div>
         </div>
 
         );
