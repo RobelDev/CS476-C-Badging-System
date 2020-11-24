@@ -30,17 +30,17 @@ class MainNav extends React.Component {
         return(
         <div class="navbar-div">
             <ul>
-                <li><a href="#home">State Farm</a></li>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#give-badge">Give A Badge</a></li>
-                <li><a href={<GiveKudos />}>Give Kudos</a></li>
-                <li><a href="#spend-kudos">Spend Kudos</a></li>
-                <li><a href="#print-badge">Badge Printing</a></li>
-                <li><a href="#generate-email" data-toggle="modal">Generate Email Signature</a></li>
-                <li><a href={<SignOut />}>Log Out</a></li>
+                <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">State Farm</button></li>
+                <li><button onClick="#home">Home</button></li>
+                <li><button onClick="#give-badge">Give A Badge</button></li>
+                <li><button onClick={<GiveKudos />}>Give Kudos</button></li>
+                <li><button onClick="#spend-kudos">Spend Kudos</button></li>
+                <li><button onClick="#print-badge">Badge Printing</button></li>
+                <li><button onClick="#generate-email" data-toggle="modal">Generate Email Signature</button></li>
+                <li><button onClick={<SignOut />}>Log Out</button></li>
             </ul>
+        </div>
 
-            </div>
         );
     }
 }
