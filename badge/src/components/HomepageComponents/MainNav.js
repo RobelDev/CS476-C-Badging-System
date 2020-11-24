@@ -26,6 +26,16 @@ class MainNav extends React.Component {
         this.state = {};
     }
 
+    state = {
+        seen: false
+      };
+    
+      togglePop = () => {
+        this.setState({
+          seen: !this.state.seen
+        });
+      };
+
     render() {
         return(
         <div class="navbar-div">
@@ -33,7 +43,8 @@ class MainNav extends React.Component {
                 <li><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">State Farm</button></li>
                 <li><button onClick="#home">Home</button></li>
                 <li><button onClick="#give-badge">Give A Badge</button></li>
-                <li><button onClick={<GiveKudos />}>Give Kudos</button></li>
+                <li><button onClick={this.togglePop}>Give Kudos</button></li>
+                {this.state.seen ? <GiveKudos toggle={this.togglePop} /> : null}
                 <li><button onClick="#spend-kudos">Spend Kudos</button></li>
                 <li><button onClick="#print-badge">Badge Printing</button></li>
                 <li><button onClick="#generate-email" data-toggle="modal">Generate Email Signature</button></li>

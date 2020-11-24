@@ -3,16 +3,15 @@ import React from "react"
 import "./GiveKudos.css"
 
 class GiveKudos extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+    handleClick = () => {
+        this.props.toggle();
+    };
 
     render() {
         return(
             <div class="modal">
                 <div class="modal-content">
-                    <span className="close" >
+                    <span className="close" onClick={this.handleClick}>
                         &times;
                     </span>
                     <form>
@@ -27,7 +26,7 @@ class GiveKudos extends React.Component {
                             <input type="number" name="amountToSend" />
                         </label>
                         <br />
-
+                        <input type="submit" />
                     </form>
                 </div>
             </div>
