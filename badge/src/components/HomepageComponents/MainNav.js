@@ -2,6 +2,7 @@ import React from "react"
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import GiveKudos from "./Kudos/GiveKudos.js"
 
 import "./MainNav.css"
 
@@ -30,7 +31,7 @@ class MainNav extends React.Component {
                 <li><a href="#home">State Farm</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#give-badge">Give A Badge</a></li>
-                <li><a href="#give-kudos">Give Kudos</a></li>
+                <li><a href={<GiveKudos />}>Give Kudos</a></li>
                 <li><a href="#spend-kudos">Spend Kudos</a></li>
                 <li><a href="#print-badge">Badge Printing</a></li>
                 <li><a href="#generate-email">Generate Email Signature</a></li>
