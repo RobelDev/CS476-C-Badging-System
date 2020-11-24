@@ -6,6 +6,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 import { useCollectionData } from 'react-firebase-hooks/firestore'
+import MessageObject from "./WaterfallFeedComponents/MessageObject"
 
 import "./WaterfallFeed.css"
 
@@ -20,6 +21,7 @@ function WaterfallFeed() {
             </div>
             <div class="feed-div">
                 <ChatRoom />
+                <MessageObject />
             </div>
         </div>
     );
