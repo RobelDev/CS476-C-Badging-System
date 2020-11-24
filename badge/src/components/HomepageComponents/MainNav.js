@@ -5,6 +5,7 @@ import 'reactjs-popup/dist/index.css'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import GiveKudos from "./Kudos/GiveKudos.js"
+import BadgePrinting from "./Printing/BadgePrinting.js"
 
 import Card from './Card/Card.js'
 
@@ -61,7 +62,7 @@ class MainNav extends React.Component {
                 </li>
                 <li>
                     <Popup trigger={<button>Badge Printing</button>} position="right center">
-                        <div>Popup content here !!</div>
+                        <div><BadgePrinting /></div>
                     </Popup>
                 </li>
                 <li>

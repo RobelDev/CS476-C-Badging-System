@@ -3,17 +3,10 @@ import React from "react"
 import "./GiveKudos.css"
 
 class GiveKudos extends React.Component {
-    handleClick = () => {
-        this.props.toggle();
-    };
-
     render() {
         return(
             <div >
                 <div >
-                    <span className="close" onClick={this.handleClick}>
-                        &times;
-                    </span>
                     <form>
                         <h3>Give Kudos</h3>
                         <label>
@@ -25,6 +18,11 @@ class GiveKudos extends React.Component {
                             How Many Kudos?
                             <input type="number" name="amountToSend" />
                         </label>
+                        <br />
+                        <label>
+                            Why are you sending them Kudos?
+                            <input type="text" name="name" />    
+                        </label> 
                         <br />
                         <input type="submit" />
                     </form>
