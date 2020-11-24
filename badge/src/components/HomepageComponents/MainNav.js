@@ -41,13 +41,18 @@ class MainNav extends React.Component {
         <div class="navbar-div">
             <ul>
                 <li>
+                    <Popup trigger={<button>State Farm</button>} position="right center">
+                        <div></div>
+                    </Popup>
+                </li>
+                <li>
                     <Popup trigger={<button>Home</button>} position="right center">
-                        <div>Popup content here !!</div>
+                        <div></div>
                     </Popup>
                 </li>
                 <li>
                     <Popup trigger={<button>Give a Badge</button>} position="right center">
-                        <div>Popup content here !!</div>
+                        <div>Give a Badge coming soon...</div>
                     </Popup>
                 </li>
                 <li>
@@ -57,7 +62,7 @@ class MainNav extends React.Component {
                 </li>
                 <li>
                     <Popup trigger={<button>Spend Kudos</button>} position="right center">
-                        <div>Popup content here !!</div>
+                        <div>Spend Kudos coming soon...</div>
                     </Popup>
                 </li>
                 <li>
