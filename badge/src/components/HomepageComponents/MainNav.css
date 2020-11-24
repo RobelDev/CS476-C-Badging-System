@@ -34,3 +34,8 @@
     background-color: rgb(231, 74, 74);
     color: white;
 }
+
+.card-popup {
+    width: 40vw;
+    height: 40vh;
+}

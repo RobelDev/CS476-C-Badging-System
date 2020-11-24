@@ -67,7 +67,7 @@ class MainNav extends React.Component {
                 </li>
                 <li>
                     <Popup trigger={<button>Generate Email Signature</button>} position="right center">
-                        <div><Card /></div>
+                        <div class="card-popup"><Card /></div>
                     </Popup>
                 </li>
                 <li>
