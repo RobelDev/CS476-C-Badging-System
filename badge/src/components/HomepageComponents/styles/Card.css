@@ -18,8 +18,9 @@
     /* position: absolute;
     top: 20%;
     left: 50%;
-    margin-left:-25%; */
-    width: 1200px;
+    margin-left:-25%; 
+    width: 1200px;*/
+    width: 60vw;
     box-shadow: none;
 }
 img{
