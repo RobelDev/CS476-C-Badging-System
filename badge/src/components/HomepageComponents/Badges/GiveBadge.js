@@ -32,19 +32,19 @@ class GiveBadge extends React.Component {
                             Choose a Badge
                             <br />
                             <div className="column">
-                            <a href={img1PDF} target="_blank" rel="noreferrer">
-                                <img src={img1} alt="img1" width="100px" height="100px"/>
-                            </a>
+                            <img src={img1} alt="img1" width="100px" height="100px"/>
+                            <input type="checkbox">
+                            </input>
                             </div>
                             <div className="column">
-                            <a href={img2PDF} target="_blank" rel="noreferrer">
-                                <img src={img2} alt="img2" width="100px" height="100px"/>
-                            </a>
+                            <img src={img2} alt="img2" width="100px" height="100px"/>
+                            <input type="checkbox">
+                            </input>
                             </div>
                             <div className="column">
-                            <a href={img4PDF} target="_blank" rel="noreferrer">
-                                <img src={img4} alt="img4" width="100px" height="100px"/>
-                            </a>
+                            <img src={img4} alt="img4" width="100px" height="100px"/>
+                            <input type="checkbox">
+                            </input>
                             </div>
                             </label>
                         </div>
