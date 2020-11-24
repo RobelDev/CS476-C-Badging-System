@@ -105,7 +105,7 @@ class Card extends React.Component {
             canvas.width = "900"
             canvas.height = "500"
 
-            ctx.font = "50px " + this.state.fontFamily
+            ctx.font = "70px " + this.state.fontFamily
             ctx.textAlign = 'center';
             ctx.fillText(this.state.uname, 450, 100)
             if (this.state.uname === "") {
@@ -298,6 +298,7 @@ class Card extends React.Component {
                     <div className="uk-margin font-box">
                         <div uk-form-custom="target: > * > span:first-child">
                             <select onChange={this.updateFontChange}>
+                                <option></option>
                                 <option value={this.state.fontSelected.text1}>{this.state.fontSelected.text1}</option>
                                 <option value={this.state.fontSelected.text2}>{this.state.fontSelected.text2}</option>
                                 <option value={this.state.fontSelected.text3}>{this.state.fontSelected.text3}</option>
