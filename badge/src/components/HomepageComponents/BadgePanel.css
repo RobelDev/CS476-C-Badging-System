@@ -27,9 +27,22 @@
     padding-left: 5vh;
 }
 
-.kudos-count {
-    position: sticky;
+.kudos-div {
     bottom: 0;
-    height: 5vh;
-    width: 5vw;
+    height: 15vh;
+    background-color: rgb(77, 72, 72);
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.kudos-title {
+    text-decoration: underline;
+}
+
+.kudos-amount {
+    font-size: 40px;
+    padding-top: 2vh;
+    text-decoration: none;
 }

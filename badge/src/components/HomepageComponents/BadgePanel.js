@@ -15,19 +15,25 @@ class BadgePanel extends React.Component {
             <div class="badge-panel-header">
                 Your Badges
             </div>
+            
             <ul>
                 <BadgeObject />
                 <BadgeObject />
                 <BadgeObject />
                 <BadgeObject />
                 <BadgeObject />
+                <BadgeObject />
             </ul>
+
             <div class="kudos-div">
-                <div class="kudos-text">
-                    Your Kudos: 10
+                <div class="kudos-title">
+                Your Kudos
                 </div>
-                
+                <div class="kudos-amount">
+                    1000
+                </div>
             </div>
+
         </div>
 
         );
