@@ -2,6 +2,7 @@ import React from "react"
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import GiveKudos from "./Kudos/GiveKudos.js"
 
 import Card from './Card/Card.js'
 
@@ -32,30 +33,14 @@ class MainNav extends React.Component {
                 <li><a href="#home">State Farm</a></li>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#give-badge">Give A Badge</a></li>
-                <li><a href="#give-kudos">Give Kudos</a></li>
+                <li><a href={<GiveKudos />}>Give Kudos</a></li>
                 <li><a href="#spend-kudos">Spend Kudos</a></li>
                 <li><a href="#print-badge">Badge Printing</a></li>
                 <li><a href="#generate-email" data-toggle="modal">Generate Email Signature</a></li>
                 <li><a href={<SignOut />}>Log Out</a></li>
             </ul>
 
-            <div id="generate-email" className="modal modal-lg mymodal" tabindex="-1" role="dialog" data-backdrop="false">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Generate Email Signature</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body">
-                            <Card />
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
-
+            </div>
         );
     }
 }
