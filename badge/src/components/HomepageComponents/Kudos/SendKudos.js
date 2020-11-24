@@ -7,4 +7,4 @@ class BadgePanel extends React.Component {
         super();
         this.state = {};
     }
-
+}
