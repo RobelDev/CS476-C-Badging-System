@@ -17,7 +17,6 @@ router.get("/signin", async (req, res) =>{
         console.error(error.message);
         res.status(500).send("Server Error");
     }
-
 } 
 );
 

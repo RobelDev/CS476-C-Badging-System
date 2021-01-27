@@ -11,10 +11,13 @@ const app = express();
 
 // app.use(express.json());
 
-app.get("/", (req, res) => res.send("State Farm Capstone Project runinggggggg"));
+// app.get("/", (req, res) => res.send("State Farm Capstone Project runinggggggg"));
 
 // app.use("/api/", require("./routes/"));
 // app.use("/", console.log("hello"));
+
+app.use("/auth", require("./routes/api/auth"));
+app.use("/badge", require("./routes/api/badge"))
 
 
 const PORT = process.env.PORT || 5000;
