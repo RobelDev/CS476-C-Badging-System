@@ -3,36 +3,32 @@
     height: 100%;
 }
 
-.navbar-div ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #f1f1f1;
-    height: 100%;
-    border-right: solid;
-    border-radius: px;
-}
-
-.navbar-div li {
-    height: 12.4%;
-    border-top: 1px solid rgb(0, 0, 0);
-}
-
-.navbar-div li a {
-    display: block;
-    color: rgb(0, 0, 0);
-    padding: 5vh;
-    text-decoration: none;
-}
-
-.navbar-div li a.active {
-    background-color: #d6464d;
-    color: rgb(255, 255, 255);
-}
-
-.navbar-div li a:hover:not(.active) {
-    background-color: rgb(231, 74, 74);
+.navbar-div a {
     color: white;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 10%;
+    box-sizing: border-box;
+    transition: 0.4s;
+    transition-property: all;
+    font-size: 20px;
+    justify-content: space-around;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.navbar-div span{
+    font-size: 20px;
+}
+
+.navbar-div a:hover{
+    background: crimson;
+ }
+
+.navbar-div i{
+    padding-right: 15px
 }
 
 .card-popup {

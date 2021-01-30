@@ -1,0 +1,13 @@
+.badge-info-div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+}
+
+.badge-name {
+    margin-bottom: -5%;
+}
+
+img {
+    border-radius: 100px;
+}

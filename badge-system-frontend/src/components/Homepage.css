@@ -5,32 +5,180 @@
     flex-direction: row;
 }
 
-.NavbarContainer {
-    height: 100%;
-    width: 20%;
+.HeaderContainer {
     position: fixed;
-    z-index: 1;
+    background-color: #1d1d1d;
+    padding: 20px;
     top: 0;
+    height: 60px;
+    width: calc(100% - 0%);
+    z-index: 10;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-color: rgba(17, 17, 0, 0.38);
+}
+
+.header-left h3{
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: -30px;
+}
+
+.header-left span{
+    color: crimson;
+}
+
+.log-out-button {
+    padding: 5px;
+    background-color: crimson;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    float: right;
+    margin-top: -35px;
+    margin-right: 40px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.4s;
+    transition-property: all;
+}
+
+.log-out-button:hover{
+    background: white;
+    text-decoration: none;
+    color: crimson;
+}
+
+label #sidebar-button {
+    z-index: 11;
+    color: white;
+    position: fixed;
+    cursor: pointer;
+    left: 250px;
+    top: 18px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.4s;
+    transition-property: left;
+}
+
+label #sidebar-button:hover{
+    color: crimson;
+}
+
+#check:checked ~ .NavbarContainer {
+    left: -15%;
+    border-bottom-right-radius: 300px;
+}
+
+#check:checked ~ .WaterfallFeedContainer{
+    padding-left: 10%;
+    left: 0%;
+    width: 80%;
+}
+
+#check:checked ~ .NavbarContainer a span{
+    display: none;
+}
+
+#check:checked ~ .NavbarContainer a{
+    font-size: 35px;
+    margin-left: 280px;
+    width: 100%;
+}
+
+.NavbarContainer {
+    height: calc(100% - 0%);
+    width: 20%;
     left: 0;
-    background-color: #111;
+    top: 0;
+    position: fixed;
+    z-index: 10;
+    background-color: #242424;
+    margin-top: 60px;
+    transition: 0.4s;
+    transition-property: all;
+    box-shadow: 1px 6px 25px 2px rgba(0,0,0,0.6);
 }
 
 .WaterfallFeedContainer {
+    color: white;
     height: 100%;
-    width: 60%;
+    width: calc(73% - 250px);
     position: fixed;
     top: 0;
     left: 20%;
-    background-color: rgb(36, 33, 33);
-    overflow-y: scroll;
+    background-color: #2f2e2e;
+    overflow-y: hidden;
+    transition: 0.4s;
+    transition-property: all;
+    margin-top: 60px;
+    padding: 20px;
+    font-size: 60px;
+    padding-left: 100px;
 }
 
-.BadgePanelContainer {
+.UserPanelContainer {
+    background-color: #242424;
     height: 100%;
     width: 20%;
     position: fixed;
     z-index: 1;
-    top: 0;
+    top: 60px;
     left: 80%;
     overflow-y: scroll;
+    box-shadow: -7px 5px 24px 2px rgba(0,0,0,0.6);
 }
+
+.UserPanelContainer::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+.UserPanelContainer::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px
+}
+
+.UserPanelContainer::-webkit-scrollbar-thumb {
+    background: #0d0c0c;
+    border: 0px none #ffffff;
+    border-radius: 5px;
+}
+
+.UserPanelContainer::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border: 0px none #ffffff;
+    border-radius: 100px;
+}
+
+.kudos-div {
+    position: fixed;
+    width: 13vw;
+    bottom: 0;
+    margin-bottom: 1%;
+    height: 6vh;
+    background-color: rgb(77, 72, 72);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    align-content: center;
+    border-radius: 100px;
+    padding-top: 1vh;
+    left: 64%;
+    box-shadow: 0px 0px 33px -8px #000000;
+}
+
+.kudos-title {
+    text-decoration: underline;
+}
+
+.kudos-amount {
+    font-size: 30px;
+    padding-top: 0vh;
+    text-decoration: none;
+}
+
