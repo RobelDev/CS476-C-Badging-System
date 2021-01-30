@@ -9,15 +9,20 @@
 .badge-library-header {
     margin: 0;
     padding: 0;
-    background-color: #eb7676;
+    background-color: #121212;
     font-size: 25px;
     text-align: center;
-    text-decoration: underline;
-    width: 18%;
+    text-decoration: none;
+    width: 14%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    margin-left: 1%;
+    margin-left: 3%;
     position: fixed;
+    color: white;
+    border-bottom: solid;
+    border-left: solid;
+    border-right: solid;
+    border-color: #6d6d6d;
 }
 
 .badge-library-div ul {
