@@ -16,13 +16,13 @@ const PORT = process.env.PORT || 5000;
 // app.use(morggan("dev"));
 // app.use(express.json());
 
-
-
-// API Endpoints
-app.get("/", (req, res) => res.status(200).send("The Server is running, This is all it displays. The Front-End is not hooked up!"));
+// app.get("/", (req, res) => res.send("State Farm Capstone Project runinggggggg"));
 
 // app.use("/api/", require("./routes/"));
 // app.use("/", console.log("hello"));
+
+app.use("/auth", require("./routes/api/auth"));
+app.use("/badge", require("./routes/api/badge"))
 
 
 // Listening
