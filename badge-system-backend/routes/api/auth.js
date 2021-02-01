@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const user = require("../../model/User");
 
 router.get("/signin", async (req, res) =>{
     try {
