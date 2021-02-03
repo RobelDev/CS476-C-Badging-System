@@ -2,7 +2,7 @@ const express = require("express");
 const Badge = require("../../model/Badge");
 const router = express.Router();
 const User = require("../../model/User");
-const Badge = require("../../model/Badge");
+// const Badge = require("../../model/Badge");
 
 
 router.post("/badge", async ( req, res) => {
@@ -150,3 +150,6 @@ router.get("/me/:badge_id", async ( req, res) => {
         
     }
 })
+
+
+module.exports = router;
