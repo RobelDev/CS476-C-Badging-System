@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const user = require("../../model/User");
+const User = require("../../model/User");
 
 router.get("/signin", async (req, res) =>{
     try {
@@ -45,7 +45,7 @@ router.post("/signin", async (req, res) => {
         console.log(error);
         res.status(500).send("Server Error");        
     }
-})
+});
 
 
 
@@ -78,4 +78,4 @@ router.post("/register", async (req, res ) => {
         res.status(500).send("Server Error");
         
     }
-})
+});
