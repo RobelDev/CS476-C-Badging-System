@@ -11,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 
-// connect();
+connect();
 // connect();
 // app.use(morggan("dev"));
 // app.use(express.json());
