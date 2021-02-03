@@ -2,6 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../../model/User");
 
+
+// this one needs a middleware
+// see another option
 router.get("/signin", async (req, res) =>{
     try {
         const user = await User.findById(req.user.id).select("-password");
@@ -56,7 +59,7 @@ router.post("/register", async (req, res ) => {
 
     try {
 
-        let user = User.findOne({email});
+        let user = await User.findOne({email});
 
         if(user){
             return res.json({msg : "user already exists!"})
