@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middlewares
 
+app.use(express.json());
 
 // connect();
 // connect();
@@ -22,7 +23,7 @@ const PORT = process.env.PORT || 5000;
 // app.use("/", console.log("hello"));
 
 app.use("/auth", require("./routes/api/auth"));
-app.use("/badge", require("./routes/api/badge"))
+// app.use("/badge", require("./routes/api/badge"));
 
 
 // Listening
