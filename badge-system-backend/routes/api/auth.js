@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../../model/User");
+const middleware = require("../../middleware");
+const jwt = require("jsonwebtoken");
 
 
 // this one needs a middleware
 // see another option
-router.get("/signin", async (req, res) =>{
+router.get("/signin", middleware, async (req, res) =>{
     try {
         const user = await User.findById(req.user.id).select("-password");
         
@@ -41,7 +43,20 @@ router.post("/signin", async (req, res) => {
             return res.json({msg : "Password doesnot match"});
         }
 
-        res.json({msg : "user signed-in succesfully"});
+        const payload = {
+            user: {
+              id: user.id,
+            },
+          };
+
+          jwt.sign(
+            payload,
+            "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc",
+            (error, token) => {
+              if (error) throw error;
+              res.json({ token, msg: "Signed in succeesfully" });
+            }
+          );
         
     } catch (error) {
 
@@ -72,8 +87,16 @@ router.post("/register", async (req, res ) => {
 
         await user.save();
 
+        const payload = {
+            user: {
+              id: user.id,
+            },
+          };
+         
+          const token = jwt.sign(payload, "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc");
+
         
-        res.json({msg : "User registered"});
+        res.json(token);
 
     } catch (error) {
         
