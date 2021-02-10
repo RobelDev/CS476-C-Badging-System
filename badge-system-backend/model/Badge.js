@@ -31,7 +31,7 @@ const badgeSchema = new mongoose.Schema({
 
     badges: [
         {
-            badeg: {
+            badge: {
                 type: String,
 
             },
