@@ -5,6 +5,7 @@ const db = async () => {
   try {
     await mongoose.connect("mongodb+srv://Badger:statefarm@cluster0.dx4gr.mongodb.net/<dbname>?retryWrites=true&w=majority", {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
     });

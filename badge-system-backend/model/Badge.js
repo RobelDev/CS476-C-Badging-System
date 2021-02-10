@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const badgeSchema = new mongoose.Schema({
+const profileSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "user",
@@ -45,4 +45,4 @@ const badgeSchema = new mongoose.Schema({
     },
 });
 
-module.exports = Badge = mongoose.model("badge", badgeSchema);
+module.exports = Badge = mongoose.model("badge", profileSchema);

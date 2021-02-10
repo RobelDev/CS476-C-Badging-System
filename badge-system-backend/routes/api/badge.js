@@ -2,12 +2,13 @@ const express = require("express");
 const Badge = require("../../model/Badge");
 const router = express.Router();
 const User = require("../../model/User");
-const Badge = require("../../model/Badge");
+const middleware = require("../../middleware");
+// const Badge = require("../../model/Badge");
 
 
-router.post("/badge", async ( req, res) => {
+router.post("/create", middleware, async ( req, res) => {
     
-    const user = await User.findById(req.user.id).select("-password");
+    // const user = await User.findById(req.user.id).select("-password");
 
     const {
         name,
@@ -52,7 +53,7 @@ router.post("/badge", async ( req, res) => {
 
 // add kudos bank \
 // work on this one /////////////////////////////////////////////////
-router.post("/badge", async ( req, res) => {
+router.post("/kudos", async ( req, res) => {
     
     const user = await User.findById(req.user.id).select("-password");
 
@@ -88,7 +89,7 @@ router.post("/badge", async ( req, res) => {
 });
 
 //get a personalized list of badges
-router.get("/me", async (req, res) => {
+router.get("/me", middleware, async (req, res) => {
 
     try {
 
@@ -150,3 +151,6 @@ router.get("/me/:badge_id", async ( req, res) => {
         
     }
 })
+
+
+module.exports = router;
