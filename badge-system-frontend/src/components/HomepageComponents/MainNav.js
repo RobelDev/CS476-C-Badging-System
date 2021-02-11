@@ -1,34 +1,57 @@
-import React from "react"
-import Popup from 'reactjs-popup'
-import 'reactjs-popup/dist/index.css'
+import React,{useState} from "react";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { Kudos_Modal } from './Kudos/Kudos_Modal';
 
-import GiveKudos from "./Kudos/GiveKudos.js"
-import BadgePrinting from "./Printing/BadgePrinting.js"
-import GiveBadge from "./Badges/GiveBadge.js"
+import GiveKudos from "./Kudos/GiveKudos.js";
+import BadgePrinting from "./Printing/BadgePrinting.js";
+import { GiveBadge } from "./Badges/GiveBadge";
 
-import Card from './Card/Card.js'
+import Card from './Email/Card.js'
 
 import "./MainNav.css"
 
-const openModal = () => {
-    console.log("LOLOLOLOLOLOLOLOLOLOL");
-}
+import { EmailModal } from './Email/EmailModal';
 
-class MainNav extends React.Component {
+const MainNav = () => {
+
+    const [showEmailModal, setShowEmailModal] = useState(false);
 
     
+    
+    const openEmailModal = () => {
+        setShowEmailModal(prev => !prev)
 
-    render() {
+    }
+
+    const [showGiveBadgeModal, setShowGiveBadgeModal] = useState(false);
+
+    const openGiveBadgeModal = () => {
+        setShowGiveBadgeModal(prev => !prev)
+
+    }
+
+    
+    const [showModal, setShowModal] = useState(false);
+    
+    const openModal = () => {
+        setShowModal(prev => !prev)
+    }
+
         return (
             <div class="navbar-div">
 
-                <a href="#" onClick={openModal}><i class="fas fa-home"></i><span>Home</span></a>
-                <a href="#" onClick={openModal}><i class="fas fa-award"></i><span>Give a Badge</span></a>
+                <GiveBadge showGiveBadgeModal={showGiveBadgeModal} setShowGiveBadgeModal={setShowGiveBadgeModal} />                
+                <Kudos_Modal showModal={showModal} setShowModal={setShowModal} />
+                 <EmailModal showEmailModal={showEmailModal} setShowEmailModal={setShowEmailModal} />
+
+                <a href="#" ><i class="fas fa-home"></i><span>Home</span></a>
+                <a href="#" onClick={openGiveBadgeModal}><i class="fas fa-award"></i><span>Give a Badge</span></a>
                 <a href="#" onClick={openModal}><i class="fas fa-coins"></i><span>Give Kudos</span></a>
-                <a href="#" onClick={openModal}><i class="fas fa-coins"></i><span>Spend Kudos</span></a>
-                <a href="#" onClick={openModal}><i class="fas fa-print"></i><span>Badge Printing</span></a>
-                <a href="#" onClick={openModal}><i class="fas fa-file-signature"></i><span>Generate Email Signature</span></a>
-                <a href="#" onClick={openModal}><i class="fas fa-sign-out-alt"></i><span>Log Out</span></a>
+                <a href="#" ><i class="fas fa-coins"></i><span>Spend Kudos</span></a>
+                <a href="#" ><i class="fas fa-print"></i><span>Badge Printing</span></a>
+                <a href="#" onClick={openEmailModal}><i class="fas fa-file-signature"></i><span>Generate Email Signature</span></a>
+                <a href="#" ><i class="fas fa-sign-out-alt"></i><span>Log Out</span></a>
 
 
 
@@ -81,6 +104,5 @@ class MainNav extends React.Component {
 
         );
     }
-}
 
 export default MainNav;
