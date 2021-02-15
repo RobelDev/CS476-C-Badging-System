@@ -19,6 +19,11 @@ const userSchema = new mongoose.Schema({
     default: "employee",
   },
 
+  kudosBank: {
+    type: Number,
+    default: "100000"
+  },
+
   date: {
     type: Date,
     default: Date.now(),
