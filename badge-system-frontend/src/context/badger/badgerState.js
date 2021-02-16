@@ -103,6 +103,11 @@ const badgerState = props => {
 
         try {
             const res = await axios.get("/api/badge/me");
+
+            dispatch({
+                type: GET_MY_BADGES,
+                payload: res
+            })
             
         } catch (error) {
             console.log(error);
