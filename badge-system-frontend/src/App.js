@@ -6,6 +6,7 @@ import LogIn from "./components/LogIn"
 import logo from "./Assets/Team_Badgers_Logo.png"
 
 import './App.css';
+import  badgerState from "./context/badger/badgerState"
 
 class App extends Component {
     constructor() {
@@ -15,9 +16,13 @@ class App extends Component {
 
     render() {
         return(
+            <badgerState>
+                
             <div>
                 <LogIn />
             </div>
+
+            </badgerState>
         )   
     }
 }

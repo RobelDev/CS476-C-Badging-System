@@ -18,11 +18,14 @@ router.post("/create", middleware, async ( req, res) => {
         accomplishment,
         kudosBank,
         badges,
+        email
 
     } = req.body;
 
+    let userG = await User.findOne({email});
+
     const field = {
-        user: req.user.id,
+        user: userG._id,
         name,
         title, 
         department,
@@ -40,9 +43,7 @@ router.post("/create", middleware, async ( req, res) => {
 
         res.json(badgeToBeGiven);
 
-    } catch (error) {
-
-        
+    } catch (error) {        
       console.error(error.message);
       res.status(500).send("Server Error");
         
@@ -53,9 +54,12 @@ router.post("/create", middleware, async ( req, res) => {
 
 // add kudos bank \
 // work on this one /////////////////////////////////////////////////
-router.post("/kudos", async ( req, res) => {
+router.post("/kudos", middleware, async ( req, res) => {
+
+
     
-    const user = await User.findById(req.user.id).select("-password");
+    
+    const kudosReciever = await User.find(req.body.email).select("-password");
 
     // const {
     //     kudosBank,
@@ -69,7 +73,7 @@ router.post("/kudos", async ( req, res) => {
     try {
 
         
-        const badges = await Badge.find({
+        const myBadge = await Badge.find({
             user: req.user.id,
         });
         
