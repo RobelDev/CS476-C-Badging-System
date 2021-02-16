@@ -27,6 +27,20 @@ const badgerState = props => {
 
     //Register a user
     const registerUser =  async ({email, password}) =>  {
+        const user = {email, password};
+
+        const config = {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+        try {
+            const res = await axios.post("/api/auth/register", user, config);
+            
+        } catch (error) {
+            console.log(error);
+        }
 
     }
 
@@ -35,6 +49,21 @@ const badgerState = props => {
 
     // Log in user
     const logIn =  async ({email, password}) =>  {
+        const user = {email, password};
+
+        const config = {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+        try {
+            const res = await axios.post("/api/auth/login", user, config);
+
+            
+        } catch (error) {
+            console.log(error);
+        }
 
     }
 
@@ -44,22 +73,53 @@ const badgerState = props => {
     }
 
     // load user
-    const loadUser =  async ({email, password}) =>  {
+    const loadUser =  async  =>  {
 
     }
 
     // Create a badge
-    const creatBadge =  async ({email, name, title, department, location, accomplishment}) =>  {
+    const creatBadge =  async ({ data }) =>  {
+
+        // const badge = {email, name, title, department, location, accomplishment};
+
+        const config = {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+        try {
+            const res = await axios.post("/api/auth/create", data, config);
+
+            
+        } catch (error) {
+            console.log(error);
+        }
 
     }
 
     // Get my badges 
     const getMyBadges =  async () =>  {
 
+        try {
+            const res = await axios.get("/api/badge/me");
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+
     }
 
     // Get all badges
     const getAllBadges =  async () =>  {
+        try {
+            const res = await axios.get("/api/badge/all");
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
 
     }
 
