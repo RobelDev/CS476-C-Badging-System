@@ -19,7 +19,7 @@ class App extends Component {
             <badgerState>
                 
             <div>
-                <Homepage />
+                <LogIn />
             </div>
 
             </badgerState>
