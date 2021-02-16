@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from 'react'
+import "./LogIn.css"
+
 
 const LogIn = () => {
     // state = {
@@ -50,32 +52,98 @@ const LogIn = () => {
         // login({ email, password });
       };
     return (
-            <Fragment>
+        <div class="wrapper">
 
-                <form onSubmit={onSubmit} class="center">
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email"
-                        name="email"
-                        value={email}
-                        placeholder="Email"
-                        onChange={onChange}
-                        required />
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            
+
+
+            <div class="LoginUI">
+                <div class="LogInUILeft">
+                    <div class="GreetingLeft">
+                        <span class="left-span-1">
+                            WELCOME TO
+                        </span>
+                        <span class="left-span-2">
+                            Team Badger's Skills and Knowledge Badging System
+                        </span>
+                        <span class="left-span-3">
+                                Log in to reward your collegues with badges.
+                        </span>
+                    </div>
+                    <form onSubmit={onSubmit} class="center">
+                        <div class="EmailBox">
+                            <label for="email"></label>
+                            <input type="email"
+                                name="email"
+                                value={email}
+                                placeholder="Email"
+                                onChange={onChange}
+                                required />
+                        </div>
+
+                        <div class="PasswordBox">
+                            <label for="password"></label>
+                            <input type="password"
+                                name="password"
+                                value={password}
+                                placeholder="Password"
+                                onChange={onChange}
+                                minLength="8"
+                                required />
+                        </div>
+
+                        <button type="submit" class="LogInButton">SIGN IN</button>
+                    </form>
+
+                    <div class="sign-up-div">
+                        <span class="sign-up-text">Don't have an account?</span>
+                        <a href="#">Sign Up!</a>
                     </div>
 
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="password"
-                            name="password"
-                            value={password}
-                            placeholder="Password"
-                            onChange={onChange}
-                            minLength="8"
-                            required />
+                </div>
+                <div class="LogInUIRight">
+                    <div class="GreetingRight">
+                        <span class="right-span-1">
+                            Team Badger's
+                        </span>
+                        <span class="right-span-2">
+                            Skills and Knowledge Badging System
+                        </span>
+                        <hr class="line" />
+                        <span class="right-span-3">
+                            <p>
+                             Bring back the social enviornment that remote work has lost.
+                            </p>
+                            Acknowledge your colleagues by sending badges based on skills and achievements.
+                            Redeem kudos recevied from colleagues to redeem rewards.
+                            <p>
+                            </p>
+                            <p>
+                            
+                            </p>
+                        </span>
+                        
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </form>
+                </div>
+            </div>
+            
             {/* <form>
 
                 <div class="form-group">
@@ -95,7 +163,8 @@ const LogIn = () => {
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
                 </form> */}
-            </Fragment>
+            
+        </div>
     )
 }
 
