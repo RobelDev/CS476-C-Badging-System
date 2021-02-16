@@ -17,9 +17,9 @@ export default (state, action) =>{
             return{
 
             }
-        
-        case LOG_IN_SUCCESS:
-        case REGISTER_SUCCESS:
+        case LOG_IN:
+        // case LOG_IN_SUCCESS:
+        // case REGISTER_SUCCESS:
             return{
                 
                 ...state,
@@ -42,9 +42,9 @@ export default (state, action) =>{
 
             }
         case LOG_OUT:
-        case LOG_IN_FAILED:
+        // case LOG_IN_FAILED:
             return{
-                token: null,
+                // token: null,
                 user: null,
                 loading: false,
 
