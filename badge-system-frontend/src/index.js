@@ -7,9 +7,9 @@ import { Provider } from 'react-redux';
 
 
 // STORE -> GLOBALIZED STATE
-const myStore = createStore(
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+// const myStore = createStore(
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// );
 
 // ACTION (What you want to do)
 
@@ -19,10 +19,10 @@ const myStore = createStore(
 
 
 ReactDOM.render(
-  // <React.StrictMode>
-    <Provider store={myStore}>
+  <React.StrictMode>
+    {/* // <Provider store={myStore}> */}
         <App />
-    </Provider>,
-  // </React.StrictMode>,
+    {/* // </Provider>, */}
+   </React.StrictMode>,
   document.getElementById("root")
 );
