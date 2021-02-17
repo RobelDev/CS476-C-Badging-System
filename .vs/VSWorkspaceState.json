@@ -2,14 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\badge-system-frontend",
+    "\\badge-system-frontend\\src",
     "\\badge-system-frontend\\src\\components",
-    "\\badge-system-frontend\\src\\components\\HomepageComponents",
-    "\\badge-system-frontend\\src\\components\\HomepageComponents\\Badges",
-    "\\badge-system-frontend\\src\\components\\HomepageComponents\\Email",
     "\\badge-system-frontend\\src\\components\\HomepageComponents\\Kudos",
     "\\badge-system-frontend\\src\\components\\HomepageComponents\\Printing",
+    "\\badge-system-frontend\\src\\context",
+    "\\badge-system-frontend\\src\\context\\badger",
     "\\badge-system-frontend\\src\\state-management",
-    "\\badge-system-frontend\\src\\state-management\\reducers"
+    "\\badge-system-frontend\\src\\state-management\\actions"
   ],
+  "SelectedNode": "\\badge-system-frontend\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }

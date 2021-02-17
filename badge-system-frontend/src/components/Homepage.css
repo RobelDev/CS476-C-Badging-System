@@ -1,6 +1,6 @@
 .HomepageContainer {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: row;
 }
@@ -8,7 +8,7 @@
 .HeaderContainer {
     position: fixed;
     background-color: #1d1d1d;
-    padding: 20px;
+    padding: 2vh;
     top: 0;
     height: 60px;
     width: calc(100% - 0%);
@@ -22,9 +22,9 @@
     color: #fff;
     margin: 0;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 1.3vw;
     font-weight: 600;
-    margin-top: -30px;
+    margin-top: -3vh;
 }
 
 .header-left span{
@@ -32,15 +32,15 @@
 }
 
 .log-out-button {
-    padding: 5px;
+    padding: 0.3vw;
     background-color: crimson;
     color: white;
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 0.7vw;
     float: right;
-    margin-top: -35px;
-    margin-right: 40px;
-    font-size: 15px;
+    margin-top: -1.8vw;
+    margin-right: 3vw;
+    font-size: 1.4vh;
     font-weight: 600;
     transition: 0.4s;
     transition-property: all;
@@ -57,10 +57,10 @@ label #sidebar-button {
     color: white;
     position: fixed;
     cursor: pointer;
-    left: 250px;
-    top: 18px;
-    font-size: 20px;
-    margin: 5px 0;
+    left: 13%;
+    top: 15px;
+    font-size: 1vw;
+    margin: 0.4vh 0;
     transition: 0.4s;
     transition-property: left;
 }
@@ -71,7 +71,7 @@ label #sidebar-button:hover{
 
 #check:checked ~ .NavbarContainer {
     left: -15%;
-    border-bottom-right-radius: 300px;
+    border-bottom-right-radius: 17vw;
 }
 
 #check:checked ~ .WaterfallFeedContainer{
@@ -85,8 +85,8 @@ label #sidebar-button:hover{
 }
 
 #check:checked ~ .NavbarContainer a{
-    font-size: 35px;
-    margin-left: 280px;
+    font-size: 1.8vw;
+    margin-left: 14.4vw;
     width: 100%;
 }
 
@@ -107,7 +107,7 @@ label #sidebar-button:hover{
 .WaterfallFeedContainer {
     color: white;
     height: 100%;
-    width: calc(73% - 250px);
+    width: calc(73% - 10vw);
     position: fixed;
     top: 0;
     left: 20%;
@@ -116,9 +116,9 @@ label #sidebar-button:hover{
     transition: 0.4s;
     transition-property: all;
     margin-top: 60px;
-    padding: 20px;
-    font-size: 60px;
-    padding-left: 100px;
+    padding: 1.1vw;
+    font-size: 3vw;
+    padding-left: 5vw;
 }
 
 .UserPanelContainer {
@@ -163,10 +163,10 @@ label #sidebar-button:hover{
     height: 6vh;
     background-color: rgb(77, 72, 72);
     color: white;
-    font-size: 30px;
+    font-size: 3vw;
     text-align: center;
     align-content: center;
-    border-radius: 100px;
+    border-radius: 10vw;
     padding-top: 1vh;
     left: 64%;
     box-shadow: 0px 0px 33px -8px #000000;
@@ -177,7 +177,7 @@ label #sidebar-button:hover{
 }
 
 .kudos-amount {
-    font-size: 30px;
+    font-size: 3vh;
     padding-top: 0vh;
     text-decoration: none;
 }

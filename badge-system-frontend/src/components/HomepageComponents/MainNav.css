@@ -1,19 +1,19 @@
 .navbar-div {
     overflow: hidden;
-    height: 100%;
+    height: 100vh;
 }
 
 .navbar-div a {
     color: white;
     display: block;
     width: 100%;
-    line-height: 60px;
+    line-height: 7vh;
     text-decoration: none;
     padding-left: 10%;
     box-sizing: border-box;
     transition: 0.4s;
     transition-property: all;
-    font-size: 20px;
+    font-size: 1.05vw;
     justify-content: space-around;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -21,7 +21,7 @@
 }
 
 .navbar-div span{
-    font-size: 20px;
+    font-size: 1vw;
 }
 
 .navbar-div a:hover{
@@ -29,7 +29,7 @@
  }
 
 .navbar-div i{
-    padding-right: 15px
+    padding-right: 1vw
 }
 
 .card-popup {

@@ -14,7 +14,7 @@ import{
 
 } from "./constants.js"
 
-const badgerState = props => {
+const BadgerState = props => {
     const initialState = {
         user : {},
         auth : false,
@@ -146,4 +146,4 @@ const badgerState = props => {
     </badgerContext.Provider>
 }
 
-export default badgerState;
+export default BadgerState;
