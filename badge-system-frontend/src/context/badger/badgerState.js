@@ -37,6 +37,7 @@ const BadgerState = props => {
 
         try {
             const res = await axios.post("/api/auth/register", user, config);
+
             
         } catch (error) {
             console.log(error);
@@ -59,6 +60,8 @@ const BadgerState = props => {
 
         try {
             const res = await axios.post("/api/auth/login", user, config);
+
+
 
             
         } catch (error) {
@@ -115,6 +118,8 @@ const BadgerState = props => {
         }
 
     }
+
+    
 
     // Get all badges
     const getAllBadges =  async () =>  {
