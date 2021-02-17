@@ -6,7 +6,8 @@ import Homepage from "./components/Homepage.js";
 // import logo from "./Assets/Team_Badgers_Logo.png"
 
 import './App.css';
-// import BadgerState from "./context/badger/BadgerState"
+import BadgerState from "./context/badger/badgerState"
+import { Fragment } from "react";
 
 class App extends Component {
     constructor() {
@@ -16,13 +17,18 @@ class App extends Component {
 
     render() {
         return(
-            // <BadgerState>
+            <Fragment>
+            <BadgerState>
+             </BadgerState>
+
                 
                 <div>
                     <Homepage />
                 </div>
 
-            // </BadgerState>
+            </Fragment>
+            
+
         )   
     }
 }
