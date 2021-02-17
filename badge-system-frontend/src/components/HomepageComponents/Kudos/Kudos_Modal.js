@@ -5,7 +5,7 @@ import { MdClose } from 'react-icons/md';
 
 
 const Background = styled.div`
-  width: 100%;
+  width: 120%;
   height: 100%;
   background: rgba(0,0,0,0.8);
   position: fixed;
@@ -14,14 +14,14 @@ const Background = styled.div`
   align-items: center;
 `
 const ModalWrapper = styled.div`
-  width: 800px;
-  height: 500px;
+  width: 45vw;
+  height: 60vh;
   box-shadow: 0 5px 16px rgba(0,0,0,0.2);
-  background: #fff;
-  color: #000;
+  background: #1d1d1d;
+  color: #fff;
   display: grid;
   z-index: 10;
-  border-radius: 10px;
+  border-radius: 1vw;
 `
 
 const ModalImg = styled.img`
@@ -36,15 +36,15 @@ const ModalContent = styled.div`
   justify-content: center;
   align-items: center;
   line-height: 2;
-  color: #141414;
+  color: #fff;
 
   p {
-      margin-bottom: 1rem;
+      margin-bottom: 2vh;
   }
 
 button {
     padding: 10px 24px;
-    background: #141414;
+    background: black;
     color: #fff;
     border: none;
 }

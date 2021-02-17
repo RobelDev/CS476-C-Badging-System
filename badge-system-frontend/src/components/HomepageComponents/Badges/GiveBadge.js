@@ -6,7 +6,7 @@ import "./GiveBadge.css";
 import "./2.jpg" ;
 
 const Background = styled.div`
-  width: 100%;
+  width: 120%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -18,8 +18,8 @@ const Background = styled.div`
    
 const ModalWrapper = styled.div`
 
-  width: 600px;
-  height: 450px;
+  width: 40vw;
+  height: 50vh;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
   background: #fff;
   color: #000;
@@ -28,10 +28,10 @@ const ModalWrapper = styled.div`
   position: fixed;
   z-index: 1;
   border-radius: 10px;
-   left: 0;
-   top: 0;
-   margin-left: -400px;
-   margin-top: -400px;
+  left: 0;
+  top: 0;
+  margin-left: -30vw;
+  margin-top: -30vh;
 
 `;
 
@@ -143,15 +143,15 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                 <Background onClick={closeModal} ref={GiveBadgeModalRef}>
                     <animated.div style={animation}>
                         <ModalWrapper showGiveBadgeModal={showGiveBadgeModal}>
-                        <h1>Give Badge</h1>
+                        <h1>Send a Badge</h1>
                         <br />
                             <ModalContent>
                                 <label>
-                                    <p>Who Are You Sending Badge To?</p>
+                                    <p>Who are you sending a badge to?</p>
                                     <br></br>
                                     <input type="text" name="name" />
                                     <br></br>
-                                    <p>Why Are You Sending Badge</p>
+                                    <p>Why are you sending this badge?</p>
                                     <br></br>
                                     <input type="text" name="name" />
                                     <br></br>
