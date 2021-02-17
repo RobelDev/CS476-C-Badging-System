@@ -14,11 +14,12 @@ class App extends Component {
         super();
         this.state = {};
     }
-
+//test
     render() {
         return(
             <Fragment>
             <BadgerState>
+                
              </BadgerState>
 
                 
