@@ -5,3 +5,6 @@ export const CREAT_BADGE = 'CREAT_BADGE';
 export const GET_MY_BADGES = 'GET_MY_BADGES';
 export const GET_ALL_BADGES = 'GET_ALL_BADGES';
 export const LOG_OUT = 'LOG_OUT';
+export const LOG_OUT_FAIL = 'LOG_OUT_FAIL';
+
+//HERE FOR TEST
