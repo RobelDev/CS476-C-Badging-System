@@ -14,7 +14,7 @@ const kudosSchema = new mongoose.Schema({
         type: Number,
     },
 
-    kudosBank: {
+    kudos: {
         type: Number,
     },
 
