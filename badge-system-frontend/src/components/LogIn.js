@@ -35,6 +35,20 @@ const LogIn = () => {
     //     }
     // }
 
+    function switchForm() {
+        if (document.getElementById('form1')) {
+
+            if (document.getElementById('form1').style.display == 'none') {
+                document.getElementById('form1').style.display = 'block';
+                document.getElementById('form2').style.display = 'none';
+            }
+            else {
+                document.getElementById('form1').style.display = 'none';
+                document.getElementById('form2').style.display = 'block';
+            }
+        }
+    }
+
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -54,24 +68,23 @@ const LogIn = () => {
     return (
         <div class="wrapper">
 
-                <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
 
 
             <div class="LoginUI">
@@ -83,39 +96,81 @@ const LogIn = () => {
                         <span class="left-span-2">
                             Team Badger's Skills and Knowledge Badging System
                         </span>
+                        
+                    </div>
+
+                    <div class="log-in-form" id="form1">
                         <span class="left-span-3">
-                                Log in to reward your collegues with badges.
+                            Log in to reward your collegues with badges.
                         </span>
-                    </div>
-                    <form onSubmit={onSubmit} class="center">
-                        <div class="EmailBox">
-                            <label for="email"></label>
-                            <input type="email"
-                                name="email"
-                                value={email}
-                                placeholder="Email"
-                                onChange={onChange}
-                                required />
+                        <form class="log-in-form" onSubmit={onSubmit} class="center">
+                            <div class="EmailBox">
+                                <label for="email"></label>
+                                <input class="login-input" type="email"
+                                    name="email"
+                                    value={email}
+                                    placeholder="Email"
+                                    onChange={onChange}
+                                    required />
+                            </div>
+
+                            <div class="PasswordBox">
+                                <label for="password"></label>
+                                <input class="login-input" type="password"
+                                    name="password"
+                                    value={password}
+                                    placeholder="Password"
+                                    onChange={onChange}
+                                    minLength="8"
+                                    required />
+                            </div>
+
+                            <button type="submit" class="LogInButton">SIGN IN</button>
+                        </form>
+
+                        <div class="switch-div">
+                            <span class="sign-up-text">Don't have an account?</span>
+                            <button type="submit" onClick={switchForm} class="sign-up-button">Sign Up</button>
                         </div>
-
-                        <div class="PasswordBox">
-                            <label for="password"></label>
-                            <input type="password"
-                                name="password"
-                                value={password}
-                                placeholder="Password"
-                                onChange={onChange}
-                                minLength="8"
-                                required />
-                        </div>
-
-                        <button type="submit" class="LogInButton">SIGN IN</button>
-                    </form>
-
-                    <div class="sign-up-div">
-                        <span class="sign-up-text">Don't have an account?</span>
-                        <a href="#">Sign Up!</a>
                     </div>
+
+                    <div class="sign-up-form" id="form2">
+                        <span class="left-span-3">
+                            Enter your email and password to create an account
+                        </span>
+                        <form onSubmit={onSubmit} class="center">
+                            <div class="EmailBox">
+                                <label for="email"></label>
+                                <input class="login-input" type="email"
+                                    name="email"
+                                    value={email}
+                                    placeholder="Email"
+                                    onChange={onChange}
+                                    required />
+                            </div>
+
+                            <div class="PasswordBox">
+                                <label for="password"></label>
+                                <input class="login-input" type="password"
+                                    name="password"
+                                    value={password}
+                                    placeholder="Password"
+                                    onChange={onChange}
+                                    minLength="8"
+                                    required />
+                            </div>
+                    
+
+                            <button type="submit" class="LogInButton">REGISTER</button>
+                        </form>
+
+                        <div class="switch-div">
+                            <span class="sign-up-text">Already have an account?</span>
+                            <button type="submit" onClick={switchForm} class="sign-up-button">Log in</button>
+                        </div>
+                    </div>
+
+                    
 
                 </div>
                 <div class="LogInUIRight">
@@ -142,27 +197,11 @@ const LogIn = () => {
                         
                     </div>
                 </div>
+
+
             </div>
             
-            {/* <form>
-
-                <div class="form-group">
-                <label for="email">Email address</label>
-                <input type="email" class="form-control" placeholder="Enter email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
-                </div>
-                <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control"  placeholder="Password">
-
-                </div>
-                <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form> */}
+            {/*  */}
             
         </div>
     )

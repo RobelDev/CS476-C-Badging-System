@@ -11,12 +11,6 @@ import { Provider } from 'react-redux';
 //     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // );
 
-// ACTION (What you want to do)
-
-// REDUCER (Checks what action took place and modifies store based on that)
-
-// DISPATCH (Executes the action by sending it to the reducer)
-
 
 ReactDOM.render(
   <React.StrictMode>
