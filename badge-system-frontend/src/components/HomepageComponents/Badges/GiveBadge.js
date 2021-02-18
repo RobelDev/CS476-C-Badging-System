@@ -3,7 +3,8 @@ import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import "./GiveBadge.css";
-import "./2.jpg" ;
+import "./2.jpg";
+import logo from '../../../Assets/Team_Badgers_Logo.png'
 
 const Background = styled.div`
   width: 120%;
@@ -13,26 +14,6 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-   
-const ModalWrapper = styled.div`
-
-  width: 40vw;
-  height: 50vh;
-  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: #000;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: fixed;
-  z-index: 1;
-  border-radius: 10px;
-  left: 0;
-  top: 0;
-  margin-left: -30vw;
-  margin-top: -30vh;
-
 `;
 
 const ModalImg = styled.img`
@@ -45,29 +26,7 @@ const ModalImg = styled.img`
   left: 10px;
 `;
 
-const ModalContent = styled.div`
-
-    background-color: #fefefe;
-    padding: 20px;
-    border: 1px solid red;
-    margin: 0px 0px 800px 5px;
-    width: 90%; /* Could be more or less, depending on screen size */
-    p {
-        margin-bottom: 1rem;
-    }
-    h1 {
-        font-size: 35px
-    }
-    button {
-        padding: 10px 24px;
-        background: #141414;
-        color: #fff;
-        border: none;
-  }
-`;
-
 const ModalImgCont = styled.div`
-
     background-color: #fefefe;
     padding: 10px;
     border: 1px solid red;
@@ -77,28 +36,15 @@ const ModalImgCont = styled.div`
     overflow: auto;
     button {
         display: block;
-  width: 100%;
-  border: none;
-  background-color: #4CAF50;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  text-align: center;
-  } 
-    
+        width: 100%;
+        border: none;
+        background-color: #4CAF50;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+    } 
 `;
-
-const CloseModalButton = styled(MdClose)`
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    z-index: 10;
-`;
-
 
 
 export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
@@ -142,83 +88,86 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
             {showGiveBadgeModal ? (
                 <Background onClick={closeModal} ref={GiveBadgeModalRef}>
                     <animated.div style={animation}>
-                        <ModalWrapper showGiveBadgeModal={showGiveBadgeModal}>
-                        <h1>Send a Badge</h1>
-                        <br />
-                            <ModalContent>
-                                <label>
-                                    <p>Who are you sending a badge to?</p>
-                                    <br></br>
-                                    <input type="text" name="name" />
-                                    <br></br>
-                                    <p>Why are you sending this badge?</p>
-                                    <br></br>
-                                    <input type="text" name="name" />
-                                    <br></br>
-                                </label>
-                                <br />
-                                
-                                
-                                <br></br>
-                                
-                            </ModalContent>
-                            <ModalImgCont>
-                            <button class="botao-controle"><i class="fas fa-award"></i>Jave</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>C++</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>Python</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>Matlab</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>HTML</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>CSS</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            <button class="botao-controle"><i class="fas fa-award"></i>React JS</button>
-                            <br />
-                            <label>
-                                <input type="checkbox">
-                                </input> 
-                            </label>
-                            <br />
-                            </ModalImgCont>
-                            <button>Submit</button>
-                            <CloseModalButton
-                                aria-label='Close modal'
-                                onClick={() => setShowGiveBadgeModal(prev => !prev)}
-                            />
-                        </ModalWrapper>
+
+                        <div class="modal-wrapper" showGiveBadgeModal={showGiveBadgeModal}>
+
+                            <div class="title-div">
+                                <p>Send a Badge</p>
+
+                                <button class="close-modal-button"
+                                    onClick={() => setShowGiveBadgeModal(prev => !prev)}
+                                >
+                                    <i class="fas fa-times" />
+                                </button>
+                            </div>
+
+                            <div class="modal-content">
+
+                                <form class="send-badge-form" onSubmit="">
+
+                                    <div class="modal-form-left">
+
+                                        <p>Who would you like to send a badge to?</p>
+                                        <div class="recipient-input-div">
+                                           
+                                            <input class="recipient-input" type="text"
+                                                name="recipient"
+                                                placeholder="Recipient"
+                                                onChange=""
+                                                required />
+                                        </div>
+
+                                        <p>What is the reason for sending this badge?</p>
+                                        <div class="message-input-div">
+                                            <textarea class="message-input" type="text"
+                                                name="message"
+                                                placeholder="Message"
+                                                onChange=""
+                                                minLength="8"
+                                                required />
+                                            </div>
+                                    </div>
+
+                                    <div class="modal-form-right">
+
+                                        {/*
+                                            Below is where the list of badges will go, 
+                                            for now there are just radio buttons and labels
+                                        */}
+                                        <input type="radio" id="badge1" name="badge" value="badge1"/>
+                                        <label for="badge1"><img src={logo} /></label>
+
+                                        <input type="radio" id="badge2" name="badge" value="badge2"/>
+                                        <label for="badge2"><img src={logo} /></label>
+
+                                        <input type="radio" id="badge3" name="badge" value="badge3"/>
+                                        <label for="badge3"><img src={logo} /></label>
+
+                                        <input type="radio" id="badge4" name="badge" value="badge4" />
+                                        <label for="badge4"><img src={logo} /></label>
+
+                                        <input type="radio" id="badge5" name="badge" value="badge5" />
+                                        <label for="badge5"><img src={logo} /></label>
+
+                                        <input type="radio" id="badge6" name="badge" value="badge6" />
+                                        <label for="badge6"><img src={logo} /></label>
+                                            
+                                    </div>
+
+                                    <button class="send-badge-button" type="submit">Send Badge</button>
+
+                                </form>
+
+                            </div>
+
+                            
+                            
+
+                        </div>
+
+
+
+
                     </animated.div>
                 </Background>
             ) : null}

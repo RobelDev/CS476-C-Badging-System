@@ -1,36 +1,169 @@
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
+.modal-wrapper {
+    width: 60vw;
+    height: 60vh;
+    background: #2e2e2e;
+    z-index: 1;
+    border-radius: 0.3vw;
+    color: white;
+}
+
+.title-div p {
+    font-size: 3vh;
+    color: white;
+    height: 6vh;
+}
+
+.title-div {
+    width: 60vw;
+    display: flex;
+    height: 5vh;
+    justify-content: flex-end;
+    border-bottom: solid #262626;
+    border-bottom-width: 3px;
+}
+
+.close-modal-button {
+    margin-top: 0.5vh;
+    margin-left: 22vw;
+    z-index: 10;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.00);
+    border:none;
+    width: 2vw;
+    height: 4vh;
+}
+
+.close-modal-button i {
+    font-size: 1.7vw;
+}
+
+.close-modal-button:hover {
+    color: crimson;
+}
+
+.modal-content {
+    margin-top: 3vh;
+    margin-left: 0;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    background-color: #2e2e2e;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.send-badge-form {
+    width: 100%;
+    display: flex;
+    margin: 0;
+}
+
+.modal-form-left {
+    background-color: #2e2e2e;
+    width: 40%;
+    margin-left: 2vw;
+}
+
+.modal-form-left p {
+    font-size: 1vw;
+}
+
+.recipient-input-div {
+    margin-top: 1vh;
+    margin-bottom: 6vh;
+    color: white;
+}
+
+.recipient-input {
+    width: 20vw;
+    color: white;
+    background-color: #121212;
+    border: solid;
+    border-radius: 0;
+    border-color: black;
+    font-size: 2vh;
+    font-size: 1vw;
+}
+
+.message-input-div input {
+    color: white;
+    height: 20vh;
+    background-color: black;
+}
+
+.message-input {
+    height: 20vh;
+    width: 20vw;
+    resize: none;
+    color: white;
+    background-color: #121212;
+    border: solid;
+    border-color: black;
+    font-size: 1.5vh;
+    font-size: 0.7vw;
+}
+
+.modal-form-right {
+    margin-left: 10%;
+    background-color: #2e2e2e;
+    width: 40%;
+    overflow-y: scroll;
+    padding-right: 1vw;
+    height: 80%;
+}
+
+.modal-form-right label {
+    position: relative;
+    margin-left: 1vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.modal-form-right input {
+    margin-left: -5vw;
+    margin-bottom: 10vh;
+}
+
+.modal-form-right::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+.modal-form-right::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px
+}
+
+.modal-form-right::-webkit-scrollbar-thumb {
+    background: #0d0c0c;
+    border: 0px none #ffffff;
+    border-radius: 5px;
+}
+
+.modal-form-right::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border: 0px none #ffffff;
+    border-radius: 100px;
+}
+
+.send-badge-button {
+    background-color: crimson;
+    position: absolute;
+    top: 90%;
+    left: 27.5%;
+    border-radius: 0.3vw;
+    width: 25vw;
+    height: 5vh;
+    transition: 0.4s;
+    transition-property: all;
+    border: none;
+    font-size: 1vw;
+}
+
+.send-badge-button:hover {
+    background-color: white;
+    border-radius: 1vw;
+    color: crimson;
+}
+
