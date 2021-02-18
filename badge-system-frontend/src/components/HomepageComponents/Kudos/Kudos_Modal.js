@@ -2,6 +2,8 @@ import React, {useRef, useEffect, useCallback} from 'react';
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import "./Kudos_Modal.css";
+import logo from '../../../Assets/Team_Badgers_Logo.png'
 
 
 const Background = styled.div`
@@ -67,10 +69,10 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
    
    const animation = useSpring({
        config: {
-           duration: 250
+           duration: 150
        },
        opacity: showModal ? 1 : 0,
-       transform: showModal ? `translateY(0%)` : `translateY(-100%)`
+       transform: showModal ? `translateY(0%)` : `translateY(0%)`
    });
     
    const closeModal = e => {
@@ -79,14 +81,17 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
        }
    }
 
-   const keyPress = useCallback(e => {
-       if(e.key === 'Escape' && showModal){
-           setShowModal(false);
-       }
-   }, [setShowModal, showModal]
+    const keyPress = useCallback(
+        e => {
+            if(e.key === 'Escape' && showModal){
+                setShowModal(false);
+            }
+        },
+        [setShowModal, showModal]
    );
 
-   useEffect(() => {
+    useEffect(
+        () => {
        document.addEventListener('keydown', keyPress);
        return () => document.removeEventListener('keydown', keyPress);
    },
@@ -96,32 +101,72 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
     return (
   <> 
   {showModal ?(
-    <Background ref={modalRef} onClick={closeModal}>
+    <Background ref={modalRef}>
         <animated.div style={animation}>
-        <ModalWrapper showModal={showModal}>
-           <ModalContent>
-           <h3>Give Kudos</h3>
-                        <p>
-                            Who are you sending Kudos to?
-                            <br/>
-                            <input type="text" name="name" />    
-                        </p> 
-                        <p>
-                            How Many Kudos?
-                          <br/>
-                            <input type="number" name="amountToSend" />
-                        </p>
-                        <p>
-                            Why are you sending them Kudos?
-                            <br/>
-                            <input type="text" name="name" />    
-                        </p> 
-                        
-                        <input type="submit" />
-           </ModalContent>
-           <CloseModalButton aria-label='Close modal' onClick={() => setShowModal
-           (prev => !prev)} />
-        </ModalWrapper> 
+                        <div class="kudos-modal-wrapper" showModal={showModal}>
+
+                            <div class="kudos-title-div">
+                                <p>Send Kudos</p>
+
+                                <button class="kudos-close-modal-button"
+                                    onClick={() => setShowModal(prev => !prev)}
+                                >
+                                    <i class="fas fa-times" />
+                                </button>
+                            </div>
+
+                            <div class="kudos-modal-content">
+
+                                <form class="send-kudos-form" onSubmit="">
+
+                                    <div class="kudos-modal-form">
+
+                                        <p>Who would you like to send kudos?</p>
+                                        <div class="recipient-input-div">
+
+                                            <input class="kudos-recipient-input" type="text"
+                                                name="recipient"
+                                                placeholder="Recipient"
+                                                onChange=""
+                                                required />
+                                        </div>
+
+                                        <p>What is the reason for sending kudos?</p>
+                                        <div class="kudos-message-input-div">
+                                            <textarea class="message-input" type="text"
+                                                name="message"
+                                                placeholder="Message"
+                                                onChange=""
+                                                minLength="8"
+                                                required />
+                                        </div>
+
+       
+
+                                        <p>Enter the amount of Kudos</p>
+                                        <div class="kudos-input-div">
+                                            <input class="kudos-amount-input" type="amount"
+                                                name="kudos-to-send"
+                                                placeholder="0"
+                                                onChange=""
+                                                required></input>
+                                        </div>
+
+                                    </div>
+
+                                   
+
+                                    <button class="send-kudos-button" type="submit">Send Kudos</button>
+
+                                </form>
+
+                            </div>
+
+
+
+
+                        </div>
+
         </animated.div>
     </Background>
   ) : null}

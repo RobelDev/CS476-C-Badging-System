@@ -16,36 +16,6 @@ const Background = styled.div`
   align-items: center;
 `;
 
-const ModalImg = styled.img`
-  width: 150px;
-  height: 100px;
-  margin-left: 10%; /* 15% from the top and centered */
-  border-radius: 5px 5px 5px 5px;
-  background: #000;
-  display: flex;
-  left: 10px;
-`;
-
-const ModalImgCont = styled.div`
-    background-color: #fefefe;
-    padding: 10px;
-    border: 1px solid red;
-    margin: 0px 0px 800px 5px;
-    width: 90%; /* Could be more or less, depending on screen size */
-    height: 350px;
-    overflow: auto;
-    button {
-        display: block;
-        width: 100%;
-        border: none;
-        background-color: #4CAF50;
-        padding: 14px 28px;
-        font-size: 16px;
-        cursor: pointer;
-        text-align: center;
-    } 
-`;
-
 
 export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     
@@ -53,10 +23,10 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const animation = useSpring({
         config: {
-            duration: 250
+            duration: 150
         },
         opacity: showGiveBadgeModal ? 1 : 0,
-        transform: showGiveBadgeModal ? `translatrY(0%)` : `translateY(-100%)`
+        transform: showGiveBadgeModal ? `translatrY(0%)` : `translateY(0%)`
     });
 
     const closeModal = e => {
@@ -67,7 +37,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const keyPress = useCallback(
         e => {
-            if (e.key === 'Escap' && showGiveBadgeModal) {
+            if (e.key === 'Escape' && showGiveBadgeModal) {
                 setShowGiveBadgeModal(false);
                 console.log('I pressed');
             }
@@ -86,7 +56,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     return (
         <>
             {showGiveBadgeModal ? (
-                <Background onClick={closeModal} ref={GiveBadgeModalRef}>
+                <Background ref={GiveBadgeModalRef}>
                     <animated.div style={animation}>
 
                         <div class="modal-wrapper" showGiveBadgeModal={showGiveBadgeModal}>
