@@ -169,7 +169,8 @@ const BadgerState = props => {
 
     // Log out a user
     const logOut =  async () =>  {
-
+        
+        dispatch({type: LOG_OUT, payload: "Logged out"});
     }
 
     return <badgerContext.Provider value = {{
@@ -180,7 +181,6 @@ const BadgerState = props => {
         allBadges: state.allBadges
     }}>
         {props.children}
-
 
     </badgerContext.Provider>
 }
