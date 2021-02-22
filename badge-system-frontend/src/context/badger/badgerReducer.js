@@ -1,56 +1,71 @@
-
 import{
     LOAD_USER,
-    GET_USER,
+    // GET_USER,
     LOG_IN,
     CREAT_BADGE,
     GET_MY_BADGES,
     GET_ALL_BADGES,
-    LOG_OUT
+    LOG_OUT,
+    REGISTER_USER
 
 } from "./constants.js"
 
-export default (state, action) =>{
+export default  (state , action) => {
+
     switch (action.type){
 
         case LOAD_USER:
             return{
-
-            }
-        case LOG_IN:
-        // case LOG_IN_SUCCESS:
-        // case REGISTER_SUCCESS:
-            return{
-                
                 ...state,
-                user: action.payload,
+                user: action.payload.user,
+                auth: true,
                 loading: false,
+            };
 
-            }
+        case LOG_IN:
+        case REGISTER_USER:
+            return{                
+                ...state,
+                token: action.payload.token,
+                auth: true,
+                loading: false,
+                
+
+            };
         case CREAT_BADGE:
             return{
                 ...state,
                 myBadges: action.payload,
+                loading: false,
 
-            }
+
+            };
         case GET_MY_BADGES: 
             return {
+                ...state,
+                myBadges: action.payload,
+                loading: false,
+            };
 
-            }
         case GET_ALL_BADGES:
-            return{
+                return {
+                ...state,
+                allBadges: action.payload,
+                loading: false,
 
-            }
+            };
+            
         case LOG_OUT:
         // case LOG_IN_FAILED:
             return{
-                // token: null,
+                token: null,
                 user: null,
+                auth: false,
                 loading: false,
 
-            }
+            };
+
         default:
             return state;
-
     }
 }
