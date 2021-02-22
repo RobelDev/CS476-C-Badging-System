@@ -23,6 +23,8 @@ connect();
 
 app.use("/auth", require("./routes/api/auth"));
 app.use("/badge", require("./routes/api/badge"));
+app.use("/kudos", require("./routes/api/kudos"));
+
 
 const PORT = process.env.PORT || 8000;
 
