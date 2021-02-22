@@ -10,9 +10,9 @@ import{
 
 } from "./constants.js"
 
-export default  (state , action) => {
+export default (state , action) => {
 
-    switch (action.type){
+    switch (action.type) {
 
         case LOAD_USER:
             return{
@@ -61,8 +61,8 @@ export default  (state , action) => {
                 token: null,
                 user: null,
                 auth: false,
+                myBadges: null,
                 loading: false,
-
             };
 
         default:
