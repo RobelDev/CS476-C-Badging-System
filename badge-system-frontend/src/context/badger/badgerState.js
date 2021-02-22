@@ -11,6 +11,8 @@ import{
     CREAT_BADGE,
     GET_MY_BADGES,
     GET_ALL_BADGES,
+    CHANGE_KUDOS,
+
     LOG_OUT
 
 } from "./constants.js"
@@ -21,10 +23,12 @@ const BadgerState = props => {
         auth : false,
         loading : false,
         myBadges : [],
-        allBadges : []
+        allBadges : [],
+        isKudosChanged : false
     }
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
+    const {user,auth,loading,myBadges,allBadges} = state;
 
     //Register a user
     const registerUser =  async ({email, password}) =>  {
@@ -167,6 +171,33 @@ const BadgerState = props => {
 
     }
 
+
+    
+    // Change Kudos
+    const changeKudos =  async ({email, kudos}) =>  {
+
+        const receiver = {email,kudos};
+
+        const config = {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+        try {
+            const res = await axios.post("/api/auth/kudos",receiver,config);
+
+            dispatch({
+                type: CHANGE_KUDOS
+            })
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+
+    }
+
     // Log out a user
     const logOut =  async () =>  {
         
@@ -179,6 +210,7 @@ const BadgerState = props => {
         loading: state.loading,
         myBadges: state.myBadges,
         allBadges: state.allBadges
+        
     }}>
         {props.children}
 

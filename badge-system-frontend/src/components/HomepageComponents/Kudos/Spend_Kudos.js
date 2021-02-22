@@ -2,7 +2,7 @@ import React, {useRef, useEffect, useCallback} from 'react';
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import "./Kudos_Modal.css";
+import "./Spend_Kudos.css";
 import logo from '../../../Assets/Team_Badgers_Logo.png'
 import { GiveKudos } from './GiveKudos';
 
@@ -65,30 +65,30 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 
-export const Kudos_Modal = ({ showModal, setShowModal}) => {
+export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal}) => {
    const modalRef = useRef()
    
    const animation = useSpring({
        config: {
            duration: 150
        },
-       opacity: showModal ? 1 : 0,
-       transform: showModal ? `translateY(0%)` : `translateY(0%)`
+       opacity: showSpendKudosModal ? 1 : 0,
+       transform: showSpendKudosModal ? `translateY(0%)` : `translateY(0%)`
    });
     
    const closeModal = e => {
        if(modalRef.current === e.target) {
-           setShowModal(false);
+           setShowSpendKudosModal(false);
        }
    }
 
     const keyPress = useCallback(
         e => {
-            if(e.key === 'Escape' && showModal){
-                setShowModal(false);
+            if(e.key === 'Escape' && showSpendKudosModal){
+                setShowSpendKudosModal(false);
             }
         },
-        [setShowModal, showModal]
+        [setShowSpendKudosModal, showSpendKudosModal]
    );
 
     useEffect(
@@ -99,23 +99,20 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
    [keyPress]
    );
 
-   const giveKudos = async (e) => {
-    e.preventDefault();
-    
-  }
+  
     
     return (
   <> 
-  {showModal ?(
+  {showSpendKudosModal ?(
     <Background ref={modalRef}>
         <animated.div style={animation}>
-                       <div class="kudos-modal-wrapper" showModal={showModal}>
+                       <div class="kudos-modal-wrapper" showSpendKudosModal={showSpendKudosModal}>
 
                          <div class="kudos-title-div">
-                                <p>Send Kudos</p>
+                                <p>Use Kudos</p>
 
                                 <button class="kudos-close-modal-button"
-                                    onClick={() => setShowModal(prev => !prev)}
+                                    onClick={() => setShowSpendKudosModal(prev => !prev)}
                                 >
                                     <i class="fas fa-times" />
                                 </button>
@@ -124,43 +121,23 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
                             <div class="kudos-modal-content">
 
 
-                            <form class="send-kudos-form" onSubmit="{giveKudos}">
+                            <form class="send-kudos-form" onSubmit="">
 
                             <div class="kudos-modal-form">
 
-                                <p>Who would you like to send kudos?</p>
-                                    <div class="recipient-input-div">
-
-                                        <input class="kudos-recipient-input" type="text"
-                                            name="recipient"
-                                            placeholder="Recipient"
-                                            onChange=""
-                                            required />
-                                        </div>
-
-                                <p>What is the reason for sending kudos?</p>
+                                <p>What would you like to buy?</p>
+                                   
                                     <div class="kudos-message-input-div">
                                         <textarea class="message-input" type="text"
                                             name="message"
-                                            placeholder="Message"
+                                            placeholder="goods"
                                             onChange=""
                                             minLength="8"
                                             required />
                                     </div>
 
-
-
-                                <p>Enter the amount of Kudos</p>
-                                    <div class="kudos-input-div">
-                                        <input class="kudos-amount-input" type="amount"
-                                            name="kudos-to-send"
-                                            placeholder="0"
-                                            onChange=""
-                                            required></input>
-                                    </div>
-
                             </div>
-                            <button class="send-kudos-button" type="submit">Send Kudos</button>
+                            <button class="send-kudos-button" type="submit">Confirm</button>
                         </form>
 
                           </div>
