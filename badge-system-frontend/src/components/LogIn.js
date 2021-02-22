@@ -63,7 +63,7 @@ const LogIn = () => {
       const onSubmit = async (e) => {
         e.preventDefault();
         console.log("signedin an email" +  email + "  password " + password)
-        // login({ email, password });
+        logIn({ email, password });
       };
     return (
         <div class="wrapper">
