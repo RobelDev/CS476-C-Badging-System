@@ -7,6 +7,7 @@ import{
     LOAD_USER,
     GET_USER,
     LOG_IN,
+    REGISTER_USER,
     CREAT_BADGE,
     GET_MY_BADGES,
     GET_ALL_BADGES,
@@ -38,6 +39,11 @@ const BadgerState = props => {
         try {
             const res = await axios.post("/api/auth/register", user, config);
 
+            dispatch({
+                type: REGISTER_USER,
+                payload: res
+            });
+
             
         } catch (error) {
             console.log(error);
@@ -60,9 +66,13 @@ const BadgerState = props => {
 
         try {
             const res = await axios.post("/api/auth/login", user, config);
+            
+            dispatch({
+                type: LOG_IN,
+                payload: res
+            });
 
-
-
+            dispatch(loadUser());
             
         } catch (error) {
             console.log(error);
@@ -71,13 +81,25 @@ const BadgerState = props => {
     }
 
     // Get user
-    const getUser =  async ({email, password}) =>  {
+    // const getUser =  async ({email, password}) =>  {
 
-    }
+    // }
 
     // load user
-    const loadUser =  async  =>  {
+    const loadUser =  async ()  =>  {
+        
+        try {
+            const res = await axios.get("/api/auth/login");
+            
+            dispatch({
+                type: LOAD_USER,
+                payload: res
+            });
 
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     // Create a badge
@@ -93,6 +115,12 @@ const BadgerState = props => {
 
         try {
             const res = await axios.post("/api/auth/create", data, config);
+
+            
+            dispatch({
+                type: CREAT_BADGE,
+                payload: res
+            });
 
             
         } catch (error) {
@@ -125,6 +153,12 @@ const BadgerState = props => {
     const getAllBadges =  async () =>  {
         try {
             const res = await axios.get("/api/badge/all");
+
+            
+            dispatch({
+                type: GET_ALL_BADGES,
+                payload: res
+            });
             
         } catch (error) {
             console.log(error);
