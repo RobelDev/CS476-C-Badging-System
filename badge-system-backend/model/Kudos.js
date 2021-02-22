@@ -25,4 +25,5 @@ const kudosSchema = new mongoose.Schema({
     },
 });
 
+
 module.exports = Kudos = mongoose.model("kudos", kudosSchema);
