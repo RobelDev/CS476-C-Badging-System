@@ -1,6 +1,6 @@
 const express = require("express");
 // const { connect } = require("http2");
-const connect = require("./badge-system-backend/connect");
+const connect = require("./connect");
 
 
 // Application configuration
