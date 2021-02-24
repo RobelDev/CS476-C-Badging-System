@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "badge-system-frontend": "npm start --prefix badge-system-frontend",
-    "badgers": "concurrently \"npm run server\" \"npm run badge-system-frontend\""
+    "frontend": "npm start --prefix badge-system-frontend",
+    "badgers": "concurrently \"npm run server\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
