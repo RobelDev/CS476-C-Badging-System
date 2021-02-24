@@ -56,7 +56,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     return (
         <>
             {showGiveBadgeModal ? (
-                <Background ref={GiveBadgeModalRef}>
+                <Background onClick={closeModal} ref={GiveBadgeModalRef}>
                     <animated.div style={animation}>
 
                         <div class="modal-wrapper" showGiveBadgeModal={showGiveBadgeModal}>
