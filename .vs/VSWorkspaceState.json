@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\badge-system-backend",
+    "\\badge-system-frontend",
+    "\\badge-system-frontend\\src",
+    "\\badge-system-frontend\\src\\context",
+    "\\badge-system-frontend\\src\\context\\badger"
+  ],
+  "SelectedNode": "\\badge-system-frontend\\src\\context\\badger\\badgerState.js",
+  "PreviewInSolutionExplorer": false
+}

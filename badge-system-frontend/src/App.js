@@ -17,17 +17,10 @@ class App extends Component {
         return(
             <Fragment>
                 <BadgerState>
-                
+                    { /* <Homepage /> */}
+                    <LogIn />
                 </BadgerState>
-
-                
-                <div>
-                    <Homepage />
-                </div>
-
             </Fragment>
-            
-
         )   
     }
 }

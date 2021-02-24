@@ -67,26 +67,6 @@ const LogIn = () => {
       };
     return (
         <div class="wrapper">
-
-            <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
-
             <div class="LoginUI">
                 <div class="LogInUILeft">
                     <div class="GreetingLeft">
