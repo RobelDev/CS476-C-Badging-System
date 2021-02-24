@@ -174,9 +174,9 @@ export const BadgerProvider = props => {
 
     
     // Change Kudos
-    const changeKudos =  async ({email, kudos}) =>  {
+    const sendKudos =  async ({email, resaon, kudos}) =>  {
 
-        const receiver = {email,kudos};
+        const receiver = {email,resaon,kudos};
 
         const config = {
             headers: {

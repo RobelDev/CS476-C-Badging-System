@@ -5,6 +5,7 @@ import { MdClose } from 'react-icons/md';
 import "./Kudos_Modal.css";
 import logo from '../../../Assets/Team_Badgers_Logo.png'
 import { GiveKudos } from './GiveKudos';
+import { CHANGE_KUDOS } from '../../../context/badger/constants';
 
 
 const Background = styled.div`
@@ -99,10 +100,24 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
    [keyPress]
    );
 
-   const giveKudos = async (e) => {
+
+   const [data, setData] = useState({
+    email: "",
+    reason: "",
+    kudos: Number,
+  });
+
+  const { email, reason, kudos } = data;
+
+  const onChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    
-  }
+    console.log("Send" + kudos +"kudos to" + email + "  because " + reason)
+    //sendKudos({ email, reason, kudos });
+};
     
     return (
   <> 
@@ -124,7 +139,7 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
                             <div class="kudos-modal-content">
 
 
-                            <form class="send-kudos-form" onSubmit="{giveKudos}">
+                            <form class="send-kudos-form" onSubmit={onSubmit}>
 
                             <div class="kudos-modal-form">
 
@@ -134,7 +149,7 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
                                         <input class="kudos-recipient-input" type="text"
                                             name="recipient"
                                             placeholder="Recipient"
-                                            onChange=""
+                                            onChange={onChange}
                                             required />
                                         </div>
 
@@ -143,7 +158,7 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
                                         <textarea class="message-input" type="text"
                                             name="message"
                                             placeholder="Message"
-                                            onChange=""
+                                            onChange={onChange}
                                             minLength="8"
                                             required />
                                     </div>
@@ -155,7 +170,7 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
                                         <input class="kudos-amount-input" type="amount"
                                             name="kudos-to-send"
                                             placeholder="0"
-                                            onChange=""
+                                            onChange={onChange}
                                             required></input>
                                     </div>
 
