@@ -1,3 +1,3 @@
 # CS476-C-Badging-System
 
-Badgers skill/knowledge 
+Badgers skill/knowledge

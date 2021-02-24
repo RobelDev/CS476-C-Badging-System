@@ -28,7 +28,7 @@ const BadgerState = props => {
     }
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
-    const {user,auth,loading,myBadges,allBadges} = state;
+    const {user, auth, loading, myBadges,allBadges} = state;
 
     //Register a user
     const registerUser =  async ({email, password}) =>  {
@@ -107,6 +107,7 @@ const BadgerState = props => {
     }
 
     // Create a badge
+    
     const creatBadge =  async ({ data }) =>  {
 
         // const badge = {email, name, title, department, location, accomplishment};
@@ -150,7 +151,6 @@ const BadgerState = props => {
         }
 
     }
-
     
 
     // Get all badges
@@ -210,6 +210,7 @@ const BadgerState = props => {
         loading: state.loading,
         myBadges: state.myBadges,
         allBadges: state.allBadges
+        
         
     }}>
         {props.children}

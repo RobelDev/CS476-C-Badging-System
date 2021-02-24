@@ -1,0 +1,37 @@
+{
+  "name": "badge-system-backend",
+  "version": "1.0.0",
+  "description": "Back end package file for badging system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "badge-system-frontend": "npm start --prefix badge-system-frontend",
+    "badgers": "concurrently \"npm run server\" \"npm run badge-system-frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobelDev/CS476-C-Badging-System.git"
+  },
+  "author": "Tristan Marcus, Robel Tegegne, Logan Ritter, Yuanbo Xu, Abdulrahman Alamoudi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobelDev/CS476-C-Badging-System/issues"
+  },
+  "homepage": "https://github.com/RobelDev/CS476-C-Badging-System#readme",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "firebase": "^8.2.4",
+    "firebase-admin": "^9.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.13",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.7"
+  }
+}
