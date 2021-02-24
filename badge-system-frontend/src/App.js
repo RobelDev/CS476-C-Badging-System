@@ -16,10 +16,10 @@ class App extends Component {
     render() {
         return(
             <Fragment>
-                <badgerState>
+                <BadgerProvider>
                     { /* <Homepage /> */}
                     <LogIn />
-                </badgerState>
+                </BadgerProvider>
             </Fragment>
         )   
     }
