@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
-import { BadgerContext } from '../context/badger/BadgerContext'
+import { badgerContext } from '../context/badger/badgerContext'
 
 
 const LogIn = () => {
 
-    const value = useContext(BadgerContext)
+    const value = useContext(badgerContext)
 
     function switchForm() {
         if (document.getElementById('form1')) {

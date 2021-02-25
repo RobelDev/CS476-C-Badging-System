@@ -5,7 +5,7 @@ import { MdClose } from 'react-icons/md';
 import axios from 'axios';
 
 import "./Kudos_Modal.css";
-import { BadgerContext } from '../../../context/badger/BadgerContext';
+import { badgerContext } from '../../../context/badger/badgerContext';
 
 
 
@@ -70,7 +70,7 @@ const CloseModalButton = styled(MdClose)`
 
 export const Kudos_Modal = ({ showModal, setShowModal}) => {
 
-   const xxx = useContext(BadgerContext);
+   const xxx = useContext(badgerContext);
 
    const modalRef = useRef()
    

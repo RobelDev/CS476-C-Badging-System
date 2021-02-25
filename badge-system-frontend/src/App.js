@@ -4,7 +4,7 @@ import Homepage from "./components/Homepage.js";
 import LogIn from "./components/LogIn"
 
 import './App.css';
-import { BadgerProvider } from "./context/badger/BadgerContext"
+import { BadgerProvider } from "./context/badger/badgerContext"
 import { Fragment } from "react";
 
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
             <Fragment>
                 <BadgerProvider>
                     { /* <Homepage /> */}
-                    <Homepage />
+                    <LogIn />
                 </BadgerProvider>
             </Fragment>
         )   
