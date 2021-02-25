@@ -18,7 +18,7 @@ class App extends Component {
             <Fragment>
                 <BadgerProvider>
                     { /* <Homepage /> */}
-                    <LogIn />
+                    <Homepage />
                 </BadgerProvider>
             </Fragment>
         )   
