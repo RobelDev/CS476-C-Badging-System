@@ -9,9 +9,9 @@ module.exports = function (req, res, next) {
   }
 
   try {
-    const decod = jwt.verify(Token, "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc");
+    const decode = jwt.verify(Token, "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc");
 
-    req.user = decod.user;
+    req.user = decode.user;
     next();
   }
    catch (error) {
