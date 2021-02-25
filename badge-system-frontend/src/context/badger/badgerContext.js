@@ -15,7 +15,7 @@ import{
 
 } from "./constants.js"
 
-export const badgerContext = createContext();
+export const BadgerContext = createContext();
 
 export const BadgerProvider = props => {
     const initialState = {
@@ -173,8 +173,8 @@ export const BadgerProvider = props => {
 
 
     
-    // Change Kudos
-    const sendKudos =  async ({email, resaon, kudos}) =>  {
+    // Send Kudos
+     const sendKudos =  async ({email, resaon, kudos}) =>  {
 
         const receiver = {email,resaon,kudos};
 
@@ -204,7 +204,7 @@ export const BadgerProvider = props => {
     }
 
     return (
-        <badgerContext.Provider value={{
+        <BadgerContext.Provider value={{
             user: state.user,
             auth: state.auth,
             loading: state.loading,
@@ -213,7 +213,7 @@ export const BadgerProvider = props => {
         }}>
             {props.children}
 
-        </badgerContext.Provider>
+        </BadgerContext.Provider>
     )
 
 }

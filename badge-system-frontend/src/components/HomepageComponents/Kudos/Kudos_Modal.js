@@ -1,11 +1,13 @@
-import React, {useRef, useEffect, useCallback} from 'react';
+import React, {useRef, useEffect, useCallback, useContext, useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import axios from 'axios';
+
 import "./Kudos_Modal.css";
-import logo from '../../../Assets/Team_Badgers_Logo.png'
-import { GiveKudos } from './GiveKudos';
-import { CHANGE_KUDOS } from '../../../context/badger/constants';
+import { BadgerContext } from '../../../context/badger/BadgerContext';
+
+
 
 
 const Background = styled.div`
@@ -67,6 +69,9 @@ const CloseModalButton = styled(MdClose)`
 
 
 export const Kudos_Modal = ({ showModal, setShowModal}) => {
+
+   const xxx = useContext(BadgerContext);
+
    const modalRef = useRef()
    
    const animation = useSpring({
@@ -101,6 +106,31 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
    );
 
 
+   const sendKudos =  async ({email, resaon, kudos}) =>  {
+
+    const receiver = {email,resaon,kudos};
+
+    const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+    try {
+        const res = await axios.post("http://localhost:8000/api/auth/kudos",receiver,config);
+
+       /* dispatch({
+            type: CHANGE_KUDOS 
+        })*/
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+
+}
+
+
    const [data, setData] = useState({
     email: "",
     reason: "",
@@ -116,7 +146,7 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log("Send" + kudos +"kudos to" + email + "  because " + reason)
-    //sendKudos({ email, reason, kudos });
+    sendKudos({ email, reason, kudos });
 };
     
     return (
