@@ -1,39 +1,11 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
+import { badgerContext } from '../context/badger/badgerContext'
 
 
 const LogIn = () => {
-    // state = {
-    //     user1 : {
-    //         email : "rk394@nau.edu",
-    //         password : "123456"
-    //     }
-    //     ,
-    //     user2 : {
-    //         email : "rrr@nau.edu",
-    //         password : "899888"
-    //     }
-    //     ,
-    //     user3 : {
-    //         email : "lk34@nau.edu",
-    //         password : "99999"
-    //     }
-    //     ,
-    //     user4: {
-    //         email : "aaa8@nau.edu",
-    //         password : "1111111"
-    //     }
-    //     ,
-    //     user5 : {
-    //         email : "yx4444@nau.edu",
-    //         password : "333333"
-    //     }
-    //     ,
-    //     user6 : {
-    //         email : "tk4444@nau.edu",
-    //         password : "123999"
-    //     }
-    // }
+
+    const value = useContext(badgerContext)
 
     function switchForm() {
         if (document.getElementById('form1')) {
@@ -64,29 +36,10 @@ const LogIn = () => {
         e.preventDefault();
         console.log("signedin an email" +  email + "  password " + password)
         // logIn({ email, password });
-      };
+    };
+
     return (
         <div class="wrapper">
-
-            <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-
-
             <div class="LoginUI">
                 <div class="LogInUILeft">
                     <div class="GreetingLeft">

@@ -6,7 +6,8 @@ import{
     GET_MY_BADGES,
     GET_ALL_BADGES,
     LOG_OUT,
-    REGISTER_USER
+    REGISTER_USER,
+    CHANGE_KUDOS
 
 } from "./constants.js"
 
@@ -47,6 +48,13 @@ export default (state , action) => {
                 loading: false,
             };
 
+        case CHANGE_KUDOS:
+            return{
+                ...state,
+                isKudosChanged:true,
+                loading: false,
+            }
+            
         case GET_ALL_BADGES:
                 return {
                 ...state,
