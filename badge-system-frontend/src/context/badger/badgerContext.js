@@ -1,6 +1,6 @@
 import React, {createContext, useReducer } from 'react';
 import axios from 'axios';
-import badgerReducer from "./RadgerReducer";
+import BadgerReducer from "./BadgerReducer";
 
 import{
     LOAD_USER,
@@ -27,7 +27,7 @@ export const BadgerProvider = props => {
         isKudosChanged : false
     }
 
-    const [state, dispatch] = useReducer(badgerReducer, initialState);
+    const [state, dispatch] = useReducer(BadgerReducer, initialState);
     const {user, auth, loading, myBadges, allBadges} = state;
 
     //Register a user
