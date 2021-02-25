@@ -1,6 +1,7 @@
 const express = require("express");
 // const { connect } = require("http2");
 const connect = require("./connect");
+const cors = require("cors");
 
 
 // Application configuration
@@ -10,6 +11,7 @@ const app = express();
 // Middlewares
 
 app.use(express.json());
+app.use(cors());
 
 connect();
 // connect();
