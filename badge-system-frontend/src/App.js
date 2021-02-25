@@ -4,7 +4,7 @@ import Homepage from "./components/Homepage.js";
 import LogIn from "./components/LogIn"
 
 import './App.css';
-import { BadgerProvider } from "./context/badger/badgerContext"
+import { BadgerProvider } from "./context/badger/BadgerContext"
 import { Fragment } from "react";
 
 class App extends Component {

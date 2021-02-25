@@ -1,11 +1,11 @@
-import React, { useRef, useEffect, useCallback, useState} from 'react';
+import React, { useContext, useRef, useEffect, useCallback, useState} from 'react';
 import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import axios from 'axios';
 
 import "./Kudos_Modal.css";
-import { badgerContext } from '../../../context/badger/badgerContext';
+import { BadgerContext } from '../../../context/badger/BadgerContext';
 
 
 
@@ -70,7 +70,7 @@ const CloseModalButton = styled(MdClose)`
 
 export const Kudos_Modal = ({ showModal, setShowModal}) => {
 
-   const xxx = useContext(badgerContext);
+   const xxx = useContext(BadgerContext);
 
    const modalRef = useRef()
    
