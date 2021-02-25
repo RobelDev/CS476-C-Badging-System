@@ -1,6 +1,6 @@
 import React, {createContext, useReducer } from 'react';
 import axios from 'axios';
-import badgerReducer from "./badgerReducer";
+import badgerReducer from "./RadgerReducer";
 
 import{
     LOAD_USER,
@@ -13,7 +13,7 @@ import{
     CHANGE_KUDOS,
     LOG_OUT
 
-} from "./constants.js"
+} from "./Constants.js"
 
 export const BadgerContext = createContext();
 

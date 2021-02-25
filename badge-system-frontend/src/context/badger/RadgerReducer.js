@@ -9,7 +9,7 @@ import{
     REGISTER_USER,
     CHANGE_KUDOS
 
-} from "./constants.js"
+} from "./Constants.js"
 
 export default (state , action) => {
 
