@@ -3,6 +3,7 @@ import axios from 'axios';
 import badgerReducer from "./badgerReducer";
 import BadgerContext from "./BadgerContext"
 
+
 import{
     LOAD_USER,
     GET_USER,
@@ -17,6 +18,7 @@ import{
 } from "./constants.js"
 
 
+//badgers state working fine
 
 const BadgerState = props => {
     const initialState = {
