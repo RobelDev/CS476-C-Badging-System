@@ -7,7 +7,37 @@ const jwt = require("jsonwebtoken");
 // this one needs a middleware
 // see another option
 
-router.post("/kudos", middleware, async (req, res) => {
+router.post("/give", middleware, async (req, res) => {
+  const { email, kudos, reason } = req.body;
+
+  let kudosReciever = await User.findOne({ email }).select("-password");
+
+  if (!kudosReciever) {
+    return res.send("No found user with that email");
+  }
+
+  try {
+    const giver = await User.find({
+      user: req.user.id,
+    });
+
+    giver.kudosBank -= kudos;
+
+    // await giver.save();
+
+    kudosReciever.kudosBank += kudos;
+
+    await kudosReciever.save();
+
+    res.json(giver);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+
+router.post("/spend", middleware, async (req, res) => {
   const { email, kudos } = req.body;
 
   let kudosReciever = await User.findOne({ email }).select("-password");
