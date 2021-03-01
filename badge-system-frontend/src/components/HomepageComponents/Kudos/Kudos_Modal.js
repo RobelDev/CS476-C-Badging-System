@@ -1,5 +1,5 @@
-import React, { useContext, useRef, useEffect, useCallback, useState} from 'react';
-import {useSpring, animated} from 'react-spring';
+import React, { useContext, useRef, useEffect, useCallback, useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import axios from 'axios';
@@ -68,76 +68,77 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 
-export const Kudos_Modal = ({ showModal, setShowModal}) => {
+export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
-   const xxx = useContext(BadgerContext);
+  const xxx = useContext(BadgerContext);
 
-   const modalRef = useRef()
-   
-   const animation = useSpring({
-       config: {
-           duration: 150
-       },
-       opacity: showModal ? 1 : 0,
-       transform: showModal ? `translateY(0%)` : `translateY(0%)`
-   });
-    
-   const closeModal = e => {
-       if(modalRef.current === e.target) {
-           setShowModal(false);
-       }
-   }
+  const modalRef = useRef()
 
-    const keyPress = useCallback(
-        e => {
-            if(e.key === 'Escape' && showModal){
-                setShowModal(false);
-            }
-        },
-        [setShowModal, showModal]
-   );
+  const animation = useSpring({
+    config: {
+      duration: 150
+    },
+    opacity: showModal ? 1 : 0,
+    transform: showModal ? `translateY(0%)` : `translateY(0%)`
+  });
 
-    useEffect(
-        () => {
-       document.addEventListener('keydown', keyPress);
-       return () => document.removeEventListener('keydown', keyPress);
-   },
-   [keyPress]
-   );
+  const closeModal = e => {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
+    }
+  }
+
+  const keyPress = useCallback(
+    e => {
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+      }
+    },
+    [setShowModal, showModal]
+  );
+
+  useEffect(
+    () => {
+      document.addEventListener('keydown', keyPress);
+      return () => document.removeEventListener('keydown', keyPress);
+    },
+    [keyPress]
+  );
 
 
-   const sendKudos =  async ({email, resaon, kudos}) =>  {
+  const sendKudos = async ({ email, kudos }) => {
 
-    const receiver = {email,resaon,kudos};
+    const receiver = { email, kudos };
 
     const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
     try {
-        const res = await axios.post("http://localhost:8000/api/auth/kudos",receiver,config);
+      const res = await axios.post("api/auth/kudos", receiver, config);
 
-       /* dispatch({
-            type: CHANGE_KUDOS 
-        })*/
-        
+      console.log(res)
+
+      /* dispatch({
+           type: CHANGE_KUDOS 
+       })*/
+
     } catch (error) {
-        console.log(error);
-        
+      console.log(error);
+
     }
 
-}
+  }
 
 
-   const [data, setData] = useState({
+  const [data, setData] = useState({
     email: "",
-    reason: "",
     kudos: Number,
   });
 
-  const { email, reason, kudos } = data;
+  const { email, kudos } = data;
 
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -145,77 +146,76 @@ export const Kudos_Modal = ({ showModal, setShowModal}) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("Send" + kudos +"kudos to" + email + "  because " + reason)
-    sendKudos({ email, reason, kudos });
-};
-    
-    return (
-  <> 
-  {showModal ?(
-    <Background ref={modalRef}>
-        <animated.div style={animation}>
-                       <div class="kudos-modal-wrapper" showModal={showModal}>
+    sendKudos({ email, kudos });
+  };
 
-                         <div class="kudos-title-div">
-                                <p>Send Kudos</p>
+  return (
+    <>
+      {showModal ? (
+        <Background ref={modalRef}>
+          <animated.div style={animation}>
+            <div className="kudos-modal-wrapper" showModal={showModal}>
 
-                                <button class="kudos-close-modal-button"
-                                    onClick={() => setShowModal(prev => !prev)}
-                                >
-                                    <i class="fas fa-times" />
-                                </button>
-                         </div>
+              <div className="kudos-title-div">
+                <p>Send Kudos</p>
 
-                            <div class="kudos-modal-content">
+                <button className="kudos-close-modal-button"
+                  onClick={() => setShowModal(prev => !prev)}
+                >
+                  <i className="fas fa-times" />
+                </button>
+              </div>
 
-
-                            <form class="send-kudos-form" onSubmit={onSubmit}>
-
-                            <div class="kudos-modal-form">
-
-                                <p>Who would you like to send kudos?</p>
-                                    <div class="recipient-input-div">
-
-                                        <input class="kudos-recipient-input" type="text"
-                                            name="recipient"
-                                            placeholder="Recipient"
-                                            onChange={onChange}
-                                            required />
-                                        </div>
-
-                                <p>What is the reason for sending kudos?</p>
-                                    <div class="kudos-message-input-div">
-                                        <textarea class="message-input" type="text"
-                                            name="message"
-                                            placeholder="Message"
-                                            onChange={onChange}
-                                            minLength="8"
-                                            required />
-                                    </div>
+              <div className="kudos-modal-content">
 
 
+                <form className="send-kudos-form" onSubmit={onSubmit}>
 
-                                <p>Enter the amount of Kudos</p>
-                                    <div class="kudos-input-div">
-                                        <input class="kudos-amount-input" type="amount"
-                                            name="kudos-to-send"
-                                            placeholder="0"
-                                            onChange={onChange}
-                                            required></input>
-                                    </div>
+                  <div className="kudos-modal-form">
 
-                            </div>
-                            <button class="send-kudos-button" type="submit">Send Kudos</button>
-                        </form>
+                    <p>Who would you like to send kudos?</p>
+                    <div className="recipient-input-div">
 
-                          </div>
-                                                                                                        
-                        </div> 
-        </animated.div>
-    </Background>
-  ) : null}
-  </>
-    ) 
+                      <input className="kudos-recipient-input" type="text"
+                        name="email"
+                        placeholder="Recipient"
+                        onChange={onChange}
+                        required />
+                    </div>
+
+                    <p>What is the reason for sending kudos?</p>
+                    <div className="kudos-message-input-div">
+                      <textarea class="message-input" type="text"
+                        name="reason"
+                        placeholder="Message"
+                        onChange="{onChange}"
+                        minLength="8"
+                        required />
+                    </div>
+
+
+
+                    <p>Enter the amount of Kudos</p>
+                    <div className="kudos-input-div">
+                      <input className="kudos-amount-input" type="amount"
+                        name="kudos"
+                        placeholder="0"
+                        onChange={onChange}
+                        required></input>
+                    </div>
+
+                  </div>
+                  <button className="send-kudos-button" type="submit">Send Kudos</button>
+                </form>
+
+              </div>
+
+            </div>
+          </animated.div>
+        </Background>
+      ) : null}
+    </>
+  )
 };
 
 

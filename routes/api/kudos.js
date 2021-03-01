@@ -4,51 +4,36 @@ const User = require("../../model/User");
 const middleware = require("../../middleware");
 const jwt = require("jsonwebtoken");
 
-
 // this one needs a middleware
 // see another option
 
-router.post("/kudos", middleware, async ( req, res) => {
+router.post("/kudos", middleware, async (req, res) => {
+  const { email, kudos } = req.body;
 
+  let kudosReciever = await User.findOne({ email }).select("-password");
 
-    
-    const { email, kudos} = req.body;
+  if (!kudosReciever) {
+    return res.send("No found user with that email");
+  }
 
-    let kudosReciever = await User.findOne({email}).select("-password");
+  try {
+    const giver = await User.find({
+      user: req.user.id,
+    });
 
-   
+    giver.kudosBank -= kudos;
 
-    if(!kudosReciever){
-        return res.send("No found user with that email")
-    }
+    // await giver.save();
 
-    try {
+    kudosReciever.kudosBank += kudos;
 
-        
-        const giver = await User.find({
-            user: req.user.id,
-        });
-        
-        giver.kudosBank -=  kudos;
+    await kudosReciever.save();
 
-        // await giver.save();
-
-        kudosReciever.kudosBank +=  kudos;
-
-        await kudosReciever.save();
-
-        
-
-        res.json(giver);
-
-    } catch (error) {
-
-      console.error(error.message);
-      res.status(500).send("Server Error");
-        
-    }
-
+    res.json(giver);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
 });
-
 
 module.exports = router;
