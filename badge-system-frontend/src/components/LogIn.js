@@ -1,11 +1,12 @@
 import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
-import { BadgerContext } from '../context/badger/BadgerContext'
+import BadgerContext from '../context/badger/BadgerContext'
+import axios from "axios"
 
 
 const LogIn = () => {
 
-    const value = useContext(BadgerContext)
+    const context = useContext(BadgerContext)
 
     function switchForm() {
         if (document.getElementById('form1')) {
@@ -20,6 +21,8 @@ const LogIn = () => {
             }
         }
     }
+    // const badgerContextUse = useContext(BadgerContext);
+    const { registerUser, LogIn } = context;
 
     const [data, setData] = useState({
         email: "",
@@ -32,11 +35,20 @@ const LogIn = () => {
         setData({ ...data, [e.target.name]: e.target.value });
       };
     
-      const onSubmit = async (e) => {
+      const onSubmitSignin = async (e) => {
+        
         e.preventDefault();
-        console.log("signedin an email" +  email + "  password " + password)
-        // logIn({ email, password });
-    };
+        context.LogIn({email, password});
+      }
+
+
+      const onSubmitRegister = async (e) => {
+        e.preventDefault();
+
+        // console.log((resgisterUser))
+        context.registerUser({email, password});
+
+        };
 
     return (
         <div class="wrapper">
@@ -56,7 +68,7 @@ const LogIn = () => {
                         <span class="left-span-3">
                             Log in to reward your collegues with badges.
                         </span>
-                        <form class="log-in-form" onSubmit={onSubmit} class="center">
+                        <form class="log-in-form" onSubmit={onSubmitSignin} class="center">
                             <div class="EmailBox">
                                 <label for="email"></label>
                                 <input class="login-input" type="email"
@@ -91,7 +103,7 @@ const LogIn = () => {
                         <span class="left-span-3">
                             Enter your email and password to create an account
                         </span>
-                        <form onSubmit={onSubmit} class="center">
+                        <form onSubmit={onSubmitRegister} class="center">
                             <div class="EmailBox">
                                 <label for="email"></label>
                                 <input class="login-input" type="email"
