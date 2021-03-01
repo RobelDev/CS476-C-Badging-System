@@ -3,6 +3,7 @@ import React from "react"
 import "./Kudos_Modal.css";
 
 export const GiveKudos = () => {
+    
     <div class="kudos-modal-content">
 
     <form class="send-kudos-form" onSubmit="">
