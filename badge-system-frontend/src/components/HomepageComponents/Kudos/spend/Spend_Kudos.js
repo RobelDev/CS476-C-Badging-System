@@ -55,12 +55,10 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
   }, [keyPress]);
 
   const [data, setData] = useState({
-    amount: Number,
-    price: Number,
+    amount1: 0,
+    amount2: 0,
+    amount3: 0
   });
-
-  const { amount1 = 0, amount2 = 0, amount3 = 0 } = data;
-
 
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
