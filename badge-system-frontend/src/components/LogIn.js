@@ -1,12 +1,17 @@
 import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
+<<<<<<< HEAD
 import { BadgerContext } from '../context/badger/BadgerContext'
 import axios from "axios";
+=======
+import BadgerContext from '../context/badger/BadgerContext'
+import axios from "axios"
+>>>>>>> 2accfb3235cde4f61f0c9fd7a9d9e0f34999e0c0
 
 
 const LogIn = () => {
 
-    const value = useContext(BadgerContext)
+    const context = useContext(BadgerContext)
 
     function switchForm() {
         if (document.getElementById('form1')) {
@@ -21,6 +26,8 @@ const LogIn = () => {
             }
         }
     }
+    // const badgerContextUse = useContext(BadgerContext);
+    const { registerUser, LogIn } = context;
 
     const registerUser = async ({ email, password }) => {
         const user = { email, password };
@@ -55,6 +62,7 @@ const LogIn = () => {
 
     const onChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
+<<<<<<< HEAD
     };
 
     const onSubmit = async (e) => {
@@ -68,6 +76,24 @@ const LogIn = () => {
         const res = await axios.post("/api/auth/register", data, config);
         // logIn({ email, password });
     };
+=======
+      };
+    
+      const onSubmitSignin = async (e) => {
+        
+        e.preventDefault();
+        context.LogIn({email, password});
+      }
+
+
+      const onSubmitRegister = async (e) => {
+        e.preventDefault();
+
+        // console.log((resgisterUser))
+        context.registerUser({email, password});
+
+        };
+>>>>>>> 2accfb3235cde4f61f0c9fd7a9d9e0f34999e0c0
 
     return (
         <div class="wrapper">
@@ -87,7 +113,7 @@ const LogIn = () => {
                         <span class="left-span-3">
                             Log in to reward your collegues with badges.
                         </span>
-                        <form class="log-in-form" onSubmit={onSubmit} class="center">
+                        <form class="log-in-form" onSubmit={onSubmitSignin} class="center">
                             <div class="EmailBox">
                                 <label for="email"></label>
                                 <input class="login-input" type="email"
@@ -122,7 +148,7 @@ const LogIn = () => {
                         <span class="left-span-3">
                             Enter your email and password to create an account
                         </span>
-                        <form onSubmit={onSubmit} class="center">
+                        <form onSubmit={onSubmitRegister} class="center">
                             <div class="EmailBox">
                                 <label for="email"></label>
                                 <input class="login-input" type="email"
