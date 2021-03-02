@@ -6,7 +6,6 @@ import axios from 'axios';
 import "./Kudos_Modal.css";
 import BadgerContext from '../../../../context/badger/BadgerContext';
 
-
 const Background = styled.div`
   width: 120%;
   height: 100%;
