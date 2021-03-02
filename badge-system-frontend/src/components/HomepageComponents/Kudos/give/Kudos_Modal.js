@@ -1,13 +1,10 @@
 import React, { useContext, useRef, useEffect, useCallback, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
-import { MdClose } from 'react-icons/md';
 import axios from 'axios';
 
 import "./Kudos_Modal.css";
-import { BadgerContext } from '../../../context/badger/BadgerContext';
-
-
+import { BadgerContext } from '../../../../context/badger/BadgerContext';
 
 
 const Background = styled.div`
@@ -19,54 +16,6 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
 `
-const ModalWrapper = styled.div`
-  width: 45vw;
-  height: 60vh;
-  box-shadow: 0 5px 16px rgba(0,0,0,0.2);
-  background: #1d1d1d;
-  color: #fff;
-  display: grid;
-  z-index: 10;
-  border-radius: 1vw;
-`
-
-const ModalImg = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 10px 0 0 10px;
-  background: #000;
-`
-const ModalContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  line-height: 2;
-  color: #fff;
-
-  p {
-      margin-bottom: 2vh;
-  }
-
-button {
-    padding: 10px 24px;
-    background: black;
-    color: #fff;
-    border: none;
-}
-`;
-
-const CloseModalButton = styled(MdClose)`
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  z-index: 1;
-`;
-
 
 export const Kudos_Modal = ({ showModal, setShowModal }) => {
 

@@ -1,0 +1,41 @@
+
+.modal-form-center {
+    margin: auto;
+    background-color: #2e2e2e;
+    width: 100%;
+    overflow-y: scroll;
+    padding-right: 1vw;
+    height: 80%;
+    flex-direction: column;
+    display: flex;
+    border:1px solid #000
+}
+
+.modal-form-center::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+.modal-form-center::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px
+}
+
+.modal-form-center::-webkit-scrollbar-thumb {
+    background: #0d0c0c;
+    border: 0px none #ffffff;
+    border-radius: 5px;
+}
+
+.modal-form-center::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border: 0px none #ffffff;
+    border-radius: 100px;
+}
+
+.modal-goods-info{
+    padding: 5px;  
+    flex-direction: row;
+    display: flex;
+    /* border:1px solid rgb(129, 104, 104) */
+}

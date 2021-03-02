@@ -165,5 +165,6 @@
     background-color: white;
     border-radius: 1vw;
     color: crimson;
+    flex-direction: row-reverse;
 }
 
