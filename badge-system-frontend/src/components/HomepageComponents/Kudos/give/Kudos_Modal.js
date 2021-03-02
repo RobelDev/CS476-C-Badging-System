@@ -4,14 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import "./Kudos_Modal.css";
-<<<<<<< HEAD:badge-system-frontend/src/components/HomepageComponents/Kudos/give/Kudos_Modal.js
-import { BadgerContext } from '../../../../context/badger/BadgerContext';
-=======
 import BadgerContext from '../../../context/badger/BadgerContext';
-
-
->>>>>>> 2accfb3235cde4f61f0c9fd7a9d9e0f34999e0c0:badge-system-frontend/src/components/HomepageComponents/Kudos/Kudos_Modal.js
-
 
 const Background = styled.div`
   width: 120%;
