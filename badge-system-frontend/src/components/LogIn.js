@@ -1,12 +1,8 @@
 import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
-<<<<<<< HEAD
-import { BadgerContext } from '../context/badger/BadgerContext'
-import axios from "axios";
-=======
+
 import BadgerContext from '../context/badger/BadgerContext'
 import axios from "axios"
->>>>>>> 2accfb3235cde4f61f0c9fd7a9d9e0f34999e0c0
 
 
 const LogIn = () => {
@@ -62,22 +58,7 @@ const LogIn = () => {
 
     const onChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
-<<<<<<< HEAD
     };
-
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        console.log("signedin an email" + email + "  password " + password)
-        const config = {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        };
-        const res = await axios.post("/api/auth/register", data, config);
-        // logIn({ email, password });
-    };
-=======
-      };
     
       const onSubmitSignin = async (e) => {
         
@@ -93,7 +74,6 @@ const LogIn = () => {
         context.registerUser({email, password});
 
         };
->>>>>>> 2accfb3235cde4f61f0c9fd7a9d9e0f34999e0c0
 
     return (
         <div class="wrapper">
