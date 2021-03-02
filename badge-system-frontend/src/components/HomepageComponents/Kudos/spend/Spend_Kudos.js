@@ -59,10 +59,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     price: Number,
   });
 
-  const [isBought, setIsBought] = useState(true);
-
-
-  const { amount1, amount2, amount3 } = data;
+  const { amount1 = 0, amount2 = 0, amount3 = 0 } = data;
 
 
   const onChange = (e) => {
@@ -71,6 +68,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(data);
   };
 
   const close = () => {
@@ -78,7 +76,10 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
   }
 
   const resetTotal = () => {
-    return setIsBought(true);
+    data.amount1 = 0;
+    data.amount2 = 0;
+    data.amount3 = 0;
+    console.log(data);
   }
 
   const reset = () => {
@@ -108,7 +109,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
               </div>
 
               <div class="spendKudos-modal-content">
-                <form class="spend-kudos-form" onSubmit="onSubmit">
+                <form class="spend-kudos-form" onSubmit={onSubmit}>
                   <div class="spendKudos-modal-form">
                     <p>What would you like to buy?</p>
                     <div class="modal-form-center">
@@ -180,7 +181,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                       </div>
                     </div>
                     <div class="modal-kudos-cost">
-                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {isBought ? 0 : Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400} </div>
+                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400} </div>
                     </div>
                   </div>
                   <button class="spend-kudos-button" type="submit">
