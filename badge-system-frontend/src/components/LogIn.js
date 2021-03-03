@@ -63,8 +63,8 @@ const LogIn = () => {
     const onSubmitSignin = async (e) => {
 
         e.preventDefault();
-        context.LogIn({ email, password });
-    }
+        context.logIn({email, password});
+      }
 
 
     const onSubmitRegister = async (e) => {
