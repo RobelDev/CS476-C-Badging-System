@@ -124,13 +124,13 @@ router.post("/kudos", middleware, async ( req, res) => {
     try {
 
         
-        const giver = await User.find({
-            user: req.user.id,
-        });
+        const giver = await User.findById(
+             req.user.id,
+        );
         
         giver.kudosBank -=  kudos;
 
-        // await giver.save();
+        await giver.save();
 
         kudosReciever.kudosBank +=  kudos;
 
@@ -139,6 +139,45 @@ router.post("/kudos", middleware, async ( req, res) => {
         
 
         res.json(giver);
+
+    } catch (error) {
+
+      console.error(error.message);
+      res.status(500).send("Server Error");
+        
+    }
+
+});
+
+router.post("/spendkudos", middleware, async ( req, res) => {
+
+
+    
+    const { kudos} = req.body;
+
+    const user = await User.findById(req.user.id);
+
+   
+
+    if(!user){
+        return res.send("No found user")
+    }
+
+    try {
+
+        
+              
+        user.kudosBank -=  kudos;
+
+        // await giver.save();
+
+        // kudosReciever.kudosBank +=  kudos;
+
+        await user.save();
+
+        
+
+        res.json(user);
 
     } catch (error) {
 
