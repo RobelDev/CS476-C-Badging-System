@@ -1,8 +1,7 @@
-import React, {createContext, useReducer } from 'react';
+import { useReducer } from 'react';
 import axios from 'axios';
 import badgerReducer from "./badgerReducer";
 import BadgerContext from "./BadgerContext"
-
 
 import{
     LOAD_USER,
@@ -14,13 +13,10 @@ import{
     GET_ALL_BADGES,
     CHANGE_KUDOS,
     LOG_OUT
+} from "./constants.js";
 
-} from "./constants.js"
+const BadgerState = (props) => {
 
-
-//badgers state working fine
-
-const BadgerState = props => {
     const initialState = {
         user : {},
         auth : false,
@@ -74,7 +70,7 @@ const BadgerState = props => {
           };
 
         try {
-            const res = await axios.post("/api/auth/login", user, config);
+            const res = await axios.post("/api/auth/signin", user, config);
             
             dispatch({
                 type: LOG_IN,
@@ -82,6 +78,8 @@ const BadgerState = props => {
             });
 
             dispatch(loadUser());
+
+            console.log(res)
             
         } catch (error) {
             console.log(error);
@@ -98,13 +96,14 @@ const BadgerState = props => {
     const loadUser =  async ()  =>  {
         
         try {
-            const res = await axios.get("/api/auth/login");
+            const res = await axios.get("/api/auth/signin");
             
             dispatch({
                 type: LOAD_USER,
                 payload: res
             });
 
+            console.log(res);
             
         } catch (error) {
             console.log(error);
@@ -123,14 +122,17 @@ const BadgerState = props => {
             },
           };
 
-        try {
-            const res = await axios.post("/api/auth/create", data, config);
 
-            
+        try {
+            const res = await axios.post("/api/badge/create", data, config);
+
             dispatch({
                 type: CREAT_BADGE,
                 payload: res
             });
+
+            console.log(res);
+
 
             
         } catch (error) {
@@ -145,10 +147,14 @@ const BadgerState = props => {
         try {
             const res = await axios.get("/api/badge/me");
 
+
             dispatch({
                 type: GET_MY_BADGES,
                 payload: res
             })
+
+            console.log(res);
+
             
         } catch (error) {
             console.log(error);
@@ -163,11 +169,14 @@ const BadgerState = props => {
         try {
             const res = await axios.get("/api/badge/all");
 
-            
+            // console.log(res);
+
             dispatch({
                 type: GET_ALL_BADGES,
                 payload: res
             });
+            console.log(res);
+
             
         } catch (error) {
             console.log(error);
@@ -179,9 +188,9 @@ const BadgerState = props => {
 
     
     // Send Kudos
-     const sendKudos =  async ({email, resaon, kudos}) =>  {
+     const sendKudos =  async ({email, kudos}) =>  {
 
-        const receiver = {email,resaon,kudos};
+        const info = {email,kudos};
 
         const config = {
             headers: {
@@ -190,7 +199,36 @@ const BadgerState = props => {
           };
 
         try {
-            const res = await axios.post("/api/auth/kudos",receiver,config);
+            const res = await axios.post("/api/auth/kudos",info,config);
+
+            console.log(res)
+
+            dispatch({
+                type: CHANGE_KUDOS
+            })
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+
+    }
+
+    // Send Kudos
+    const spendKudos =  async ( kudos) =>  {
+
+        // const info = {kudos};
+
+        const config = {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+
+        try {
+            const res = await axios.post("/api/auth/spendkudos",kudos,config);
+
+            console.log(res)
 
             dispatch({
                 type: CHANGE_KUDOS
@@ -217,6 +255,11 @@ const BadgerState = props => {
             allBadges: state.allBadges,
             registerUser,
             logIn,
+            sendKudos,
+            spendKudos,
+            creatBadge,
+            getMyBadges,
+            getAllBadges
         }}>
             {props.children}
 
