@@ -21,34 +21,59 @@ const LogIn = () => {
             }
         }
     }
-    // const badgerContextUse = useContext(BadgerContext);
-    const { registerUser, LogIn } = context;
+    const badgerContextUse = useContext(BadgerContext);
+    //const { registerUser, LogIn } = context;
+
+    const registerUser = async ({ email, password }) => {
+        const user = { email, password };
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+
+        try {
+            const res = await axios.post("/api/auth/register", user, config);
+
+            /*dispatch({
+                type: REGISTER_USER,
+                payload: res
+            }); */
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
 
     const [data, setData] = useState({
         email: "",
         password: "",
-      });
-    
-      const { email, password } = data;
-    
-      const onChange = (e) => {
+    });
+
+    const { email, password } = data;
+
+    const onChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
-      };
-    
-      const onSubmitSignin = async (e) => {
-        
+    };
+
+    const onSubmitSignin = async (e) => {
+
         e.preventDefault();
         context.logIn({email, password});
       }
 
 
-      const onSubmitRegister = async (e) => {
+    const onSubmitRegister = async (e) => {
         e.preventDefault();
 
         // console.log((resgisterUser))
-        context.registerUser({email, password});
+        context.registerUser({ email, password });
 
-        };
+    };
 
     return (
         <div class="wrapper">
@@ -61,7 +86,7 @@ const LogIn = () => {
                         <span class="left-span-2">
                             Team Badger's Skills and Knowledge Badging System
                         </span>
-                        
+
                     </div>
 
                     <div class="log-in-form" id="form1">
@@ -124,7 +149,7 @@ const LogIn = () => {
                                     minLength="8"
                                     required />
                             </div>
-                    
+
 
                             <button type="submit" class="LogInButton">REGISTER</button>
                         </form>
@@ -135,7 +160,7 @@ const LogIn = () => {
                         </div>
                     </div>
 
-                    
+
 
                 </div>
                 <div class="LogInUIRight">
@@ -149,25 +174,25 @@ const LogIn = () => {
                         <hr class="line" />
                         <span class="right-span-3">
                             <p>
-                             Bring back the social enviornment that remote work has lost.
+                                Bring back the social enviornment that remote work has lost.
                             </p>
                             Acknowledge your colleagues by sending badges based on skills and achievements.
                             Redeem kudos recevied from colleagues to redeem rewards.
                             <p>
                             </p>
                             <p>
-                            
+
                             </p>
                         </span>
-                        
+
                     </div>
                 </div>
 
 
             </div>
-            
+
             {/*  */}
-            
+
         </div>
     )
 }

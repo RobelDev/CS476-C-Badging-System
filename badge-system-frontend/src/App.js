@@ -14,14 +14,14 @@ class App extends Component {
     }
 
     render() {
-        return(
+        return (
             <Fragment>
                 <BadgerState>
-                     {/* <Homepage />  */}
-                      <LogIn />
+                    <Homepage />
+                    {/* <LogIn />*/}
                 </BadgerState>
             </Fragment>
-        )   
+        )
     }
 }
 

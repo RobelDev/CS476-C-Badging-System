@@ -18,26 +18,26 @@ import{
 const BadgerState = (props) => {
 
     const initialState = {
-        user : {},
-        auth : false,
-        loading : false,
-        myBadges : [],
-        allBadges : [],
-        isKudosChanged : false
+        user: {},
+        auth: false,
+        loading: false,
+        myBadges: [],
+        allBadges: [],
+        isKudosChanged: false
     }
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
     // const {user, auth, loading, myBadges, allBadges} = state;
 
     //Register a user
-    const registerUser =  async ({email, password}) =>  {
-        const user = {email, password};
+    const registerUser = async ({ email, password }) => {
+        const user = { email, password };
 
         const config = {
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          };
+        };
 
         try {
             const res = await axios.post("/api/auth/register", user, config);
@@ -49,7 +49,7 @@ const BadgerState = (props) => {
 
             console.log(res)
 
-            
+
         } catch (error) {
             console.log(error);
         }
@@ -60,14 +60,14 @@ const BadgerState = (props) => {
 
 
     // Log in user
-    const logIn =  async ({email, password}) =>  {
-        const user = {email, password};
+    const logIn = async ({ email, password }) => {
+        const user = { email, password };
 
         const config = {
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          };
+        };
 
         try {
             const res = await axios.post("/api/auth/signin", user, config);
@@ -93,8 +93,8 @@ const BadgerState = (props) => {
     // }
 
     // load user
-    const loadUser =  async ()  =>  {
-        
+    const loadUser = async () => {
+
         try {
             const res = await axios.get("/api/auth/signin");
             
@@ -111,16 +111,16 @@ const BadgerState = (props) => {
     }
 
     // Create a badge
-    
-    const creatBadge =  async ({ data }) =>  {
+
+    const creatBadge = async ({ data }) => {
 
         // const badge = {email, name, title, department, location, accomplishment};
 
         const config = {
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          };
+        };
 
 
         try {
@@ -142,7 +142,7 @@ const BadgerState = (props) => {
     }
 
     // Get my badges 
-    const getMyBadges =  async () =>  {
+    const getMyBadges = async () => {
 
         try {
             const res = await axios.get("/api/badge/me");
@@ -158,14 +158,14 @@ const BadgerState = (props) => {
             
         } catch (error) {
             console.log(error);
-            
+
         }
 
     }
-    
+
 
     // Get all badges
-    const getAllBadges =  async () =>  {
+    const getAllBadges = async () => {
         try {
             const res = await axios.get("/api/badge/all");
 
@@ -180,13 +180,13 @@ const BadgerState = (props) => {
             
         } catch (error) {
             console.log(error);
-            
+
         }
 
     }
 
 
-    
+
     // Send Kudos
      const sendKudos =  async ({email, kudos}) =>  {
 
@@ -194,9 +194,9 @@ const BadgerState = (props) => {
 
         const config = {
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          };
+        };
 
         try {
             const res = await axios.post("/api/auth/kudos",info,config);
@@ -230,20 +230,20 @@ const BadgerState = (props) => {
 
             console.log(res)
 
-            dispatch({
+            /*dispatch({
                 type: CHANGE_KUDOS
-            })
-            
+            })*/
+
         } catch (error) {
             console.log(error);
-            
+
         }
 
     }
 
     // Log out a user
-    const logOut =  async () =>  {
-        dispatch({type: LOG_OUT, payload: "Logged out"});
+    const logOut = async () => {
+        dispatch({ type: LOG_OUT, payload: "Logged out" });
     }
 
     return (
