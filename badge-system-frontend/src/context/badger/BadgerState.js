@@ -13,6 +13,7 @@ import {
     GET_MY_BADGES,
     GET_ALL_BADGES,
     CHANGE_KUDOS,
+    GIVE_BADGES,
     LOG_OUT
 
 } from "./constants.js"
@@ -27,7 +28,8 @@ const BadgerState = props => {
         loading: false,
         myBadges: [],
         allBadges: [],
-        isKudosChanged: false
+        isKudosChanged: false,
+        isBadgeSent: false
     }
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
@@ -215,8 +217,11 @@ const BadgerState = props => {
             loading: state.loading,
             myBadges: state.myBadges,
             allBadges: state.allBadges,
+            isKudosChanged: state.isKudosChanged,
+            isBadgeSent: state.isBadgeSent,
             registerUser,
             logIn,
+            sendKudos
         }}>
             {props.children}
 

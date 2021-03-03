@@ -8,5 +8,6 @@ export const GET_ALL_BADGES = 'GET_ALL_BADGES';
 export const CHANGE_KUDOS = 'CHANGE_KUDOS';
 export const LOG_OUT = 'LOG_OUT';
 export const LOG_OUT_FAIL = 'LOG_OUT_FAIL';
+export const GIVE_BADGES = 'GIVE_BADGES';
 
 //HERE FOR TEST

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
-// import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
+import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
@@ -13,10 +13,10 @@ class Homepage extends Component {
     }
 
     render() {
-        return(
+        return (
             <div class="HomepageContainer">
 
-                <input type="checkbox" id="check"/>
+                <input type="checkbox" id="check" />
 
                 <div class="HeaderContainer">
                     <label for="check">
@@ -37,8 +37,7 @@ class Homepage extends Component {
                 </div>
 
                 <div class="WaterfallFeedContainer">
-                    Waterfall feed in development...
-                    {/*<WaterfallFeed / >*/}
+                    <WaterfallFeed />
                 </div>
 
                 <div class="UserPanelContainer">

@@ -1,40 +1,38 @@
 import React from "react"
 import { useState } from "react";
 
-import firebase from 'firebase/app'
-import 'firebase/firestore'
-import 'firebase/auth'
 
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import MessageObject from "./WaterfallFeedComponents/MessageObject"
 
 import "./WaterfallFeed.css"
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
 
 function WaterfallFeed() {
-    return(
+    return (
         <div class="waterfall-feed-container">
             <div class="feed-title">
                 Reward Feed
             </div>
             <div class="feed-div">
-                <ChatRoom />
-                <MessageObject />
+
+                Content supposed to be here
+                {/*(<ChatRoom />
+                <MessageObject />*/}
             </div>
         </div>
     );
 }
 
-function ChatRoom() {
+
+/*function ChatRoom() {
     const messagesRef = firestore.collection('messages');
     const query = messagesRef.orderBy('createdAt').limit(25);
 
-    const [messages] = useCollectionData(query, {idField: 'id'});
+    const [messages] = useCollectionData(query, { idField: 'id' });
     const [formValue, setFormValue] = useState('');
 
-    const sendMessage = async(e) => {
+    const sendMessage = async (e) => {
         e.preventDefault();
         const { uid, photoURL } = auth.currentUser;
 
@@ -53,7 +51,7 @@ function ChatRoom() {
             </div>
             <form onSubmit={sendMessage}>
 
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)}/>
+                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
                 <button class="send-button" type="submit">SEND</button>
 
             </form>
@@ -61,11 +59,12 @@ function ChatRoom() {
     );
 }
 
+
 function RewardMessage(props) {
-    const{ text, uid, photoURL} = props.message;
+    const { text, uid, photoURL } = props.message;
 
     const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-    
+
     return (
         <div classname={`message ${messageClass}`}>
             <img src={photoURL} />
@@ -75,5 +74,7 @@ function RewardMessage(props) {
         </div>
     );
 }
+
+*/
 
 export default WaterfallFeed;
