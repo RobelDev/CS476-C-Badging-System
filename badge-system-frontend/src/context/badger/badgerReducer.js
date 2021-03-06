@@ -22,11 +22,15 @@ export default (state, action) => {
             return {
                 ...state,
                 user: action.payload.user,
-                auth: true,
                 loading: false,
             };
 
         case LOG_IN:
+            return {
+                ...state,
+                auth: true
+            };
+            
         case REGISTER_USER:
             return {
                 ...state,
