@@ -18,8 +18,6 @@ const Background = styled.div`
 
 export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
-  // const xxx = useContext(BadgerContext);
-
   const modalRef = useRef()
 
   const animation = useSpring({
@@ -53,30 +51,30 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     [keyPress]
   );
 
-  const context = useContext(BadgerContext);
+  const { kudosInfo, saveKudosInfo, sendKudos } = useContext(BadgerContext);
 
-
-  const sendKudos = async ({ email, kudos }) => {
-
-    context.sendKudos({ email, kudos });
-
-  }
-
-
+  /*
+   const sendKudos = async ({ email, kudos }) => {
+ 
+     context.sendKudos({ email, kudos });
+ 
+   }
+ 
   const [data, setData] = useState({
-    email: "",
-    kudos: Number,
-  });
-
-  const { email, kudos } = data;
-
-  const onChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+     email: "",
+     kudos: Number,
+   });
+ 
+   const { email, kudos } = data;
+ 
+   const onChange = (e) => {
+     setData({ ...data, [e.target.name]: e.target.value });
+   };*/
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    sendKudos({ email, kudos });
+    console.log(kudosInfo);
+    sendKudos(kudosInfo);
   };
 
   return (
@@ -109,7 +107,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <input className="kudos-recipient-input" type="text"
                         name="email"
                         placeholder="Recipient"
-                        onChange={onChange}
+                        onChange={saveKudosInfo}
                         required />
                     </div>
 
@@ -130,7 +128,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <input className="kudos-amount-input" type="amount"
                         name="kudos"
                         placeholder="0"
-                        onChange={onChange}
+                        onChange={saveKudosInfo}
                         required></input>
                     </div>
 

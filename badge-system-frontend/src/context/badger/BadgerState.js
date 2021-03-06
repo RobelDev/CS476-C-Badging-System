@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useState, useReducer } from 'react';
 import axios from 'axios';
 import badgerReducer from "./badgerReducer";
 import BadgerContext from "./BadgerContext"
@@ -25,7 +25,29 @@ const BadgerState = (props) => {
         myBadges: [],
         allBadges: [],
         isKudosChanged: false,
-        isBadgeSent: false
+        isBadgeSent: false,
+    }
+
+
+    const [badgesInfo, setBadgesInfo] = useState({
+        email: "",
+        reason: "",
+        badges: []
+    })
+
+
+    const [kudosInfo, setKudosInfo] = useState({
+        email: "",
+        reason: "",
+        kudos: Number
+    })
+
+    const saveBadgesInfo = (e) => {
+        setBadgesInfo({ ...badgesInfo, [e.target.name]: e.target.value });
+    }
+
+    const saveKudosInfo = (e) => {
+        setKudosInfo({ ...kudosInfo, [e.target.name]: e.target.value });
     }
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
@@ -205,9 +227,9 @@ const BadgerState = (props) => {
 
             console.log(res)
 
-            dispatch({
+            /*dispatch({
                 type: CHANGE_KUDOS
-            })
+            }) */
 
         } catch (error) {
             console.log(error);
@@ -257,6 +279,8 @@ const BadgerState = (props) => {
             allBadges: state.allBadges,
             isKudosChanged: state.isKudosChanged,
             isBadgeSent: state.isBadgeSent,
+            kudosInfo,
+            saveKudosInfo,
             registerUser,
             logIn,
             logOut,
