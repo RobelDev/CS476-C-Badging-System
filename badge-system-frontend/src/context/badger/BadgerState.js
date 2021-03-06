@@ -259,6 +259,7 @@ const BadgerState = (props) => {
             isBadgeSent: state.isBadgeSent,
             registerUser,
             logIn,
+            logOut,
             sendKudos,
             spendKudos,
             creatBadge,

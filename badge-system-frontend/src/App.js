@@ -1,24 +1,25 @@
 import React, { Component } from "react";
+import { Fragment } from "react";
+
+import BadgerState from "./context/badger/BadgerState"
 
 import Homepage from "./components/Homepage.js";
 import LogIn from "./components/LogIn"
 
 import './App.css';
-import BadgerState from "./context/badger/BadgerState"
-import { Fragment } from "react";
 
 class App extends Component {
     constructor() {
         super();
-        this.state = {};
+        this.state = {
+        };
     }
 
     render() {
         return (
             <Fragment>
                 <BadgerState>
-                    <Homepage />
-                    {/* <LogIn />*/}
+                    <LogIn />
                 </BadgerState>
             </Fragment>
         )

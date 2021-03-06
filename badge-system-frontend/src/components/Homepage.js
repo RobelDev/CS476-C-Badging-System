@@ -1,4 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
+
+import BadgerContext from '../context/badger/BadgerContext'
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
@@ -6,53 +8,55 @@ import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
-class Homepage extends Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+const Homepage = () => {
 
-    render() {
-        return (
-            <div class="HomepageContainer">
+    const context = useContext(BadgerContext);
 
-                <input type="checkbox" id="check" />
+    const onClickSignOut = async (e) => {
+        e.preventDefault();
+        context.logOut();
+    };
 
-                <div class="HeaderContainer">
-                    <label for="check">
-                        <i class="fas fa-bars" id="sidebar-button"></i>
-                    </label>
+    return (
+        <div class="HomepageContainer">
 
-                    <div class="header-left">
-                        <h3>State <span>Farm</span></h3>
-                    </div>
+            <input type="checkbox" id="check" />
 
-                    <div class="header-right">
-                        <a href="#" class="log-out-button">Log Out</a>
-                    </div>
+            <div class="HeaderContainer">
+                <label for="check">
+                    <i class="fas fa-bars" id="sidebar-button"></i>
+                </label>
+
+                <div class="header-left">
+                    <h3>State <span>Farm</span></h3>
                 </div>
 
-                <div class="NavbarContainer">
-                    <MainNav />
+                <div class="header-right">
+                    <a href="#" onClick={onClickSignOut} class="log-out-button">Log Out</a>
                 </div>
-
-                <div class="WaterfallFeedContainer">
-                    <WaterfallFeed />
-                </div>
-
-                <div class="UserPanelContainer">
-                    <UserPanel />
-                </div>
-
-                <div class="kudos-div">
-                    <div class="kudos-amount">
-                        Kudos: 1000
-                    </div>
-                </div>
-
             </div>
-        )
-    }
+
+            <div class="NavbarContainer">
+                <MainNav />
+            </div>
+
+            <div class="WaterfallFeedContainer">
+                <WaterfallFeed />
+            </div>
+
+            <div class="UserPanelContainer">
+                <UserPanel />
+            </div>
+
+            <div class="kudos-div">
+                <div class="kudos-amount">
+                    Kudos: 1000
+                </div>
+            </div>
+
+        </div>
+    )
+
 }
 
 export default Homepage;
