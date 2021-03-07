@@ -1,38 +1,29 @@
-import React from "react"
+import React, { Fragment, useState, useContext } from 'react'
+import BadgerContext from '../../context/badger/BadgerContext'
+
 import BadgeObject from "./UserPanelComponents/BadgeObject"
 
 import "./UserPanel.css"
 
-class UserPanel extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+const UserPanel = () => {
 
-    render() {
-        return(
-            <div class="user-panel-div">
-                <div class="badge-library-div">
-                    <div class="badge-library-header">
-                        Your Badges
-                    </div>
+    const context = useContext(BadgerContext)
 
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
-                    <BadgeObject />
+    const myBadges = context.allBadges
 
+    return(
+        <div class="user-panel-div">
+            <div class="badge-library-div">
+                <div class="badge-library-header">
+                    Your Badges
                 </div>
+
+                { console.log(myBadges) }
 
             </div>
 
-        );
-    }
+        </div>
+    );
 }
 
 export default UserPanel;

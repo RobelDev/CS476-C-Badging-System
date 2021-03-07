@@ -4,13 +4,8 @@ import './BadgeObject.css'
 
 import logo from '../../../Assets/Team_Badgers_Logo.png'
 
-class BadgeObject extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
-    }
+const BadgeObject = () => {
 
-    render() {
         return(
             <li style={{display: "flex"}}>
                 <img src={logo}/>
@@ -26,7 +21,6 @@ class BadgeObject extends React.Component {
                 </div>
             </li>
         );
-    }
 }
 
 export default BadgeObject;
