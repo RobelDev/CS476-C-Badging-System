@@ -18,6 +18,8 @@ const Background = styled.div`
 
 export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
+  const context = useContext(BadgerContext)
+
   const modalRef = useRef()
 
   const animation = useSpring({
@@ -52,24 +54,6 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
   );
 
   const { kudosInfo, saveKudosInfo, sendKudos } = useContext(BadgerContext);
-
-  /*
-   const sendKudos = async ({ email, kudos }) => {
- 
-     context.sendKudos({ email, kudos });
- 
-   }
- 
-  const [data, setData] = useState({
-     email: "",
-     kudos: Number,
-   });
- 
-   const { email, kudos } = data;
- 
-   const onChange = (e) => {
-     setData({ ...data, [e.target.name]: e.target.value });
-   };*/
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -116,7 +100,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <textarea class="message-input" type="text"
                         name="reason"
                         placeholder="Message"
-                        onChange="{onChange}"
+                        onChange={saveKudosInfo}
                         min="8"
                         required />
                     </div>

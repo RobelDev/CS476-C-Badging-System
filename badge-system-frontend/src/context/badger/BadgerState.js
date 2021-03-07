@@ -228,13 +228,14 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = async ({ email, kudos }) => {
+    const sendKudos = async (token, { email, kudos }) => {
 
         const info = { email, kudos };
 
         const config = {
             headers: {
                 "Content-Type": "application/json",
+                "auth-token": token
             },
         };
 

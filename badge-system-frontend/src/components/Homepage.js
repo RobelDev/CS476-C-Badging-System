@@ -50,7 +50,7 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    Kudos: 1000
+                    Kudos: { context.user.kudosBank }
                 </div>
             </div>
 
