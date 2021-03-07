@@ -19,8 +19,7 @@ class App extends Component {
         return (
             <Fragment>
                 <BadgerState>
-                    {/*<LogIn /> */}
-                    <Homepage />
+                    <LogIn />
                 </BadgerState>
             </Fragment>
         )

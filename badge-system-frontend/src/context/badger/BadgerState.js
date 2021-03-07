@@ -101,7 +101,7 @@ const BadgerState = (props) => {
                 payload: res
             });
 
-            dispatch(loadUser());
+            dispatch(loadUser(res.data.token));
 
             console.log(res)
 
@@ -117,20 +117,30 @@ const BadgerState = (props) => {
     // }
 
     // load user
-    const loadUser = async () => {
+    const loadUser = async (token) => {
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            },
+        };
 
         try {
-            const res = await axios.get("/api/auth/signin");
+            const res = await axios.get("/api/auth/signin", config);
 
             dispatch({
                 type: LOAD_USER,
                 payload: res
             });
 
+            dispatch(getMyBadges(token))
+
             console.log(res);
 
         } catch (error) {
             console.log(error);
+            console.log("error has been reached")
         }
     }
 
@@ -166,11 +176,17 @@ const BadgerState = (props) => {
     }
 
     // Get my badges 
-    const getMyBadges = async () => {
+    const getMyBadges = async (token) => {
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            },
+        };
 
         try {
-            const res = await axios.get("/api/badge/me");
-
+            const res = await axios.get("/api/badge/me", config);
 
             dispatch({
                 type: GET_MY_BADGES,

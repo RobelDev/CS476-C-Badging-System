@@ -96,7 +96,6 @@ router.post("/kudos", middleware, async ( req, res) => {
 router.get("/me", middleware, async (req, res) => {
 
     try {
-
         const badges = await Badge.find({
             user: req.user.id,
         }).populate("user").sort({date: -1});

@@ -21,14 +21,14 @@ export default (state, action) => {
         case LOAD_USER:
             return {
                 ...state,
-                user: action.payload.user,
+                user: action.payload.data.user,
+                auth: true,
                 loading: false,
             };
 
         case LOG_IN:
             return {
-                ...state,
-                auth: true
+                ...state
             };
             
         case REGISTER_USER:

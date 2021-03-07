@@ -16,7 +16,6 @@ router.get("/signin", middleware, async (req, res) =>{
         }
 
         res.json({user, msg: "user signed in"});
-
     }
 
     catch(error){
@@ -54,7 +53,7 @@ router.post("/signin", async (req, res) => {
             "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc",
             (error, token) => {
               if (error) throw error;
-              res.json({ token, msg: "Signed in succeesfully" });
+              res.json({ token, msg: "Signed in successfully" });
             }
           );
         
