@@ -19,6 +19,7 @@ import {
 const BadgerState = (props) => {
 
     const initialState = {
+        token: {},
         user: {},
         auth: false,
         loading: false,
@@ -196,7 +197,6 @@ const BadgerState = (props) => {
 
         } catch (error) {
             console.log(error);
-
         }
 
     }
