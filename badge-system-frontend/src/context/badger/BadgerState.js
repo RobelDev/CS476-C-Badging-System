@@ -19,7 +19,7 @@ import {
 const BadgerState = (props) => {
 
     const initialState = {
-        token: {},
+        token: "",
         user: {},
         auth: false,
         loading: false,
