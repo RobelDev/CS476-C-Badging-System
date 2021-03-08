@@ -6,39 +6,22 @@ const badgeSchema = new mongoose.Schema({
         ref: "user",
     },
 
-    name: {
+    badgeName: {
         type: String,
     },
 
-    title: {
+    reason: {
         type: String,
     },
 
-    department: {
-        type: String,
-    },
+    // accomplishment: {
+    //     type: String,
+    // },
 
-    location: {
-        type: String,
-    },
-
-    accomplishment: {
-        type: String,
-    },
-
-    kudosBank: {
-        type: Number,
-    },
-
-    badges: [
-        {
-            badge: {
-                type: String,
-
-            },
-            
-        }
-    ],    
+    // kudosBank: {
+    //     type: Number,
+    // },
+ 
     
     date: {
         type: Date,
