@@ -68,10 +68,10 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: REGISTER_USER,
-                payload: res
+                payload: res.data
             });
 
-            console.log(res)
+            console.log(res.data)
 
 
         } catch (error) {
@@ -98,12 +98,12 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: LOG_IN,
-                payload: res
+                payload: res.data
             });
 
             dispatch(loadUser(res.data.token));
 
-            console.log(res)
+            console.log(res.data)
 
         } catch (error) {
             console.log(error);
@@ -131,7 +131,7 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: LOAD_USER,
-                payload: res
+                payload: res.data
             });
 
             console.log(res);
@@ -160,7 +160,7 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: CREAT_BADGE,
-                payload: res
+                payload: res.data
             });
 
             console.log(res);
@@ -188,10 +188,10 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: GET_MY_BADGES,
-                payload: res
+                payload: res.data
             })
 
-            console.log(res);
+            console.log(res.data);
 
 
         } catch (error) {
@@ -211,9 +211,9 @@ const BadgerState = (props) => {
 
             dispatch({
                 type: GET_ALL_BADGES,
-                payload: res
+                payload: res.data
             });
-            console.log(res);
+            console.log(res.data);
 
 
         } catch (error) {
@@ -267,7 +267,7 @@ const BadgerState = (props) => {
         try {
             const res = await axios.post("/api/auth/spendkudos", kudos, config);
 
-            console.log(res)
+            console.log(res.data)
 
             /*dispatch({
                 type: CHANGE_KUDOS
