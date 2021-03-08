@@ -21,7 +21,7 @@ export default (state, action) => {
         case LOAD_USER:
             return {
                 ...state,
-                user: action.payload.data.user,
+                user: action.payload.user,
                 auth: true,
                 loading: false,
             };
@@ -45,7 +45,6 @@ export default (state, action) => {
                 ...state,
                 myBadges: action.payload,
                 loading: false,
-
 
             };
         case GET_MY_BADGES:

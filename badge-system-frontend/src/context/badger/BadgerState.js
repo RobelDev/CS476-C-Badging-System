@@ -287,6 +287,7 @@ const BadgerState = (props) => {
 
     return (
         <BadgerContext.Provider value={{
+            token: state.token,
             user: state.user,
             auth: state.auth,
             loading: state.loading,
