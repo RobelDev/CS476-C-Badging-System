@@ -27,10 +27,6 @@ export default (state, action) => {
             };
 
         case LOG_IN:
-            return {
-                ...state
-            };
-            
         case REGISTER_USER:
             return {
                 ...state,
