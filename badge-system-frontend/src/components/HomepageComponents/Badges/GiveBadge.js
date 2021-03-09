@@ -1,10 +1,11 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useContext, useState} from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
 import "./GiveBadge.css";
 import "./2.jpg";
 import logo from '../../../Assets/Team_Badgers_Logo.png'
+import BadgerContext from "../../../context/badger/BadgerContext"
 
 const Background = styled.div`
   width: 120%;
@@ -20,6 +21,8 @@ const Background = styled.div`
 export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     
     const GiveBadgeModalRef = useRef();
+
+    const context= useContext(BadgerContext);
 
     const animation = useSpring({
         config: {
@@ -53,6 +56,26 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         [keyPress]
     );
 
+    const [data, setData] = useState({
+        badgeName: "",
+        reason: "",
+        receiver: "",
+
+    });
+
+    const { badgeName, reason,receiver } = data;
+
+    const onChange = async (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
+    };
+
+
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        context.creatBadge({data}, context.token);
+        console.log(data);
+    }
+
     return (
         <>
             {showGiveBadgeModal ? (
@@ -73,7 +96,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                             <div class="modal-content">
 
-                                <form class="send-badge-form" onSubmit="">
+                                <form class="send-badge-form" onSubmit={onSubmit}>
 
                                     <div class="modal-form-left">
 
@@ -81,19 +104,30 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                         <div class="recipient-input-div">
                                            
                                             <input class="recipient-input" type="text"
-                                                name="recipient"
+                                                name="receiver"
                                                 placeholder="Recipient"
-                                                onChange=""
+                                                value={receiver}
+                                                onChange= {onChange}
+                                                required />
+                                        </div>
+                                        <div class="recipient-input-div">
+                                           
+                                            <input class="recipient-input" type="text"
+                                                name="badgeName"
+                                                placeholder="badgeName"
+                                                value={badgeName}
+                                                onChange= {onChange}
                                                 required />
                                         </div>
 
                                         <p>What is the reason for sending this badge?</p>
                                         <div class="message-input-div">
                                             <textarea class="message-input" type="text"
-                                                name="message"
+                                                name="reason"
                                                 placeholder="Message"
-                                                onChange=""
+                                                value={reason}
                                                 minLength="8"
+                                                onChange= {onChange}
                                                 required />
                                             </div>
                                     </div>
