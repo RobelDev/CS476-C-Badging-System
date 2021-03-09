@@ -11,28 +11,24 @@ router.post("/create", middleware, async ( req, res) => {
     // const user = await User.findById(req.user.id).select("-password");
 
     const {
-        name,
-        title, 
-        department,
-        location,
-        accomplishment,
-        kudosBank,
-        badges,
-        email
-
+        badgeName,
+        reason,
+        receiver,  
+       
     } = req.body;
 
-    let userG = await User.findOne({email});
+    let userG = await User.findOne({email: receiver});
+
+    if(!userG){
+        console.log("no user found");
+        return res.json("no uesr")
+    }
 
     const field = {
         user: userG._id,
-        name,
-        title, 
-        department,
-        location,
-        accomplishment,
-        kudosBank,
-        badges,
+        badgeName,
+        reason,
+        receiver,  
     }
 
     try {
