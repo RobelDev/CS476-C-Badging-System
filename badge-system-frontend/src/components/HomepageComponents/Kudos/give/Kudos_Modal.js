@@ -58,7 +58,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(kudosInfo);
-    sendKudos(kudosInfo);
+    sendKudos(kudosInfo, context.token);
   };
 
   return (

@@ -13,15 +13,6 @@ const badgeSchema = new mongoose.Schema({
     reason: {
         type: String,
     },
-
-    // accomplishment: {
-    //     type: String,
-    // },
-
-    // kudosBank: {
-    //     type: Number,
-    // },
- 
     
     date: {
         type: Date,

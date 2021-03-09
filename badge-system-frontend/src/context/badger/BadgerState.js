@@ -226,7 +226,7 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = async (token, { email, kudos }) => {
+    const sendKudos = async ({ email, kudos }, token) => {
 
         const info = { email, kudos };
 
