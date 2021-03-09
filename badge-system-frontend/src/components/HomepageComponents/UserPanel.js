@@ -9,7 +9,9 @@ const UserPanel = () => {
 
     const context = useContext(BadgerContext)
 
-    const myBadges = context.allBadges
+    const getMybadges = () => {
+        // context.getMybadges();
+    }
 
     return(
         <div class="user-panel-div">
@@ -18,7 +20,7 @@ const UserPanel = () => {
                     Your Badges
                 </div>
 
-                { console.log(myBadges) }
+                {/* { console.log(myBadges) } */}
 
             </div>
 
