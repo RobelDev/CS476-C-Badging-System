@@ -135,6 +135,9 @@ const BadgerState = (props) => {
                 payload: res.data
             });
 
+            dispatch(getMyBadges(token));
+            dispatch(getAllBadges(token));
+
             console.log(res);
 
         } catch (error) {
@@ -145,13 +148,14 @@ const BadgerState = (props) => {
 
     // Create a badge
 
-    const creatBadge = async ({ data }) => {
+    const creatBadge = async ({ data }, token) => {
 
         // const badge = {email, name, title, department, location, accomplishment};
 
         const config = {
             headers: {
                 "Content-Type": "application/json",
+                "auth-token": token
             },
         };
 
@@ -175,7 +179,9 @@ const BadgerState = (props) => {
     }
 
     // Get my badges 
+    // signed user-- find all the badges given to this user
     const getMyBadges = async (token) => {
+
 
         const config = {
             headers: {
