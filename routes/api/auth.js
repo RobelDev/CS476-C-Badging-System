@@ -106,7 +106,7 @@ router.post("/register", async (req, res) => {
 });
 
 
-router.post("/kudos", middleware, async ( req, res) => {
+router.post("/giveKudos", middleware, async ( req, res) => {
 
 
     
