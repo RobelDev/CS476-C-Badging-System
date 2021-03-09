@@ -13,6 +13,10 @@ const badgeSchema = new mongoose.Schema({
     reason: {
         type: String,
     },
+
+    receiver: {
+        type: String,
+    },
     
     date: {
         type: Date,
