@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
 
   kudosBank: {
     type: Number,
-    default: "100000"
+    default: "10000"
   },
 
   date: {
