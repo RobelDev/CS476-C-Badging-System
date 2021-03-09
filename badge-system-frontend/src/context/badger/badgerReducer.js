@@ -19,6 +19,7 @@ export default (state, action) => {
     switch (action.type) {
 
         case LOAD_USER:
+
             return {
                 ...state,
                 user: action.payload.user,
@@ -40,6 +41,7 @@ export default (state, action) => {
             return {
                 ...state,
                 myBadges: action.payload,
+                // auth: true,
                 loading: false,
 
             };
