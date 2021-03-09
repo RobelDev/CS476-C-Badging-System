@@ -35,6 +35,7 @@ const LogIn = () => {
     const onSubmitSignin = async (e) => {
         e.preventDefault();
         context.logIn({ email, password });
+        // context.getMyBadges();
     };
 
     const onSubmitRegister = async (e) => {
