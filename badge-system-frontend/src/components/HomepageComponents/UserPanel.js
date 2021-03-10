@@ -9,8 +9,12 @@ const UserPanel = () => {
 
     const context = useContext(BadgerContext)
 
-    const getMybadges = () => {
-        // context.getMybadges();
+    var listOfBadges = [];
+
+    const populateUserPanel = () => {
+       for (var index = 0; index < context.myBadges.length; index++) {
+           listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
+       }
     }
 
     return(
@@ -20,7 +24,8 @@ const UserPanel = () => {
                     Your Badges
                 </div>
 
-                {/* { console.log(myBadges) } */}
+                {populateUserPanel()}
+                { listOfBadges}
 
             </div>
 

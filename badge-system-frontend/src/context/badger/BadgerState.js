@@ -198,7 +198,7 @@ const BadgerState = (props) => {
                 payload: res.data
             })
 
-            console.log(res.data);
+            //console.log(res.data);
 
 
         } catch (error) {

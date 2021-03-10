@@ -64,6 +64,14 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         [keyPress]
     );
 
+    const getBadgeName = () => {
+        var name = document.querySelector('input[name="badgeButton"]:checked').value;
+
+        console.log(name)
+
+        return name
+    }
+
     const [data, setData] = useState({
         badgeName: "",
         reason: "",
@@ -71,14 +79,14 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     });
 
-    const { badgeName, reason,receiver } = data;
+    const { badgeName, reason, receiver } = data;
 
     const onChange = async (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
-
     const onSubmit = async (e) => {
+        data.badgeName = getBadgeName();
         e.preventDefault();
         context.creatBadge({data}, context.token);
         console.log(data);
@@ -104,7 +112,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                             <div class="modal-content">
 
-                                <form class="send-badge-form" onSubmit={onSubmit}>
+                                <form class="send-badge-form" name="sendBadgeForm" onSubmit={onSubmit}>
 
                                     <div class="modal-form-left">
 
@@ -118,15 +126,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                                 onChange= {onChange}
                                                 required />
                                         </div>
-                                        <div class="recipient-input-div">
-                                           
-                                            <input class="recipient-input" type="text"
-                                                name="badgeName"
-                                                placeholder="badgeName"
-                                                value={badgeName}
-                                                onChange= {onChange}
-                                                required />
-                                        </div>
+                                        
 
                                         <p>What is the reason for sending this badge?</p>
                                         <div class="message-input-div">
@@ -146,33 +146,33 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             Below is where the list of badges will go, 
                                             for now there are just radio buttons and labels
                                         */}
-                                        <input type="radio" id="badge1" name="badge" value="badge1"/>
-                                        <label for="badge1"><img src={b5} /></label>
+                                        <input type="radio" id="5yr" name="badgeButton" value="5yr"/>
+                                        <label for="5yr"><img src={b5} /></label>
 
-                                        <input type="radio" id="badge2" name="badge" value="badge2"/>
-                                        <label for="badge2"><img src={b10} /></label>
+                                        <input type="radio" id="10yr" name="badgeButton" value="10yr"/>
+                                        <label for="10yr"><img src={b10} /></label>
 
-                                        <input type="radio" id="badge3" name="badge" value="badge3"/>
-                                        <label for="badge3"><img src={b15} /></label>
+                                        <input type="radio" id="15yr" name="badgeButton" value="15yr"/>
+                                        <label for="15yr"><img src={b15} /></label>
 
-                                        <input type="radio" id="badge4" name="badge" value="badge4" />
-                                        <label for="badge4"><img src={b20} /></label>
+                                        <input type="radio" id="20yr" name="badgeButton" value="20yr" />
+                                        <label for="20yr"><img src={b20} /></label>
 
-                                        <input type="radio" id="badge5" name="badge" value="badge5" />
-                                        <label for="badge5"><img src={b25} /></label>
+                                        <input type="radio" id="25yr" name="badgeButton" value="25yr" />
+                                        <label for="25yr"><img src={b25} /></label>
 
-                                        <input type="radio" id="badge6" name="badge" value="badge6" />
-                                        <label for="badge6"><img src={b30} /></label>
+                                        <input type="radio" id="30yr" name="badgeButton" value="30yr" />
+                                        <label for="30yr"><img src={b30} /></label>
 
-                                        <input type="radio" id="badge7" name="badge" value="badge6" />
-                                        <label for="badge6"><img src={b35} /></label>
+                                        <input type="radio" id="35yr" name="badgeButton" value="35yr" />
+                                        <label for="35yr"><img src={b35} /></label>
 
-                                        <input type="radio" id="badge8" name="badge" value="badge6" />
-                                        <label for="badge6"><img src={b40} /></label>
+                                        <input type="radio" id="40yr" name="badgeButton" value="40yr" />
+                                        <label for="40yr"><img src={b40} /></label>
                                             
                                     </div>
 
-                                    <button class="send-badge-button" type="submit">Send Badge</button>
+                                    <button class="send-badge-button" type="submit" onClick={ getBadgeName}>Send Badge</button>
 
                                 </form>
 
