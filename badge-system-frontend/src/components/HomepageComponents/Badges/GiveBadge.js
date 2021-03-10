@@ -6,6 +6,14 @@ import "./GiveBadge.css";
 import "./2.jpg";
 import logo from '../../../Assets/Team_Badgers_Logo.png'
 import BadgerContext from "../../../context/badger/BadgerContext"
+import b5 from '../../../Assets/5yrFull.png'
+import b10 from '../../../Assets/10yrFull.png'
+import b15 from '../../../Assets/15yrFull.png'
+import b20 from '../../../Assets/20yrFull.png'
+import b25 from '../../../Assets/25yrFull.png'
+import b30 from '../../../Assets/30yrFull.png'
+import b35 from '../../../Assets/35yrFull.png'
+import b40 from '../../../Assets/40yr.png'
 
 const Background = styled.div`
   width: 120%;
@@ -139,22 +147,28 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             for now there are just radio buttons and labels
                                         */}
                                         <input type="radio" id="badge1" name="badge" value="badge1"/>
-                                        <label for="badge1"><img src={logo} /></label>
+                                        <label for="badge1"><img src={b5} /></label>
 
                                         <input type="radio" id="badge2" name="badge" value="badge2"/>
-                                        <label for="badge2"><img src={logo} /></label>
+                                        <label for="badge2"><img src={b10} /></label>
 
                                         <input type="radio" id="badge3" name="badge" value="badge3"/>
-                                        <label for="badge3"><img src={logo} /></label>
+                                        <label for="badge3"><img src={b15} /></label>
 
                                         <input type="radio" id="badge4" name="badge" value="badge4" />
-                                        <label for="badge4"><img src={logo} /></label>
+                                        <label for="badge4"><img src={b20} /></label>
 
                                         <input type="radio" id="badge5" name="badge" value="badge5" />
-                                        <label for="badge5"><img src={logo} /></label>
+                                        <label for="badge5"><img src={b25} /></label>
 
                                         <input type="radio" id="badge6" name="badge" value="badge6" />
-                                        <label for="badge6"><img src={logo} /></label>
+                                        <label for="badge6"><img src={b30} /></label>
+
+                                        <input type="radio" id="badge7" name="badge" value="badge6" />
+                                        <label for="badge6"><img src={b35} /></label>
+
+                                        <input type="radio" id="badge8" name="badge" value="badge6" />
+                                        <label for="badge6"><img src={b40} /></label>
                                             
                                     </div>
 
