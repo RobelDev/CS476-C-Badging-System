@@ -90,7 +90,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
   return (
     <>
       {showSpendKudosModal ? (
-        <Background ref={modalRef}>
+        <Background ref={modalRef} onClick={closeModal}>
           <animated.div style={animation}>
             <div
               class="spendKudos-modal-wrapper"

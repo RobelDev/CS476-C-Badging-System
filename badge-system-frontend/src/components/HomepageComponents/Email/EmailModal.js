@@ -158,22 +158,41 @@ export const EmailModal = ({ showEmailModal, setShowEmailModal }) => {
     console.log(context);
   }
 
-  return (
-    <>
-      {showEmailModal ? (
+  var card;
+
+  const populateCard = () => {
+    if (context.isBadgesGet) {
+      setImageArray();
+      card = <Card arr={badgeArray} />;
+      console.log("I am here", badgeArray);
+    }
+  }
+
+  const display = () => {
+
+    if (showEmailModal) {
+
+      return (
         <Background ref={modalRef} onClick={closeModal}>
           <animated.div style={animation}>
             <div className="emailModal-wrapper" showEmailModal={showEmailModal}>
               <ModalContent>
-                {setImageArray()}
-                <Card arr={badgeArray} />
+                {card}
               </ModalContent>
               <CloseModalButton aria-label='Close modal' onClick={() => setShowEmailModal
                 (prev => !prev)} />
             </div>
           </animated.div>
         </Background>
-      ) : null}
+      )
+    }
+    else { return null; }
+  }
+
+  return (
+    <>
+      {populateCard()}
+      {display()}
     </>
   )
 }

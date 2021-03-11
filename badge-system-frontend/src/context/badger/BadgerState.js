@@ -27,6 +27,7 @@ const BadgerState = (props) => {
         allBadges: [],
         isKudosChanged: false,
         isBadgeSent: false,
+        isBadgesGet: false,
     }
 
 
@@ -198,7 +199,7 @@ const BadgerState = (props) => {
                 payload: res.data
             })
 
-            //console.log(res.data);
+            console.log(res.data);
 
 
         } catch (error) {
@@ -219,7 +220,7 @@ const BadgerState = (props) => {
                 type: GET_ALL_BADGES,
                 payload: res.data
             });
-            console.log(res.data);
+            //console.log(res.data);
 
 
         } catch (error) {
@@ -302,6 +303,7 @@ const BadgerState = (props) => {
             isKudosChanged: state.isKudosChanged,
             isBadgeSent: state.isBadgeSent,
             kudosInfo,
+            isBadgesGet: state.isBadgesGet,
             saveKudosInfo,
             registerUser,
             logIn,

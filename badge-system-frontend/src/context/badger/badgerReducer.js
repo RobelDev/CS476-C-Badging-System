@@ -50,6 +50,7 @@ export default (state, action) => {
                 ...state,
                 myBadges: action.payload,
                 loading: false,
+                isBadgesGet: true,
             };
 
 

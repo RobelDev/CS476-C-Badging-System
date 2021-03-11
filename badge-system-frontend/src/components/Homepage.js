@@ -4,7 +4,7 @@ import BadgerContext from '../context/badger/BadgerContext'
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
-import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
+import { WaterfallFeed } from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
@@ -50,7 +50,7 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    Kudos: { context.user.kudosBank }
+                    Kudos: {context.user.kudosBank}
                 </div>
             </div>
 

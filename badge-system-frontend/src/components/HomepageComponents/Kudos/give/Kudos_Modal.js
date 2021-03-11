@@ -64,7 +64,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
   return (
     <>
       {showModal ? (
-        <Background ref={modalRef}>
+        <Background ref={modalRef} onClick={closeModal}>
           <animated.div style={animation}>
             <div className="kudos-modal-wrapper" showModal={showModal}>
 

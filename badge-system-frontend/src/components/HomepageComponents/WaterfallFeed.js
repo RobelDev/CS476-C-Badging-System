@@ -1,24 +1,29 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useState } from "react";
 
-
+import BadgerContext from '../../context/badger/BadgerContext'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
 import MessageObject from "./WaterfallFeedComponents/MessageObject"
 
 import "./WaterfallFeed.css"
 
 
-function WaterfallFeed() {
+export const WaterfallFeed = () => {
+
+    const context = useContext(BadgerContext);
+
     return (
         <div class="waterfall-feed-container">
             <div class="feed-title">
                 Reward Feed
             </div>
             <div class="feed-div">
-
-                Content supposed to be here
+                <div>{context.kudosInfo.email}</div>
+                <div>{context.kudosInfo.reason}</div>
+                <div>{context.kudosInfo.kudos}</div>
                 {/*(<ChatRoom />
                 <MessageObject />*/}
+
             </div>
         </div>
     );
@@ -77,4 +82,3 @@ function RewardMessage(props) {
 
 */
 
-export default WaterfallFeed;
