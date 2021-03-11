@@ -1,13 +1,25 @@
-import React from 'react';
-import '../styles/Card.css';
+import React, { useContext } from 'react';
+import './Card.css';
 import img1 from '../imgs/1.jpg';
 import img2 from '../imgs/2.jpeg';
 import img4 from '../imgs/4.jpg';
 import img5 from '../imgs/5.jpg';
+import BadgerContext from '../../../context/badger/BadgerContext'
+import { SetArray } from "./SetArray"
+import b5 from '../../../Assets/5yrFull.png'
+import b10 from '../../../Assets/10yrFull.png'
+import b15 from '../../../Assets/15yrFull.png'
+import b20 from '../../../Assets/20yrFull.png'
+import b25 from '../../../Assets/25yrFull.png'
+import b30 from '../../../Assets/30yrFull.png'
+import b35 from '../../../Assets/35yrFull.png'
+import b40 from '../../../Assets/40yr.png'
+import logo from '../../../Assets/Team_Badgers_Logo.png'
 
 
 
 class Card extends React.Component {
+
     constructor(props) {
         // get interface
         // let url = "some url"
@@ -26,24 +38,25 @@ class Card extends React.Component {
         this.state = {
             mode: 1,
             uname: "",
-            imgs: [
-                {
-                    mode: false,
-                    img: img1,
-                },
-                {
-                    mode: false,
-                    img: img2,
-                },
-                {
-                    mode: false,
-                    img: img4,
-                },
-                {
-                    mode: false,
-                    img: img5,
-                }
-            ],
+            imgs: this.props.arr,
+            /*[{
+                mode: false,
+                img: img1,
+            },
+            {
+                mode: false,
+                img: img2,
+            },
+            {
+                mode: false,
+                img: img4,
+            },
+            {
+                mode: false,
+                img: img5,
+            }
+        ] */
+            //props.badgeData,
             fontSelected: {
                 text1: "STHeiti",
                 text2: "STKaiti",
@@ -59,6 +72,7 @@ class Card extends React.Component {
             width: 200,
             height: 200,
         }
+        this.showImgInfo = this.showImgInfo.bind(this);
         this.NextClick = this.NextClick.bind(this);
         this.BackClick = this.BackClick.bind(this);
         this.getMsgClick = this.getMsgClick.bind(this);
@@ -71,12 +85,28 @@ class Card extends React.Component {
         this.downLoad = this.downLoad.bind(this);
         this.closeClick = this.closeClick.bind(this);
         this.setChecked = this.setChecked.bind(this);
+        this.showImgInfo = this.showImgInfo.bind(this);
+        // this.setImgsArray = this.setImgsArray.bind(this);
     }
 
+    /*
+        setImgsArray() {
+            var badgeArray = this.props.arr
+            for (var index = 0; index < badgeArray.length; index++) {
+                this.state.imgs[index] = badgeArray[index];
+            }
+            console.log("here is the props", this.props.arr)
+            console.log("here is the badge", badgeArray)
+            console.log("here is the state", this.state.imgs)
+        } */
+
+    showImgInfo() {
+        console.log(this.state.imgs);
+    }
 
     componentDidMount() {
-        this.initCanvas();
 
+        this.initCanvas();
     }
     componentDidUpdate() {
         this.initCanvas();
@@ -115,8 +145,8 @@ class Card extends React.Component {
                 })
             }
             let arr = []
-            for(let i in this.state.imgs){
-                if(this.state.imgs[i].mode){
+            for (let i in this.state.imgs) {
+                if (this.state.imgs[i].mode) {
                     arr.push(this.state.imgs[i])
                 }
             }
@@ -241,7 +271,7 @@ class Card extends React.Component {
         if (!this.state.uname) {
             alert("Please enter your name")
         }
-        document.querySelector("#font").style.fontFamily = e.target.value
+        /*document.querySelector("#font").style.fontFamily = e.target.value */
         this.setState({
             fontFamily: e.target.value
         })
@@ -256,22 +286,28 @@ class Card extends React.Component {
         })
     }
 
+    showBadgeInfo(index) {
+        console.log(this.state.imgs[index]);
+    }
+
+
     render() {
+
         if (this.state.mode === 1) {
             return (
-                <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m card-box">
-                    <h3 className="uk-card-title">Select your Badges</h3>
-                    <div className='img-box'>
+                <div className="email-funtion-box" >
+                    <div className="email-funtion-title"><p>Select your Badges</p></div>
+                    <div className="modal-form-badges-selector">
 
                         {
                             this.state.imgs.map((item, index) => {
                                 return (
-                                    <div className="uk-width-1-6@m img-box-column">
-                                        <div>
-                                            <img src={item.img} alt={index} />
-                                        </div>
-                                        <div>
-                                            <input className="uk-checkbox" type="checkbox" value={item.mode} onChange={(e) => this.setChecked(e, index, item.img)} checked={item.mode} />
+                                    <div className="badges-select-block">
+                                        <div className="badge-display"><img src={this.state.imgs[index].img} /></div>
+
+                                        {/*<BadgeObject badge={this.state.imgs[index]} >*/}
+                                        <div className="check-box-div">
+                                            <input type="checkbox" value={item.mode} onChange={(e) => this.setChecked(e, index, item.img)} checked={item.mode} />
                                         </div>
                                     </div>
                                 )
@@ -279,22 +315,17 @@ class Card extends React.Component {
                         }
 
                     </div>
-
-                    <div className="img-box-btn">
-                        <div>
-                            <button className="uk-button uk-button-danger" onClick={this.NextClick}>Next</button>
-                        </div>
-                    </div>
-                </div>
+                    <button className="button-style-1" onClick={this.NextClick}>Next</button>
+                </div >
             )
         } else if (this.state.mode === 2) {
             return (
-                <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m card-box">
-                    <h3 className="uk-card-title">Enter your name</h3>
+                <div className="email-funtion-box">
+                    <div className="email-funtion-title"><p>Enter your name</p></div>
                     <div>
                         <input className="uk-input" placeholder="Enter your name" value={this.state.uname} onChange={this.getMsgClick} />
                     </div>
-                    <h3 className="uk-card-title">Select your font</h3>
+                    <div className="email-funtion-title"><p>select your font</p></div>
                     <div className="uk-margin font-box">
                         <div uk-form-custom="target: > * > span:first-child">
                             <select onChange={this.updateFontChange}>
@@ -307,39 +338,28 @@ class Card extends React.Component {
                                 <option value={this.state.fontSelected.text6}>{this.state.fontSelected.text6}</option>
                                 <option value={this.state.fontSelected.text7}>{this.state.fontSelected.text7}</option>
                             </select>
-                            <button className="uk-button uk-button-default select-box" type="button" tabIndex="-1">
-                                <span></span>
-                                <span uk-icon="icon: chevron-down"></span>
-                            </button>
+
                         </div>
-                        <div className="uk-width-1-2@m" id="font">{this.state.uname}</div>
+                        {/* <div className="uk-width-1-2@m" id="font">{this.state.uname}</div> */}
                     </div>
                     <div className="img-box-btn">
-                        <div>
-                            <button className="uk-button uk-button-primary" onClick={this.BackClick}>Back</button>
-                        </div>
-                        <div>
-                            <button className="uk-button uk-button-danger" onClick={this.NextClick}>Next</button>
-                        </div>
+                        <button className="button-style" onClick={this.BackClick}>Back</button>
+                        <button className="button-style" onClick={this.NextClick}>Next</button>
                     </div>
                 </div>
             )
         } else if (this.state.mode === 3) {
             return (
-                <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m card-box" id="box">
-                    <h3 className="uk-card-title">Preview</h3>
+                <div className="email-funtion-box">
+                    <div className="email-funtion-title"><p>Preview</p></div>
                     <div className='p-box' id="aimBlock">
                         <div>
                             <canvas className="p-box-canvas" id="p-img"></canvas>
                         </div>
                     </div>
-                    <div className="img-box-btn">
-                        <div>
-                            <button className="uk-button uk-button-danger" onClick={this.downLoad}>Save</button>
-                        </div>
-                        <div>
-                            <button className="uk-button uk-button-primary" onClick={this.BackClick}>Back</button>
-                        </div>
+                    <div className="img-box-btn-2">
+                        <button className="button-style" onClick={this.downLoad}>Save</button>
+                        <button className="button-style-1" onClick={this.BackClick}>Back</button>
                     </div>
                 </div>
             )

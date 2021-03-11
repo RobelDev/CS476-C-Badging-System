@@ -1,13 +1,14 @@
-import React, { useState, createContext, useRef, useEffect, useCallback } from "react";
+import React, { useState, useContext, useRef, useEffect, useCallback } from "react";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
 import "./Spend_Kudos.css";
 import goods1 from "./images/coffee.jpg";
 import goods2 from "./images/snickers.jpg";
 import goods3 from "./images/tacos.jpg";
+import BadgerContext from '../../../../context/badger/BadgerContext'
 
 
-export const context = createContext({});
+
 
 const Background = styled.div`
   width: 120%;
@@ -23,6 +24,7 @@ const Background = styled.div`
 
 export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
+  const context = useContext(BadgerContext);
 
   const modalRef = useRef();
 
@@ -180,6 +182,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                     </div>
                     <div class="modal-kudos-cost">
                       <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400} </div>
+                      <div> Your Kudos: {context.user.kudosBank}</div>
                     </div>
                   </div>
                   <button class="spend-kudos-button" type="submit">

@@ -1,0 +1,170 @@
+.emailModal-wrapper {
+    width: 50vw;
+    height: 55vh;
+    background: #2e2e2e;
+    z-index: 1;
+    border-radius: 0.3vw;
+    color: white;
+}
+
+.title-div p {
+    font-size: 3vh;
+    color: white;
+    height: 6vh;
+}
+
+.title-div {
+    width: 60vw;
+    display: flex;
+    height: 5vh;
+    justify-content: flex-end;
+    border-bottom: solid #262626;
+    border-bottom-width: 3px;
+}
+
+.close-emailModal-button {
+    margin-top: 0.5vh;
+    margin-left: 22vw;
+    z-index: 10;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.00);
+    border:none;
+    width: 2vw;
+    height: 4vh;
+}
+
+.close-emailModal-button i {
+    font-size: 1.7vw;
+}
+
+.close-emailModal-button:hover {
+    color: crimson;
+}
+
+.emailModal-content {
+    margin-top: 3vh;
+    margin-left: 0;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    background-color: #2e2e2e;
+    border: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.send-badge-form {
+    width: 100%;
+    display: flex;
+    margin: 0;
+}
+
+.emailModal-form-left {
+    background-color: #2e2e2e;
+    width: 40%;
+    margin-left: 2vw;
+}
+
+.emailModal-form-left p {
+    font-size: 1vw;
+}
+
+.recipient-input-div {
+    margin-top: 1vh;
+    margin-bottom: 6vh;
+    color: white;
+}
+
+.recipient-input {
+    width: 20vw;
+    color: white;
+    background-color: #121212;
+    border: solid;
+    border-radius: 0;
+    border-color: black;
+    font-size: 2vh;
+    font-size: 1vw;
+}
+
+.message-input-div input {
+    color: white;
+    height: 20vh;
+    background-color: black;
+}
+
+.message-input {
+    height: 20vh;
+    width: 20vw;
+    resize: none;
+    color: white;
+    background-color: #121212;
+    border: solid;
+    border-color: black;
+    font-size: 1.5vh;
+    font-size: 0.7vw;
+}
+
+.emailModal-form-right {
+    margin-left: 10%;
+    background-color: #2e2e2e;
+    width: 40%;
+    overflow-y: scroll;
+    padding-right: 1vw;
+    height: 80%;
+}
+
+.emailModal-form-right label {
+    position: relative;
+    margin-left: 1vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.emailModal-form-right input {
+    margin-left: -5vw;
+    margin-bottom: 10vh;
+}
+
+.emailModal-form-right::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+.emailModal-form-right::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px
+}
+
+.emailModal-form-right::-webkit-scrollbar-thumb {
+    background: #0d0c0c;
+    border: 0px none #ffffff;
+    border-radius: 5px;
+}
+
+.emailModal-form-right::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border: 0px none #ffffff;
+    border-radius: 100px;
+}
+
+.send-badge-button {
+    background-color: crimson;
+    position: absolute;
+    top: 90%;
+    left: 27.5%;
+    border-radius: 0.3vw;
+    width: 25vw;
+    height: 5vh;
+    transition: 0.4s;
+    transition-property: all;
+    border: none;
+    font-size: 1vw;
+}
+
+.send-badge-button:hover {
+    background-color: white;
+    border-radius: 1vw;
+    color: crimson;
+    flex-direction: row-reverse;
+}
+
