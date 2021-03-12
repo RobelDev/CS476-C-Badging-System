@@ -14,6 +14,7 @@ import b25 from '../../../Assets/25yrFull.png'
 import b30 from '../../../Assets/30yrFull.png'
 import b35 from '../../../Assets/35yrFull.png'
 import b40 from '../../../Assets/40yr.png'
+// import User from '../../../../../model/User';
 
 const Background = styled.div`
   width: 120%;
@@ -64,13 +65,13 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         [keyPress]
     );
 
-    const getBadgeName = () => {
-        var name = document.querySelector('input[name="badgeButton"]:checked').value;
+    // const getBadgeName = () => {
+    //     var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
-        console.log(name)
+    //     console.log(name)
 
-        return name
-    }
+    //     return name
+    // }
 
     const [data, setData] = useState({
         receiver: "",
@@ -87,12 +88,15 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const onSubmit = async (e) => {
 
-        data.badgeName = getBadgeName();
+        // data.badgeName = getBadgeName();
         e.preventDefault();
         console.log("11111111111", data.receiver)
         context.saveBadgesInfo(receiver, reason, badgeName);
-        console.log("222222222222", context.badgesInfo);
-        context.creatBadge(context.badgesInfo, context.token);
+        // console.log("222222222222", context.badgesInfo);
+        if(context.auth){
+            context.creatBadge(context.badgesInfo, context.token);
+
+        }
 
     }
 
@@ -175,7 +179,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                                     </div>
 
-                                    <button class="send-badge-button" type="submit" onClick={getBadgeName}>Send Badge</button>
+                                    <button class="send-badge-button" type="submit" onClick={onsubmit}>Send Badge</button>
 
                                 </form>
 

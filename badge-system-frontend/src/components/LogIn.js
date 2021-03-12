@@ -46,7 +46,7 @@ const LogIn = () => {
     if (context.auth) {
         return (<Homepage />)
     }
-    else {
+    // else {
         return (
             <div class="wrapper">
                 <div class="LoginUI">
@@ -165,9 +165,10 @@ const LogIn = () => {
 
             </div>
         )
-    }
+    //}
 
     
 }
 
-export default LogIn
+
+export default LogIn;
