@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useCallback, useContext, useState} from 'react';
+import React, { useRef, useEffect, useCallback, useContext, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
@@ -27,10 +27,10 @@ const Background = styled.div`
 
 
 export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
-    
+
     const GiveBadgeModalRef = useRef();
 
-    const context= useContext(BadgerContext);
+    const context = useContext(BadgerContext);
 
     const animation = useSpring({
         config: {
@@ -73,23 +73,27 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     }
 
     const [data, setData] = useState({
-        badgeName: "",
-        reason: "",
         receiver: "",
+        reason: "",
+        badgeName: "",
 
     });
 
-    const { badgeName, reason, receiver } = data;
+    const { receiver, reason, badgeName } = data;
 
     const onChange = async (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
     const onSubmit = async (e) => {
+
         data.badgeName = getBadgeName();
         e.preventDefault();
-        context.creatBadge({data}, context.token);
-        console.log(data);
+        console.log("11111111111", data.receiver)
+        context.saveBadgesInfo(receiver, reason, badgeName);
+        console.log("222222222222", context.badgesInfo);
+        context.creatBadge(context.badgesInfo, context.token);
+
     }
 
     return (
@@ -118,26 +122,25 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                                         <p>Who would you like to send a badge to?</p>
                                         <div class="recipient-input-div">
-                                           
+
                                             <input class="recipient-input" type="text"
                                                 name="receiver"
                                                 placeholder="Recipient"
-                                                value={receiver}
-                                                onChange= {onChange}
+                                                onChange={onChange}
                                                 required />
                                         </div>
-                                        
+
 
                                         <p>What is the reason for sending this badge?</p>
                                         <div class="message-input-div">
                                             <textarea class="message-input" type="text"
                                                 name="reason"
                                                 placeholder="Message"
-                                                value={reason}
+
                                                 minLength="8"
-                                                onChange= {onChange}
+                                                onChange={onChange}
                                                 required />
-                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="modal-form-right">
@@ -146,13 +149,13 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             Below is where the list of badges will go, 
                                             for now there are just radio buttons and labels
                                         */}
-                                        <input type="radio" id="5yr" name="badgeButton" value="5yr"/>
+                                        <input type="radio" id="5yr" name="badgeButton" value="5yr" />
                                         <label for="5yr"><img src={b5} /></label>
 
-                                        <input type="radio" id="10yr" name="badgeButton" value="10yr"/>
+                                        <input type="radio" id="10yr" name="badgeButton" value="10yr" />
                                         <label for="10yr"><img src={b10} /></label>
 
-                                        <input type="radio" id="15yr" name="badgeButton" value="15yr"/>
+                                        <input type="radio" id="15yr" name="badgeButton" value="15yr" />
                                         <label for="15yr"><img src={b15} /></label>
 
                                         <input type="radio" id="20yr" name="badgeButton" value="20yr" />
@@ -169,17 +172,17 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                                         <input type="radio" id="40yr" name="badgeButton" value="40yr" />
                                         <label for="40yr"><img src={b40} /></label>
-                                            
+
                                     </div>
 
-                                    <button class="send-badge-button" type="submit" onClick={ getBadgeName}>Send Badge</button>
+                                    <button class="send-badge-button" type="submit" onClick={getBadgeName}>Send Badge</button>
 
                                 </form>
 
                             </div>
 
-                            
-                            
+
+
 
                         </div>
 
@@ -224,8 +227,8 @@ class GiveBadge extends React.Component {
                         <h3>Give Badge</h3>
                         <label>
                             Who are you sending Badge to?
-                            <input type="text" name="name" />    
-                        </label> 
+                            <input type="text" name="name" />
+                        </label>
                         <br />
                         <div className="row padd-15">
                             <label>
@@ -251,8 +254,8 @@ class GiveBadge extends React.Component {
                         <br />
                         <label>
                             Why are you sending the Badge?
-                            <input type="text" name="name" />    
-                        </label> 
+                            <input type="text" name="name" />
+                        </label>
                         <br />
                         <input type="submit" />
                     </form>

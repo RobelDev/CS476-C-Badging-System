@@ -164,7 +164,7 @@ export const EmailModal = ({ showEmailModal, setShowEmailModal }) => {
     if (context.isBadgesGet) {
       setImageArray();
       card = <Card arr={badgeArray} />;
-      console.log("I am here", badgeArray);
+      //console.log("I am here", badgeArray);
     }
   }
 

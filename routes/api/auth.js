@@ -7,60 +7,60 @@ const jwt = require("jsonwebtoken");
 
 // this one needs a middleware
 // see another option
-router.get("/signin", middleware, async (req, res) =>{
+router.get("/signin", middleware, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select("-password");
-        
-        if(!user){
-            res.json({msg : "User not found"});
+
+        if (!user) {
+            res.json({ msg: "User not found" });
         }
 
-        res.json({user, msg: "user signed in"});
+        res.json({ user, msg: "user signed in" });
     }
 
-    catch(error){
+    catch (error) {
         console.error(error.message);
         res.status(500).send("Server Error");
     }
-} 
+}
 );
 
 router.post("/signin", async (req, res) => {
 
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({email});
+        const user = await User.findOne({ email });
 
-        if(!user){
-            return res.json({msg: "User not found"});
+        if (!user) {
+            return res.json({ msg: "User not found" });
         }
 
         // const confirmPassword = (password == user.password);
 
-        if( password != user.password){
-            return res.json({msg : "Password doesnot match"});
+        if (password != user.password) {
+            return res.json({ msg: "Password doesnot match" });
         }
 
         const payload = {
             user: {
-              id: user.id,
+                id: user.id,
             },
-          };
+        };
 
-          jwt.sign(
+        jwt.sign(
             payload,
             "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc",
             (error, token) => {
-              if (error) throw error;
-              res.json({ token, msg: "Signed in successfully" });
+                if (error) throw error;
+                res.json({ token, msg: "Signed in successfully" });
             }
-          );
-        
+        );
+
     } catch (error) {
 
         console.log(error);
-        res.status(500).send("Server Error");        
+        res.status(500).send("Server Error");
     }
 });
 
@@ -68,15 +68,15 @@ router.post("/signin", async (req, res) => {
 
 router.post("/register", async (req, res) => {
 
-    const {email, password} = req.body;
+    const { email, password } = req.body;
 
 
     try {
 
-        let user = await User.findOne({email});
+        let user = await User.findOne({ email });
 
-        if(user){
-            return res.json({msg : "user already exists!"})
+        if (user) {
+            return res.json({ msg: "user already exists!" })
         }
 
         user = new User({ email, password });
@@ -88,85 +88,85 @@ router.post("/register", async (req, res) => {
 
         const payload = {
             user: {
-              id: user.id,
+                id: user.id,
             },
-          };
-         
+        };
+
         const token = jwt.sign(payload, "jwtSecretKeyhjajdbjfascmfgbsdjgsjbgjsgbjc");
 
-        
+
         res.json(token);
 
     } catch (error) {
-        
+
         console.error(error.message);
         res.status(500).send("Server Error");
-        
+
     }
 });
 
 
-router.post("/giveKudos", middleware, async ( req, res) => {
+router.post("/giveKudos", middleware, async (req, res) => {
 
 
-    
-    const { email, kudos} = req.body;
 
-    let kudosReciever = await User.findOne({email}).select("-password");
+    const { email, kudos } = req.body;
 
-   
+    let kudosReciever = await User.findOne({ email }).select("-password");
 
-    if(!kudosReciever){
+
+
+    if (!kudosReciever) {
         return res.send("No found user with that email")
     }
 
     try {
 
-        
+
         const giver = await User.findById(
-             req.user.id,
+            req.user.id,
         );
-        
-        giver.kudosBank -=  kudos;
+
+        giver.kudosBank -= parseInt(kudos);
 
         await giver.save();
 
-        kudosReciever.kudosBank +=  kudos;
+        kudosReciever.kudosBank += parseInt(kudos);
 
         await kudosReciever.save();
 
-        
+
 
         res.json(giver);
 
     } catch (error) {
 
-      console.error(error.message);
-      res.status(500).send("Server Error");
-        
+        console.error(error.message);
+        res.status(500).send("Server Error");
+
     }
 
 });
 
-router.post("/spendkudos", middleware, async ( req, res) => {
+router.post("/spendkudos", middleware, async (req, res) => {
 
 
-    
-    const { kudos} = req.body;
+
+    const { kudos } = req.body;
 
     const user = await User.findById(req.user.id);
 
-   
 
-    if(!user){
+
+    if (!user) {
         return res.send("No found user")
     }
 
     try {
 
-        
-              
-        user.kudosBank -=  kudos;
+
+
+        user.kudosBank -= kudos;
 
         // await giver.save();
 
@@ -174,15 +174,15 @@ router.post("/spendkudos", middleware, async ( req, res) => {
 
         await user.save();
 
-        
+
 
         res.json(user);
 
     } catch (error) {
 
-      console.error(error.message);
-      res.status(500).send("Server Error");
-        
+        console.error(error.message);
+        res.status(500).send("Server Error");
+
     }
 
 });

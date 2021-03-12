@@ -25,32 +25,39 @@ const BadgerState = (props) => {
         loading: false,
         myBadges: [],
         allBadges: [],
-        isKudosChanged: false,
-        isBadgeSent: false,
         isBadgesGet: false,
     }
 
 
+    const [isKudosChanged, setisKudosChanged] = useState(false);
+    const [isBadgeSent, setisBadgeSent] = useState(false);
+
     const [badgesInfo, setBadgesInfo] = useState({
-        email: "",
+        receiver: "",
         reason: "",
-        badges: []
+        badgeName: ""
     })
 
 
     const [kudosInfo, setKudosInfo] = useState({
         email: "",
         reason: "",
-        kudos: Number,
+        kudos: 0
     })
 
-    const saveBadgesInfo = (e) => {
-        setBadgesInfo({ ...badgesInfo, [e.target.name]: e.target.value });
+    const saveBadgesInfo = (value1, value2, value3) => {
+        setBadgesInfo({ ...badgesInfo, receiver: value1, reason: value2, badgeName: value3 });
     }
 
-    const saveKudosInfo = (e) => {
-        setKudosInfo({ ...kudosInfo, [e.target.name]: e.target.value });
+    const saveKudosInfo = (value1, value2, value3) => {
+
+        setKudosInfo({ ...kudosInfo, email: value1, reason: value2, kudos: value3 });
+        console.log("first time call saveKudos")
+        console.log(kudosInfo)
     }
+
+
+
 
     const [state, dispatch] = useReducer(badgerReducer, initialState);
     // const {user, auth, loading, myBadges, allBadges} = state;
@@ -149,9 +156,11 @@ const BadgerState = (props) => {
 
     // Create a badge
 
-    const creatBadge = async ({ data }, token) => {
+    const creatBadge = async ({ receiver, reason, badgeName }, token) => {
 
         // const badge = {email, name, title, department, location, accomplishment};
+
+        const data = { receiver, reason, badgeName }
 
         const config = {
             headers: {
@@ -162,12 +171,17 @@ const BadgerState = (props) => {
 
 
         try {
+            console.log("1111111111", data);
             const res = await axios.post("/api/badge/create", data, config);
+
+
 
             dispatch({
                 type: CREAT_BADGE,
                 payload: res.data
             });
+
+            setisBadgeSent(true);
 
             console.log(res);
 
@@ -233,11 +247,10 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = async ({ email, reason, kudosAmount }, token) => {
+    const sendKudos = async ({ email, kudos }, token) => {
 
 
-        const kudos = parseInt(kudosAmount);
-        //console.log(typeof (kudos));
+        //const kudos = parseInt(kudosAmount);
 
         const info = { email, kudos };
 
@@ -248,14 +261,22 @@ const BadgerState = (props) => {
             },
         };
 
+
+
         try {
+
+            console.log("the state function")
+
             const res = await axios.post("/api/auth/giveKudos", info, config);
 
-            //console.log(res)
 
-            /*dispatch({
-                type: CHANGE_KUDOS
-            }) */
+            setisKudosChanged(true);
+            console.log("lllllllll", isKudosChanged)
+
+            /* dispatch({
+                 type: CHANGE_KUDOS
+             })*/
+
 
         } catch (error) {
             console.log(error);
@@ -296,6 +317,10 @@ const BadgerState = (props) => {
         dispatch({ type: LOG_OUT, payload: "Logged out" });
     }
 
+    const setKudosFlag = () => {
+        setisKudosChanged(!isKudosChanged);
+    }
+
     return (
         <BadgerContext.Provider value={{
             token: state.token,
@@ -304,11 +329,13 @@ const BadgerState = (props) => {
             loading: state.loading,
             myBadges: state.myBadges,
             allBadges: state.allBadges,
-            isKudosChanged: state.isKudosChanged,
-            isBadgeSent: state.isBadgeSent,
+            isKudosChanged,
+            isBadgeSent,
             kudosInfo,
+            badgesInfo,
             isBadgesGet: state.isBadgesGet,
             saveKudosInfo,
+            saveBadgesInfo,
             registerUser,
             logIn,
             logOut,

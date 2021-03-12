@@ -10,20 +10,63 @@ import "./WaterfallFeed.css"
 
 export const WaterfallFeed = () => {
 
+    const kudosInfoArray = [];
+
+    var email;
+    var kudosReason;
+    var kudos;
+    var receiver;
+    var badgeName;
+    var badgeReason
+
     const context = useContext(BadgerContext);
+
+    const showKudosInfo = () => {
+
+        console.log("Waterfallfeed called here", context.isKudosChanged);
+
+        if (context.isKudosChanged) {
+            email = context.kudosInfo.email;
+            kudosReason = context.kudosInfo.reason;
+            kudos = context.kudosInfo.kudos;
+
+        }
+    }
+
+    const showBadgesInfo = () => {
+
+        console.log("Waterfallfeed called here", context.isBadgeSent);
+
+        if (context.isBadgeSent) {
+            receiver = context.badgesInfo.receiver;
+            badgeReason = context.badgesInfo.reason;
+            kudos = context.badgesInfo.badgeName;
+
+        }
+    }
 
     return (
         <div class="waterfall-feed-container">
             <div class="feed-title">
                 Reward Feed
             </div>
+
             <div class="feed-div">
-                <div>{context.kudosInfo.email}</div>
-                <div>{context.kudosInfo.reason}</div>
-                <div>{context.kudosInfo.kudos}</div>
+                {showKudosInfo()}
+                <div>{email}</div>
+                <div>{kudosReason}</div>
+                <div>{kudos}</div>
                 {/*(<ChatRoom />
                 <MessageObject />*/}
+            </div>
 
+            <div class="feed-div">
+                {showBadgesInfo()}
+                <div>{receiver}</div>
+                <div>{badgeReason}</div>
+                <div>{badgeName}</div>
+                {/*(<ChatRoom />
+                <MessageObject />*/}
             </div>
         </div>
     );

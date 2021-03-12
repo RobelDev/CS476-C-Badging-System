@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import "./Kudos_Modal.css";
 import BadgerContext from '../../../../context/badger/BadgerContext';
+import { WaterfallFeed } from '../../WaterfallFeed';
 
 const Background = styled.div`
   width: 120%;
@@ -53,12 +54,28 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     [keyPress]
   );
 
-  const { kudosInfo, saveKudosInfo, sendKudos } = useContext(BadgerContext);
+  const { kudosInfo, saveKudosInfo, sendKudos, setKudosFlag } = useContext(BadgerContext);
+
+  const [data, setData] = useState({
+    email: "",
+    reason: "",
+    kudos: "",
+
+  });
+
+  const { email, reason, kudos } = data;
+
+  const onChange = async (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("here it is", typeof (kudosInfo.kudos));
+    context.saveKudosInfo(email, reason, kudos);
+    console.log("1111111111", kudosInfo)
     sendKudos(kudosInfo, context.token);
+
   };
 
   return (
@@ -91,7 +108,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <input className="kudos-recipient-input" type="text"
                         name="email"
                         placeholder="Recipient"
-                        onChange={saveKudosInfo}
+                        onChange={onChange}
                         required />
                     </div>
 
@@ -100,7 +117,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <textarea class="message-input" type="text"
                         name="reason"
                         placeholder="Message"
-                        onChange={saveKudosInfo}
+                        onChange={onChange}
                         min="8"
                         required />
                     </div>
@@ -112,7 +129,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
                       <input className="kudos-amount-input" type="amount"
                         name="kudos"
                         placeholder="0"
-                        onChange={saveKudosInfo}
+                        onChange={onChange}
                         required></input>
                     </div>
 
