@@ -41,7 +41,7 @@ const BadgerState = (props) => {
     const [kudosInfo, setKudosInfo] = useState({
         email: "",
         reason: "",
-        kudos: Number
+        kudos: Number,
     })
 
     const saveBadgesInfo = (e) => {
@@ -233,7 +233,11 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = async ({ email, kudos }, token) => {
+    const sendKudos = async ({ email, reason, kudosAmount }, token) => {
+
+
+        const kudos = parseInt(kudosAmount);
+        //console.log(typeof (kudos));
 
         const info = { email, kudos };
 
@@ -245,9 +249,9 @@ const BadgerState = (props) => {
         };
 
         try {
-            const res = await axios.post("/api/auth/kudos", info, config);
+            const res = await axios.post("/api/auth/giveKudos", info, config);
 
-            console.log(res)
+            //console.log(res)
 
             /*dispatch({
                 type: CHANGE_KUDOS
