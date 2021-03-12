@@ -1,4 +1,4 @@
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect, useRef } from 'react';
 import axios from 'axios';
 import badgerReducer from "./badgerReducer";
 import BadgerContext from "./BadgerContext"
@@ -49,10 +49,14 @@ const BadgerState = (props) => {
         setBadgesInfo({ ...badgesInfo, receiver: value1, reason: value2, badgeName: value3 });
     }
 
-    const saveKudosInfo = (value1, value2, value3) => {
+    const kudosInfoRef = useRef(null);
 
+    useEffect(() => {
+        kudosInfoRef.current = kudosInfo;
+    }, [kudosInfo]);
+
+    function saveKudosInfo(value1, value2, value3) {
         setKudosInfo({ ...kudosInfo, email: value1, reason: value2, kudos: value3 });
-        console.log("first time call saveKudos")
         console.log(kudosInfo)
     }
 
@@ -247,7 +251,7 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = async ({ email, kudos }, token) => {
+    const sendKudos = ({ email, kudos }, token) => {
 
 
         //const kudos = parseInt(kudosAmount);
