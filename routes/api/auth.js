@@ -109,7 +109,6 @@ router.post("/register", async (req, res) => {
 router.post("/giveKudos", middleware, async (req, res) => {
 
 
-
     const { email, kudos } = req.body;
 
     let kudosReciever = await User.findOne({ email }).select("-password");
