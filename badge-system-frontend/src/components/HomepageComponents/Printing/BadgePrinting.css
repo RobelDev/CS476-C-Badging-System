@@ -7,12 +7,11 @@
     color: white;
 }
 
-
-
 .title-div p {
     font-size: 3vh;
-    color: rgb(155, 145, 145);
+    color: white;
     height: 6vh;
+    margin: 0;
 }
 
 .title-div {
@@ -23,21 +22,6 @@
     border-bottom: solid #262626;
     border-bottom-width: 3px;
 }
-
-/*.info-div p {
-    font-size: 6vh;
-    color: rgb(155, 145, 145);
-    height: 6vh;
-}
-
-.info-div {
-    width: 60vw;
-    display: flex;
-    height: 10vh;
-    justify-content: flex-end;
-    border-bottom: solid #262626;
-    border-bottom-width: 3px;
-}*/
 
 .close-modal-button {
     margin-top: 0.5vh;
@@ -68,44 +52,22 @@
     border: none;
     box-shadow: none;
     -webkit-box-shadow: none;
-    padding: 20px;
 }
 
-.print-badge-form {
+.send-badge-form {
     width: 100%;
     display: flex;
     margin: 0;
 }
 
-
-
-.image-container {
-    
-    border-left-style: solid;
-    border-left-width: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-div.gallery {
-    border: 1px solid #ccc;
-    border-left-style: solid;
-    border-left-width: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    
+.modal-form-left {
+    background-color: #2e2e2e;
+    width: 40%;
+    margin-left: 2vw;
 }
 
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
-
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
-    overflow-y: scroll;
+.modal-form-left p {
+    font-size: 1vw;
 }
 
 .recipient-input-div {
@@ -114,78 +76,51 @@ div.gallery img {
     color: white;
 }
 
-.recipient-input {
-    width: 20vw;
-    color: white;
-    background-color: #121212;
-    border: solid;
-    border-radius: 0;
-    border-color: black;
-    font-size: 2vh;
-    font-size: 1vw;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-  }
-
-.print-modal-form {
-    margin-left: 10px;
+.modal-form-print {
     background-color: #2e2e2e;
-    width: 90%;
+    width: 100%;
     overflow-y: scroll;
     padding-right: 1vw;
-    height: 90%;
+    padding-left: 1vw;
+    height: 100%;
 }
 
-.print-modal-form label {
+.modal-form-print label {
     position: relative;
-    margin-left: 20vw;
-    width: 100px;
+    margin-left: 1vw;
+    width: 5vw;
     height: 5vw;
+    margin-top:30px; /*to have the space above the image*/
+    margin-bottom:30px; /*to have the space under the image*/
 }
 
-.print-modal-form label p {
-    font-size: 2vh;
-    padding-left: 10px;
-    color: white;
-    height: 6vh;
+.modal-form-print a:hover {
+    background-color: red;
 }
 
-.print-modal-form img {
-    margin-top: -12%;
+.modal-form-print img{
+    padding-right: 7px;
 }
 
-.print-modal-form a {
-    margin-left: -5vw;
-    margin-bottom: 10vh;
-}
 
-.print-modal-form input {
-    margin-left: -5vw;
-    margin-bottom: 10vh;
-}
-
-.print-modal-form::-webkit-scrollbar {
+.modal-form-print::-webkit-scrollbar {
     width: 10px;
     height: 7px;
 }
 
-.print-modal-form::-webkit-scrollbar-button {
+.modal-form-print::-webkit-scrollbar-button {
     width: 0px;
     height: 0px
 }
 
-.print-modal-form::-webkit-scrollbar-thumb {
+.modal-form-print::-webkit-scrollbar-thumb {
     background: #0d0c0c;
     border: 0px none #ffffff;
     border-radius: 5px;
 }
 
-.print-modal-form::-webkit-scrollbar-track {
+.modal-form-print::-webkit-scrollbar-track {
     background: #1e1e1e;
     border: 0px none #ffffff;
     border-radius: 100px;
 }
-
