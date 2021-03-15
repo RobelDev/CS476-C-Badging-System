@@ -54,6 +54,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     [keyPress]
   );
 
+
   const { kudosInfo, saveKudosInfo, sendKudos, setKudosFlag } = useContext(BadgerContext);
 
   const [data, setData] = useState({
@@ -62,6 +63,11 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     kudos: "",
 
   });
+
+  useEffect(() => {
+    sendKudos(kudosInfo, context.token);
+  }, [context.kudosInfo.kudos]);
+
 
   const { email, reason, kudos } = data;
 
@@ -73,9 +79,6 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     context.saveKudosInfo(email, reason, kudos);
-    console.log("1111111111", kudosInfo)
-    sendKudos(kudosInfo, context.token);
-
   };
 
   return (

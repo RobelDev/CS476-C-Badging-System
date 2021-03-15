@@ -67,7 +67,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     const getBadgeName = () => {
         var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
-        console.log(name)
+        //console.log(name)
 
         return name
     }
@@ -81,6 +81,11 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const { receiver, reason, badgeName } = data;
 
+    useEffect(() => {
+        context.creatBadge(context.badgesInfo, context.token);
+    }, [context.badgesInfo.badgeName]);
+
+
     const onChange = async (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
@@ -89,11 +94,10 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
         data.badgeName = getBadgeName();
         e.preventDefault();
-        console.log("11111111111", data.receiver)
+        console.log("kkkkkkkkkkk", receiver)
+        console.log("kkkkkkkkkkk", reason)
+        console.log("kkkkkkkkkkk", badgeName)
         context.saveBadgesInfo(receiver, reason, badgeName);
-        console.log("222222222222", context.badgesInfo);
-        context.creatBadge(context.badgesInfo, context.token);
-
     }
 
     return (
