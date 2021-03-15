@@ -13,7 +13,8 @@ import {
     GET_ALL_BADGES,
     CHANGE_KUDOS,
     GIVE_BADGES,
-    LOG_OUT
+    LOG_OUT,
+
 } from "./constants.js";
 
 const BadgerState = (props) => {
@@ -251,7 +252,7 @@ const BadgerState = (props) => {
 
 
     // Send Kudos
-    const sendKudos = ({ email, kudos }, token) => {
+    const sendKudos = async ({ email, kudos }, token) => {
 
 
         //const kudos = parseInt(kudosAmount);

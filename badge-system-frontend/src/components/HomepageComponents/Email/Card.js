@@ -21,42 +21,11 @@ import logo from '../../../Assets/Team_Badgers_Logo.png'
 class Card extends React.Component {
 
     constructor(props) {
-        // get interface
-        // let url = "some url"
-        // $.ajax({
-        //     url:url,
-        //     method:"POST",
-        //     dataType:"jsonp",
-        //     crossDomain:true,
-        //     jsonpCallback:"jsonpCallbackFun",
-        //     jsonp:"callback",
-        //     success:function(e){
-        //         this.setState({imgs:JSON.parse(e)})
-        //     }
-        // })
         super(props)
         this.state = {
             mode: 1,
             uname: "",
             imgs: this.props.arr,
-            /*[{
-                mode: false,
-                img: img1,
-            },
-            {
-                mode: false,
-                img: img2,
-            },
-            {
-                mode: false,
-                img: img4,
-            },
-            {
-                mode: false,
-                img: img5,
-            }
-        ] */
-            //props.badgeData,
             fontSelected: {
                 text1: "STHeiti",
                 text2: "STKaiti",
@@ -86,19 +55,7 @@ class Card extends React.Component {
         this.closeClick = this.closeClick.bind(this);
         this.setChecked = this.setChecked.bind(this);
         this.showImgInfo = this.showImgInfo.bind(this);
-        // this.setImgsArray = this.setImgsArray.bind(this);
     }
-
-    /*
-        setImgsArray() {
-            var badgeArray = this.props.arr
-            for (var index = 0; index < badgeArray.length; index++) {
-                this.state.imgs[index] = badgeArray[index];
-            }
-            console.log("here is the props", this.props.arr)
-            console.log("here is the badge", badgeArray)
-            console.log("here is the state", this.state.imgs)
-        } */
 
     showImgInfo() {
         console.log(this.state.imgs);
@@ -128,6 +85,7 @@ class Card extends React.Component {
         a.href = localStorage.getItem("url")
         a.click()
     }
+    
     initCanvas() {
         if (this.state.mode === 3) {
             var canvas = document.querySelector('#p-img');

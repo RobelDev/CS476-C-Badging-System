@@ -2,9 +2,10 @@ import React, { useContext, useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
+import Printer from './Printer';
 import "./BadgePrinting.css";
 import BadgerContext from '../../../context/badger/BadgerContext';
-
+import logo from '../../../Assets/Team_Badgers_Logo.png';
 
 import b5 from '../../../Assets/5yrFull.png';
 import b10 from '../../../Assets/10yrFull.png';
@@ -14,15 +15,6 @@ import b25 from '../../../Assets/25yrFull.png';
 import b30 from '../../../Assets/30yrFull.png';
 import b35 from '../../../Assets/35yrFull.png';
 import b40 from '../../../Assets/40yr.png';
-import fiveYearsExperience from './img/fiveYearsExperience.pdf'
-import tenYearsExperience from './img/tenYearsExperience.pdf';
-import fifteenYearsExperience from './img/fifteenYearsExperience.pdf';
-import twentyYearsExperience from './img/twentyYearsExperience.pdf';
-import towentfiveYearsExperience from './img/towentfiveYearsExperience.pdf';
-import thrtiYearsExperience from './img/thrtiYearsExperience.pdf';
-import thrtifiveYearsExperience from './img/thrtifiveYearsExperience.pdf';
-import fourtyYearsExperience from './img/fourtyYearsExperience.pdf';
-
 
 const Background = styled.div`
   width: 120%;
@@ -53,8 +45,6 @@ const CloseModalButton = styled(MdClose)`
 `;
 
 export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModal }) => {
-    
-    const context = useContext(BadgerContext);
 
     const BadgePrintingModalRef = useRef();
 
@@ -92,127 +82,92 @@ export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModa
         [keyPress]
     );
 
+    var image = logo;
+    const context = useContext(BadgerContext);
+
+    const badgeArray = [];
+
+    function getBadgeImage(badgeName) {
+        const name = badgeName;
+
+        switch (name) {
+        case "5yr":
+            image = b5;
+            break;
+        case "10yr":
+            image = b10;
+            break;
+        case "15yr":
+            image = b15;
+            break;
+        case "20yr":
+            image = b20;
+            break;
+        case "25yr":
+            image = b25;
+            break;
+        case "30yr":
+            image = b30;
+            break;
+        case "35yr":
+            image = b35;
+            break;
+        case "40yr":
+            image = b40;
+            break;
+
+    }
+    return image
+
+}
+
+  function setImageArray() {
+    for (var index = 0; index < context.myBadges.length; index++) {
+      badgeArray[index] = { img: getBadgeImage(context.myBadges[index].badgeName), mode: false }
+    }
+  }
+
+  var badgerImg;
+
+  const badgePrinter = () => {
+    if (context.isBadgesGet) {
+      setImageArray();
+      badgerImg = <Printer arr={badgeArray} />;
+    }
+  }
+
+    
+
+    const display = () => {
+
+        if (showBadgePrintingModal) {
+    
+          return (
+            <Background onClick={closeModal} ref={BadgePrintingModalRef}>
+            <animated.div style={animation}>
+                <div class="modal-wrapper" showBadgePrintingModal={showBadgePrintingModal}>
+                    <div class="title-div">
+                        <p>Print a Badge</p>
+                        <CloseModalButton class="close-modal-button"
+                            aria-label='Close modal'
+                            onClick={() => setShowBadgePrintingModal(prev => !prev)}
+                            ><i class="fas fa-times" />
+                        </CloseModalButton>
+                    </div>
+                        {badgerImg}
+                </div>                              
+            </animated.div>
+        </Background>
+          )
+        }
+    }
+
     
 
     return (
-        <> 
-        { showBadgePrintingModal ? (
-                <Background onClick={closeModal} ref={BadgePrintingModalRef}>
-                    <animated.div style={animation}>
-                        {/*<Badges />*/}
-                        <div class="modal-wrapper" showBadgePrintingModal={showBadgePrintingModal}>
-                            
-                            <div class="title-div">
-                                <p>Badges</p>
-                                <CloseModalButton class="close-modal-button"
-                                    aria-label='Close modal'
-                                    onClick={() => setShowBadgePrintingModal(prev => !prev)}
-                                    ><i class="fas fa-times" />
-                                </CloseModalButton>
-                            </div>
-
-                            <div class="modal-content">
-
-                                <form class="send-badge-form" onSubmit="">
-
-                                    
-
-                                    <div class="modal-form-print">
-
-                                        
-                                        <label for="badge1">
-                                            <a href={b5} target="_blank" rel="noreferrer">
-                                                <img src={b5} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={tenYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b10} />
-                                            </a>
-                                        </label><label for="badge1">
-                                            <a href={fifteenYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b15} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={twentyYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b20} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={towentfiveYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b25} />
-                                            </a>
-                                        </label><label for="badge1">
-                                            <a href={thrtiYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b30} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={thrtifiveYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b35} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={fourtyYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b40} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={fiveYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b5} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={tenYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b10} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={fifteenYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b15} />
-                                            </a>
-                                        </label><label for="badge1">
-                                            <a href={twentyYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b20} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={towentfiveYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b25} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={thrtiYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b30} />
-                                                
-                                            </a>
-                                            
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={thrtifiveYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b35} />
-                                            </a>
-                                        </label>
-                                        <label for="badge1">
-                                            <a href={fourtyYearsExperience} target="_blank" rel="noreferrer">
-                                                <img src={b40} />
-                                            </a>
-                                        </label>
-                                        
-
-
-                                            
-                                    </div>
-
-                                </form>
-
-                            </div>
-
-                        </div>                              
-                    </animated.div>
-                </Background>
-            ) : null}       
+        <>
+            {badgePrinter()}
+            {display()}
         </>
     )
 }
