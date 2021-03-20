@@ -64,7 +64,6 @@ const MainNav = () => {
             <a href="#" onClick={openBadgePrinter}><i class="fas fa-print"></i><span>Badge Printing</span></a>
 
             <a href="#" onClick={openEmailModal}><i class="fas fa-file-signature"></i><span>Generate Email Signature</span></a>
-            <a href="#" ><i class="fas fa-sign-out-alt"></i><span>Log Out</span></a>
 
         </div>
 
