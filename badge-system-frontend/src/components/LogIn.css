@@ -175,3 +175,11 @@ form input {
 .sign-up-button:hover {
     color: black;
 }
+
+.invalid-login-text {
+    font-size: 0.7vw;
+    margin-left: -16.2vw;
+    margin-top: 2.3vh;
+    position: absolute;
+    color: red;
+}

@@ -39,7 +39,6 @@ export default (state, action) => {
             return {
                 ...state,
                 myBadges: action.payload,
-                // auth: true,
                 loading: false,
 
             };
