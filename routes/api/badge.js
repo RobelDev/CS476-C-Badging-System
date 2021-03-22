@@ -26,12 +26,12 @@ router.post("/create", middleware, async (req, res) => {
 
     if (!userG) {
         console.log("no user found");
-        return res.json("no user")
+        return res.send("no user")
     }
 
     if( me.email == receiver ){
         console.log("you cant send badges to your self")
-        return res.json("you cant send badges to your self")
+        return res.send("you cant send badges to your self")
     }
 
     const field = {
