@@ -32,9 +32,8 @@ export default (state, action) => {
                 token: action.payload.token,
                 auth: true,
                 loading: false,
-
-
             };
+            
         case CREAT_BADGE:
             return {
                 ...state,
