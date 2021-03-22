@@ -19,11 +19,17 @@ router.post("/create", middleware, async (req, res) => {
     } = req.body;
 
     let userG = await User.findOne({ email: receiver });
+    let badges = await Badge.findOne(userG._id);
+
 
     if (!userG) {
         console.log("no user found");
-        return res.json("no uesr")
+        return res.json("no user")
     }
+    else if( badges.contains(badgeName)){
+        return res.send("Badge already exists");
+    }
+
 
     const field = {
         user: userG._id,
@@ -34,7 +40,7 @@ router.post("/create", middleware, async (req, res) => {
     }
 
     try {
-
+        
         const badgeToBeGiven = new Badge(field);
 
         await badgeToBeGiven.save();
