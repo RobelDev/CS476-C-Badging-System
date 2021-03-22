@@ -78,7 +78,13 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    context.saveKudosInfo(email, reason, kudos);
+    console.log("sddddd", kudos)
+    if (kudos > context.user.kudosBank) {
+      window.alert("Can not send kudos more than" + context.user.kudosBank)
+    }
+    else {
+      context.saveKudosInfo(email, reason, kudos);
+    }
   };
 
   return (

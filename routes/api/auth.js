@@ -159,13 +159,9 @@ router.post("/giveKudos", middleware, async (req, res) => {
 
 router.post("/spendkudos", middleware, async (req, res) => {
 
-
-
     const { kudos } = req.body;
 
     const user = await User.findById(req.user.id);
-
-
 
     if (!user) {
         return res.send("No found user")
@@ -190,7 +186,7 @@ router.post("/spendkudos", middleware, async (req, res) => {
     } catch (error) {
 
         console.error(error.message);
-        res.status(500).send("Server Error");
+        res.status(503).send("Server Error");
 
     }
 

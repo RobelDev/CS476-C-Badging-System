@@ -68,10 +68,16 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     // const getBadgeName = () => {
     //     var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
+<<<<<<< HEAD
+        console.log("hghghg", name)
+        return name
+    }
+=======
         //console.log(name)
 
     //     return name
     // }
+>>>>>>> aef309e6f71251f27d85e3ff37ecfc467a56f9e9
 
     const [data, setData] = useState({
         receiver: "",
@@ -92,9 +98,14 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     };
 
     const onSubmit = async (e) => {
+        e.preventDefault();
 
+<<<<<<< HEAD
+        data.badgeName = getBadgeName();
+=======
         // data.badgeName = getBadgeName();
         e.preventDefault();
+>>>>>>> aef309e6f71251f27d85e3ff37ecfc467a56f9e9
         console.log("kkkkkkkkkkk", receiver)
         console.log("kkkkkkkkkkk", reason)
         console.log("kkkkkkkkkkk", badgeName)

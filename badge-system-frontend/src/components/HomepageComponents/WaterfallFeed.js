@@ -23,7 +23,7 @@ export const WaterfallFeed = () => {
 
     const showKudosInfo = () => {
 
-        console.log("Waterfallfeed called here", context.isKudosChanged);
+        //console.log("Waterfallfeed called here", context.isKudosChanged);
 
         if (context.isKudosChanged) {
             email = context.kudosInfo.email;
@@ -35,7 +35,7 @@ export const WaterfallFeed = () => {
 
     const showBadgesInfo = () => {
 
-        console.log("Waterfallfeed called here", context.isBadgeSent);
+        //console.log("Waterfallfeed called here", context.isBadgeSent);
 
         if (context.isBadgeSent) {
             receiver = context.badgesInfo.receiver;
