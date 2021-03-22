@@ -79,11 +79,17 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     amount3: 0
   });
 
+
   const onChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const [totalPrice, setTotalPrice] = useState({ kudos: 0 });
+
+  useEffect(() => {
+    context.spendKudos(totalPrice, context.token);
+  }, [totalPrice.kudos]);
+
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -91,9 +97,6 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     console.log(totalPrice);
     if (totalPrice > context.user.kudosBank) {
       window.alert("Can not spend kudos more than" + context.user.kudosBank)
-    }
-    else {
-      context.spendKudos(totalPrice, context.token);
     }
   };
 

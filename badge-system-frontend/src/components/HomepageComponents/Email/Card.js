@@ -103,9 +103,11 @@ class Card extends React.Component {
 
             ctx.font = "50px " + this.state.fontFamily
             ctx.textAlign = 'center';
-            ctx.fillText(this.state.uname, 450, 100)
-
-            ctx.fillText(this.state.personalInfo, 250, 150)
+            ctx.fillText(this.state.uname, 150, 100)
+            ctx.fillText(this.state.personalInfo, 150, 170)
+            ctx.fillText(this.state.phone, 150, 240)
+            ctx.fillText(this.state.email, 150, 310)
+            ctx.fillText(this.state.address, 150, 380)
 
             /*if (this.state.uname === "") {
                 alert("Enter your name")
@@ -130,7 +132,7 @@ class Card extends React.Component {
                 img.src = arr[0].img
                 img.alt = "demo"
                 img.onload = function () {
-                    ctx.drawImage(img, 350, 250, 200, 200)
+                    ctx.drawImage(img, 650, 170, 150, 150)
                     let png = canvas.toDataURL("image/png")
                     localStorage.setItem("url", png)
                 }
@@ -143,9 +145,9 @@ class Card extends React.Component {
                     img.alt = "demo"
                     img.onload = function () {
                         if (a === 0) {
-                            ctx.drawImage(img, x, y, 200, 200)
+                            ctx.drawImage(img, 650, 80, 150, 150)
                         } else if (a === 1) {
-                            ctx.drawImage(img, 565, y, 200, 200)
+                            ctx.drawImage(img, 650, 280, 150, 150)
                         }
                         let png = canvas.toDataURL("image/png")
                         localStorage.setItem("url", png)
@@ -158,13 +160,13 @@ class Card extends React.Component {
                     img.alt = "demo"
                     img.onload = function () {
                         if (a === 0) {
-                            ctx.drawImage(img, 75, 200, 200, 200)
+                            ctx.drawImage(img, 650, 40, 120, 120)
 
                         } else if (a === 1) {
-                            ctx.drawImage(img, 350, 200, 200, 200)
+                            ctx.drawImage(img, 650, 180, 120, 120)
 
                         } else if (a === 2) {
-                            ctx.drawImage(img, 625, 200, 200, 200)
+                            ctx.drawImage(img, 650, 320, 120, 120)
                         }
                         let png = canvas.toDataURL("image/png")
                         localStorage.setItem("url", png)
@@ -320,22 +322,26 @@ class Card extends React.Component {
                 <div className="email-funtion-box">
                     <div className="email-funtion-title"><p>Enter your name</p></div>
                     <div>
-                        <input className="uk-input" placeholder="Enter your name" value={this.state.uname} onChange={this.getMsgClick} />
-                    </div>
-                    <div>
-                        <input className="uk-input" placeholder="Enter personal information" value={this.state.personalInfo} onChange={this.getMsgClick2} />
-                    </div>
 
-                    <div>
-                        <input className="uk-input" placeholder="Enter your phone number" value={this.state.phone} onChange={this.getMsgClick3} />
-                    </div>
+                        <div>
+                            <input className="uk-input" placeholder="Enter your name" value={this.state.uname} onChange={this.getMsgClick} />
+                        </div>
+                        <div>
+                            <input className="uk-input" placeholder="Enter personal information" value={this.state.personalInfo} onChange={this.getMsgClick2} />
+                        </div>
 
-                    <div>
-                        <input className="uk-input" placeholder="Enter your email" value={this.state.email} onChange={this.getMsgClick4} />
-                    </div>
+                        <div>
+                            <input className="uk-input" placeholder="Enter your phone number" value={this.state.phone} onChange={this.getMsgClick3} />
+                        </div>
 
-                    <div>
-                        <input className="uk-input" placeholder="Enter your address" value={this.state.address} onChange={this.getMsgClick5} />
+                        <div>
+                            <input className="uk-input" placeholder="Enter your email" value={this.state.email} onChange={this.getMsgClick4} />
+                        </div>
+
+                        <div>
+                            <input className="uk-input" placeholder="Enter your address" value={this.state.address} onChange={this.getMsgClick5} />
+                        </div>
+
                     </div>
 
                     <div className="email-funtion-title"><p>select your font</p></div>

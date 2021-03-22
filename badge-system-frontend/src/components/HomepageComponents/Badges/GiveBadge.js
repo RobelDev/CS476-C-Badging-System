@@ -68,7 +68,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     const getBadgeName = () => {
         var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
-        // console.log(name)
+    //console.log(name)
 
         return name
     }
