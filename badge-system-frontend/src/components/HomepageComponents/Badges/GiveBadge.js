@@ -66,7 +66,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     );
 
     // const getBadgeName = () => {
-    //     var name = document.querySelector('input[name="badgeButton"]:checked').value;
+    //     var name = document.querySelector('input[name="badgeName"]:checked').value;
 
         //console.log(name)
 
@@ -82,9 +82,9 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const { receiver, reason, badgeName } = data;
 
-    useEffect(() => {
-        context.creatBadge(context.badgesInfo, context.token);
-    }, [context.badgesInfo.badgeName]);
+    // useEffect(() => {
+    //     context.creatBadge(context.badgesInfo, context.token);
+    // }, [context.badgesInfo.badgeName]);
 
 
     const onChange = async (e) => {
@@ -95,11 +95,12 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         e.preventDefault();
 
         // data.badgeName = getBadgeName();
-        e.preventDefault();
-        console.log("kkkkkkkkkkk", receiver)
-        console.log("kkkkkkkkkkk", reason)
-        console.log("kkkkkkkkkkk", badgeName)
-        context.saveBadgesInfo(receiver, reason, badgeName);
+        // e.preventDefault();
+        context.creatBadge(data, context.token);
+        // console.log("kkkkkkkkkkk", receiver)
+        // console.log("kkkkkkkkkkk", reason)
+        // console.log("kkkkkkkkkkk", badgeName)
+        // context.saveBadgesInfo(receiver, reason, badgeName);
     }
 
     return (
@@ -155,28 +156,28 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             Below is where the list of badges will go, 
                                             for now there are just radio buttons and labels
                                         */}
-                                        <input type="radio" id="5yr" name="badgeButton" value="5yr" />
+                                        <input type="radio" id="5yr" name="badgeName" value="5yr" />
                                         <label for="5yr"><img src={b5} /></label>
 
-                                        <input type="radio" id="10yr" name="badgeButton" value="10yr" />
+                                        <input type="radio" id="10yr" name="badgeName" value="10yr" />
                                         <label for="10yr"><img src={b10} /></label>
 
-                                        <input type="radio" id="15yr" name="badgeButton" value="15yr" />
+                                        <input type="radio" id="15yr" name="badgeName" value="15yr" />
                                         <label for="15yr"><img src={b15} /></label>
 
-                                        <input type="radio" id="20yr" name="badgeButton" value="20yr" />
+                                        <input type="radio" id="20yr" name="badgeName" value="20yr" />
                                         <label for="20yr"><img src={b20} /></label>
 
-                                        <input type="radio" id="25yr" name="badgeButton" value="25yr" />
+                                        <input type="radio" id="25yr" name="badgeName" value="25yr" />
                                         <label for="25yr"><img src={b25} /></label>
 
-                                        <input type="radio" id="30yr" name="badgeButton" value="30yr" />
+                                        <input type="radio" id="30yr" name="badgeName" value="30yr" />
                                         <label for="30yr"><img src={b30} /></label>
 
-                                        <input type="radio" id="35yr" name="badgeButton" value="35yr" />
+                                        <input type="radio" id="35yr" name="badgeName" value="35yr" />
                                         <label for="35yr"><img src={b35} /></label>
 
-                                        <input type="radio" id="40yr" name="badgeButton" value="40yr" />
+                                        <input type="radio" id="40yr" name="badgeName" value="40yr" />
                                         <label for="40yr"><img src={b40} /></label>
 
                                     </div>
