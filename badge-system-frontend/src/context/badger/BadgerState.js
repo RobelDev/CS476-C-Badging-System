@@ -47,17 +47,16 @@ const BadgerState = (props) => {
 
     const saveBadgesInfo = (value1, value2, value3) => {
         setBadgesInfo({ ...badgesInfo, receiver: value1, reason: value2, badgeName: value3 });
+        console.log("QQQQQQQQQ", badgesInfo.badgeName)
+        console.log(badgesInfo)
     }
 
     const kudosInfoRef = useRef(null);
 
-    useEffect(() => {
-        kudosInfoRef.current = kudosInfo;
-    }, [kudosInfo]);
+
 
     function saveKudosInfo(value1, value2, value3) {
         setKudosInfo({ ...kudosInfo, email: value1, reason: value2, kudos: value3 });
-        console.log(kudosInfo)
     }
 
 
@@ -175,7 +174,6 @@ const BadgerState = (props) => {
 
 
         try {
-            console.log("1111111111", data);
             const res = await axios.post("/api/badge/create", data, config);
 
 
@@ -277,7 +275,7 @@ const BadgerState = (props) => {
 
 
             setisKudosChanged(true);
-            console.log("lllllllll", isKudosChanged)
+            //console.log("lllllllll", isKudosChanged)
 
             /* dispatch({
                  type: CHANGE_KUDOS

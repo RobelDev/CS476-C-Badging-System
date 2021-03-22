@@ -40,7 +40,7 @@ export const WaterfallFeed = () => {
         if (context.isBadgeSent) {
             receiver = context.badgesInfo.receiver;
             badgeReason = context.badgesInfo.reason;
-            kudos = context.badgesInfo.badgeName;
+            badgeName = context.badgesInfo.badgeName;
 
         }
     }
