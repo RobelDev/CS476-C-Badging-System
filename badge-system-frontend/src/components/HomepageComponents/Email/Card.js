@@ -304,7 +304,7 @@ class Card extends React.Component {
                                         {/*<BadgeObject badge={this.state.imgs[index]} >*/}
                                         <div className="check-box-div">
                                             <input type="checkbox" value={item.mode} onChange={(e) => this.setChecked(e, index, item.img)} checked={item.mode} />
-                                            <div value={item.name} onChange={(e) => this.setChecked(e, index, item.img)}>5 years badger</div>
+                                            
                                         </div>
                                     </div>
                                 )
