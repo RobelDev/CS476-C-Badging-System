@@ -53,7 +53,7 @@ router.post("/create", middleware, async (req, res) => {
 
 
         if(arr.indexOf(badgeName) > -1){
-            console.log("Badge already exists");
+            console.log("Badge already exists/given ");
             return res.send("Badge already exists");
          }
          else{
