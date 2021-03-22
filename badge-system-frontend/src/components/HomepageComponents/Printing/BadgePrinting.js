@@ -155,6 +155,7 @@ export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModa
                         </CloseModalButton>
                     </div>
                         {badgerImg}
+                        <div>badger name</div>
                 </div>                              
             </animated.div>
         </Background>

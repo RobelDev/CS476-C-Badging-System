@@ -158,27 +158,35 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                         */}
                                         <input type="radio" id="5yr" name="badgeName" value="5yr" />
                                         <label for="5yr"><img src={b5} /></label>
+                                        <div>5 years badger</div>
 
                                         <input type="radio" id="10yr" name="badgeName" value="10yr" />
                                         <label for="10yr"><img src={b10} /></label>
+                                        <div>10 years badger</div>
 
                                         <input type="radio" id="15yr" name="badgeName" value="15yr" />
                                         <label for="15yr"><img src={b15} /></label>
+                                        <div>15 years badger</div>
 
                                         <input type="radio" id="20yr" name="badgeName" value="20yr" />
                                         <label for="20yr"><img src={b20} /></label>
+                                        <div>20 years badger</div>
 
                                         <input type="radio" id="25yr" name="badgeName" value="25yr" />
                                         <label for="25yr"><img src={b25} /></label>
+                                        <div>25 years badger</div>
 
                                         <input type="radio" id="30yr" name="badgeName" value="30yr" />
                                         <label for="30yr"><img src={b30} /></label>
+                                        <div>30 years badger</div>
 
                                         <input type="radio" id="35yr" name="badgeName" value="35yr" />
                                         <label for="35yr"><img src={b35} /></label>
+                                        <div>35 years badger</div>
 
                                         <input type="radio" id="40yr" name="badgeName" value="40yr" />
                                         <label for="40yr"><img src={b40} /></label>
+                                        <div>40 years badger</div>
 
                                     </div>
 

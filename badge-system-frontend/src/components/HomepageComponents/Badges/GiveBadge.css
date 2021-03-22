@@ -120,6 +120,17 @@
     height: 5vw;
 }
 
+.modal-form-right div {
+    display: none;
+  }
+
+  .modal-form-right label:hover + div {
+    position: relative;
+    display: block;
+    margin-left: 8vw;
+    margin-bottom: 30px;
+    color: red;
+}
 .modal-form-right input {
     margin-left: -5vw;
     margin-bottom: 10vh;
