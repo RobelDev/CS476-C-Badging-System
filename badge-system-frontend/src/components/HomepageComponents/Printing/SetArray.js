@@ -1,6 +1,5 @@
-import React from "react"
-
-import './BadgeObject.css'
+import React, { useContext } from "react"
+import BadgerContext from '../../../context/badger/BadgerContext'
 
 import logo from '../../../Assets/Team_Badgers_Logo.png'
 
@@ -12,13 +11,21 @@ import b25 from '../../../Assets/25yrFull.png'
 import b30 from '../../../Assets/30yrFull.png'
 import b35 from '../../../Assets/35yrFull.png'
 import b40 from '../../../Assets/40yr.png'
- 
-const BadgeObject = (props) => {
+import Printer from "./Printer"
+
+
+
+export const SetArray = () => {
+
+    const context = useContext(BadgerContext)
+
 
     var image = logo;
 
-    const getBadgeImage = () => {
-        const name = props.badgeData.badgeName;
+    const badgeArray = [];
+
+    function getBadgeImage(badgeName) {
+        const name = badgeName;
 
         switch (name) {
             case "5yr":
@@ -47,29 +54,18 @@ const BadgeObject = (props) => {
                 break;
 
         }
+        return image
 
     }
 
-    return(
-        <li style={{ display: "flex" }}>
-            {getBadgeImage()}
-            <img src={image}/>
-            <div class="badge-info-div">
-                    
-                <p class="badge-name">
-                    Badge Name: { props.badgeData.badgeName}
-                </p>
-                   
-                <p class="badge-description">
-                    Badge Description: { props.badgeData.reason}
-                </p>
+    function setImageArray() {
+        for (var index = 0; index < context.myBadges.length; index++) {
+            badgeArray[index] = { img: getBadgeImage(context.myBadges[index].badgeName), mode: false }
+        }
+    }
 
-                <p class="badge-date">
-                    Date Received: { props.badgeData.date }
-                </p>
-            </div>
-        </li>
+
+    return (
+        <Printer value={badgeArray} />
     );
 }
-
-export default BadgeObject;

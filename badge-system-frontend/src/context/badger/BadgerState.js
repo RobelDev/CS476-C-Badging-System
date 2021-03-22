@@ -13,7 +13,8 @@ import {
     GET_ALL_BADGES,
     CHANGE_KUDOS,
     GIVE_BADGES,
-    LOG_OUT
+    LOG_OUT,
+
 } from "./constants.js";
 
 const BadgerState = (props) => {

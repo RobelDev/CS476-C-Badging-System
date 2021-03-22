@@ -1,5 +1,3 @@
-
-
 import {
     LOAD_USER,
     // GET_USER,
@@ -41,7 +39,6 @@ export default (state, action) => {
             return {
                 ...state,
                 myBadges: action.payload,
-                // auth: true,
                 loading: false,
 
             };
@@ -82,9 +79,9 @@ export default (state, action) => {
             // case LOG_IN_FAILED:
             return {
                 token: null,
-                user: null,
+                user: {},
                 auth: false,
-                myBadges: null,
+                myBadges: {},
                 loading: false,
             };
 

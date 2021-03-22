@@ -44,7 +44,8 @@
 
 .modal-content {
     margin-top: 3vh;
-    margin-left: 0;
+    margin-left: -0px;
+    margin-right: 5px;
     height: 80%;
     width: 100%;
     display: flex;
@@ -92,7 +93,6 @@
     height: 5vw;
     margin-top:30px; /*to have the space above the image*/
     margin-bottom:30px; /*to have the space under the image*/
-    margin-left: 10px;
 }
 
 .modal-form-print a:hover {
