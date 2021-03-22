@@ -83,13 +83,18 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState({ kudos: 0 });
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setTotalPrice(Number(Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400));
+    setTotalPrice({ ...totalPrice, kudos: Number(Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400) });
     console.log(totalPrice);
-    context.spendKudos(totalPrice);
+    if (totalPrice > context.user.kudosBank) {
+      window.alert("Can not spend kudos more than" + context.user.kudosBank)
+    }
+    else {
+      context.spendKudos(totalPrice, context.token);
+    }
   };
 
 

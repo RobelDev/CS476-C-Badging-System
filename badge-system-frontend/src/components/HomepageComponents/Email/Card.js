@@ -26,6 +26,9 @@ class Card extends React.Component {
             mode: 1,
             uname: "",
             personalInfo: "",
+            phone: "",
+            email: "",
+            address: "",
             imgs: this.props.arr,
             fontSelected: {
                 text1: "STHeiti",
@@ -47,6 +50,9 @@ class Card extends React.Component {
         this.BackClick = this.BackClick.bind(this);
         this.getMsgClick = this.getMsgClick.bind(this);
         this.getMsgClick2 = this.getMsgClick2.bind(this);
+        this.getMsgClick3 = this.getMsgClick3.bind(this);
+        this.getMsgClick4 = this.getMsgClick4.bind(this);
+        this.getMsgClick5 = this.getMsgClick5.bind(this);
         this.getChecked1 = this.getChecked1.bind(this);
         this.getChecked2 = this.getChecked2.bind(this);
         this.getChecked3 = this.getChecked3.bind(this);
@@ -87,7 +93,7 @@ class Card extends React.Component {
         a.href = localStorage.getItem("url")
         a.click()
     }
-    
+
     initCanvas() {
         if (this.state.mode === 3) {
             var canvas = document.querySelector('#p-img');
@@ -95,11 +101,11 @@ class Card extends React.Component {
             canvas.width = "900"
             canvas.height = "500"
 
-            ctx.font = "70px " + this.state.fontFamily
+            ctx.font = "50px " + this.state.fontFamily
             ctx.textAlign = 'center';
             ctx.fillText(this.state.uname, 450, 100)
 
-            ctx.fillText(this.state.personalInfo, 450, 200)
+            ctx.fillText(this.state.personalInfo, 250, 150)
 
             /*if (this.state.uname === "") {
                 alert("Enter your name")
@@ -203,6 +209,27 @@ class Card extends React.Component {
             personalInfo: e.target.value
         })
     }
+
+    getMsgClick3(e) {
+        this.setState({
+            phone: e.target.value
+        })
+    }
+
+    getMsgClick4(e) {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    getMsgClick5(e) {
+        this.setState({
+            address: e.target.value
+        })
+    }
+
+
+
     getChecked1(e) {
         this.setState({
             checked1: {
@@ -295,8 +322,21 @@ class Card extends React.Component {
                         <input className="uk-input" placeholder="Enter your name" value={this.state.uname} onChange={this.getMsgClick} />
                     </div>
                     <div>
-                        <textarea className="personalInfo-div" type="text" wrap="virtual" value={this.state.personalInfo} placeholder="Enter personal information" onChange={this.getMsgClick2} />
+                        <input className="uk-input" placeholder="Enter personal information" value={this.state.personalInfo} onChange={this.getMsgClick2} />
                     </div>
+
+                    <div>
+                        <input className="uk-input" placeholder="Enter your phone number" value={this.state.phone} onChange={this.getMsgClick3} />
+                    </div>
+
+                    <div>
+                        <input className="uk-input" placeholder="Enter your email" value={this.state.email} onChange={this.getMsgClick4} />
+                    </div>
+
+                    <div>
+                        <input className="uk-input" placeholder="Enter your address" value={this.state.address} onChange={this.getMsgClick5} />
+                    </div>
+
                     <div className="email-funtion-title"><p>select your font</p></div>
                     <div className="uk-margin font-box">
                         <div uk-form-custom="target: > * > span:first-child">

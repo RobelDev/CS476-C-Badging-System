@@ -291,9 +291,9 @@ const BadgerState = (props) => {
     }
 
     // Spend Kudos
-    const spendKudos = async (kudos, token) => {
+    const spendKudos = async ({ kudos }, token) => {
 
-        //const info = { kudos };
+        const info = { kudos };
 
         console.log('Can i get token here:', token);
 
@@ -306,9 +306,9 @@ const BadgerState = (props) => {
 
 
         try {
-            const res = await axios.post("/api/auth/spendkudos", kudos, config);
+            const res = await axios.post("/api/auth/spendKudos", info, config);
 
-            console.log(res.data)
+            console.log("kkkkkkkkkkkkkkkk", res)
 
             /*dispatch({
                 type: CHANGE_KUDOS
