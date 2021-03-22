@@ -65,13 +65,13 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         [keyPress]
     );
 
-    // const getBadgeName = () => {
-    //     var name = document.querySelector('input[name="badgeName"]:checked').value;
+    const getBadgeName = () => {
+        var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
-        //console.log(name)
+        // console.log(name)
 
-    //     return name
-    // }
+        return name
+    }
 
     const [data, setData] = useState({
         receiver: "",
@@ -82,9 +82,9 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const { receiver, reason, badgeName } = data;
 
-    // useEffect(() => {
-    //     context.creatBadge(context.badgesInfo, context.token);
-    // }, [context.badgesInfo.badgeName]);
+    useEffect(() => {
+        context.creatBadge(context.badgesInfo, context.token);
+    }, [context.badgesInfo.badgeName]);
 
 
     const onChange = async (e) => {
@@ -94,13 +94,13 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        // data.badgeName = getBadgeName();
+        data.badgeName = getBadgeName();
         // e.preventDefault();
-        context.creatBadge(data, context.token);
+        // context.creatBadge({receiver, reason, badgeName}, context.token);
         // console.log("kkkkkkkkkkk", receiver)
         // console.log("kkkkkkkkkkk", reason)
         // console.log("kkkkkkkkkkk", badgeName)
-        // context.saveBadgesInfo(receiver, reason, badgeName);
+        context.saveBadgesInfo(receiver, reason, badgeName);
     }
 
     return (
@@ -156,41 +156,41 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             Below is where the list of badges will go, 
                                             for now there are just radio buttons and labels
                                         */}
-                                        <input type="radio" id="5yr" name="badgeName" value="5yr" />
+                                        <input type="radio" id="5yr" name="badgeButton" value="5yr" />
                                         <label for="5yr"><img src={b5} /></label>
                                         <div>5 years badger</div>
 
-                                        <input type="radio" id="10yr" name="badgeName" value="10yr" />
+                                        <input type="radio" id="10yr" name="badgeButton" value="10yr" />
                                         <label for="10yr"><img src={b10} /></label>
                                         <div>10 years badger</div>
 
-                                        <input type="radio" id="15yr" name="badgeName" value="15yr" />
+                                        <input type="radio" id="15yr" name="badgeButton" value="15yr" />
                                         <label for="15yr"><img src={b15} /></label>
                                         <div>15 years badger</div>
 
-                                        <input type="radio" id="20yr" name="badgeName" value="20yr" />
+                                        <input type="radio" id="20yr" name="badgeButton" value="20yr" />
                                         <label for="20yr"><img src={b20} /></label>
                                         <div>20 years badger</div>
 
-                                        <input type="radio" id="25yr" name="badgeName" value="25yr" />
+                                        <input type="radio" id="25yr" name="badgeButton" value="25yr" />
                                         <label for="25yr"><img src={b25} /></label>
                                         <div>25 years badger</div>
 
-                                        <input type="radio" id="30yr" name="badgeName" value="30yr" />
+                                        <input type="radio" id="30yr" name="badgeButton" value="30yr" />
                                         <label for="30yr"><img src={b30} /></label>
                                         <div>30 years badger</div>
 
-                                        <input type="radio" id="35yr" name="badgeName" value="35yr" />
+                                        <input type="radio" id="35yr" name="badgeButton" value="35yr" />
                                         <label for="35yr"><img src={b35} /></label>
                                         <div>35 years badger</div>
 
-                                        <input type="radio" id="40yr" name="badgeName" value="40yr" />
+                                        <input type="radio" id="40yr" name="badgeButton" value="40yr" />
                                         <label for="40yr"><img src={b40} /></label>
                                         <div>40 years badger</div>
 
                                     </div>
 
-                                    <button class="send-badge-button" type="submit" onClick={onsubmit}>Send Badge</button>
+                                    <button class="send-badge-button" type="submit" onClick={getBadgeName}>Send Badge</button>
 
                                 </form>
 
