@@ -87,7 +87,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setTotalPrice({ ...totalPrice, kudos: Number(Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400) });
+    setTotalPrice({ ...totalPrice, kudos: Number(Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140) });
     console.log(totalPrice);
     if (totalPrice > context.user.kudosBank) {
       window.alert("Can not spend kudos more than" + context.user.kudosBank)
@@ -135,7 +135,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
                         <div class="goods-info">
                           <p>Coffee </p>
-                          <p> price: 1000</p>
+                          <p> price: 100</p>
                           <div className="goods-amount-input-div">
 
                             <input className="goods-amount-input" type="number"
@@ -144,7 +144,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                               min="0"
                               max="99"
                               onChange={onChange}
-                              required />
+                            />
                           </div>
                         </div>
                       </div>
@@ -156,7 +156,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
                         <div class="goods-info">
                           <p>Snicker </p>
-                          <p> price: 400 </p>
+                          <p> price: 40 </p>
                           <div className="goods-amount-input-div">
 
                             <input className="goods-amount-input" type="number"
@@ -165,7 +165,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                               min="0"
                               max="99"
                               onChange={onChange}
-                              required />
+                            />
                           </div>
                         </div>
                       </div>
@@ -177,7 +177,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
 
                         <div class="goods-info">
                           <p>Tacos </p>
-                          <p> price: 1400</p>
+                          <p> price: 140</p>
                           <div className="goods-amount-input-div">
 
                             <input className="goods-amount-input" type="number"
@@ -186,13 +186,13 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                               min="0"
                               max="99"
                               onChange={onChange}
-                              required />
+                            />
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="modal-kudos-cost">
-                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400} </div>
+                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140} </div>
                       <div> Your Kudos: {context.user.kudosBank}</div>
                     </div>
                   </div>
