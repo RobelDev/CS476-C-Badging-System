@@ -46,12 +46,8 @@ const LogIn = () => {
     if (context.auth && context.token) {
         return (<Homepage />)
     }
-<<<<<<< HEAD
-    // else {
-=======
     else if (context.auth && !context.token)
     {
->>>>>>> 363468a1363055629d6eb41d322aa85beb172afb
         return (
             <div class="wrapper">
                 <div class="LoginUI">
@@ -300,6 +296,6 @@ const LogIn = () => {
 
     
 }
+}
 
-
-export default LogIn;
+export default LogIn
