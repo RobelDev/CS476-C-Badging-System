@@ -146,9 +146,9 @@ const BadgerState = (props) => {
                 type: LOAD_USER,
                 payload: res.data
             });
-
+            
             dispatch(getMyBadges(token));
-            dispatch(getAllBadges(token));
+            dispatch(getAllBadges());
 
             console.log(res);
 
@@ -183,6 +183,8 @@ const BadgerState = (props) => {
                 type: CREAT_BADGE,
                 payload: res.data
             });
+
+            // dispatch(loadUser(token));
 
             setisBadgeSent(true);
 

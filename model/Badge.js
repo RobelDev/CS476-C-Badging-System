@@ -6,6 +6,10 @@ const badgeSchema = new mongoose.Schema({
         ref: "user",
     },
 
+    sender: {
+        type: String,
+    },
+
     badgeName: {
         type: String,
     },

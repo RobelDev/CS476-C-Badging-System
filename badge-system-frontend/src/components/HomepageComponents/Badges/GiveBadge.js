@@ -14,6 +14,7 @@ import b25 from '../../../Assets/25yrFull.png'
 import b30 from '../../../Assets/30yrFull.png'
 import b35 from '../../../Assets/35yrFull.png'
 import b40 from '../../../Assets/40yr.png'
+// import User from '../../../../../model/User';
 
 const Background = styled.div`
   width: 120%;
@@ -64,12 +65,19 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
         [keyPress]
     );
 
-    const getBadgeName = () => {
-        var name = document.querySelector('input[name="badgeButton"]:checked').value;
+    // const getBadgeName = () => {
+    //     var name = document.querySelector('input[name="badgeButton"]:checked').value;
 
+<<<<<<< HEAD
         console.log("hghghg", name)
         return name
     }
+=======
+        //console.log(name)
+
+    //     return name
+    // }
+>>>>>>> aef309e6f71251f27d85e3ff37ecfc467a56f9e9
 
     const [data, setData] = useState({
         receiver: "",
@@ -92,7 +100,12 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
+<<<<<<< HEAD
         data.badgeName = getBadgeName();
+=======
+        // data.badgeName = getBadgeName();
+        e.preventDefault();
+>>>>>>> aef309e6f71251f27d85e3ff37ecfc467a56f9e9
         console.log("kkkkkkkkkkk", receiver)
         console.log("kkkkkkkkkkk", reason)
         console.log("kkkkkkkkkkk", badgeName)
@@ -178,7 +191,7 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
                                     </div>
 
-                                    <button class="send-badge-button" type="submit" onClick={getBadgeName}>Send Badge</button>
+                                    <button class="send-badge-button" type="submit" onClick={onsubmit}>Send Badge</button>
 
                                 </form>
 
