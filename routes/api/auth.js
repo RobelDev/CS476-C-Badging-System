@@ -150,8 +150,6 @@ router.post("/giveKudos", middleware, async (req, res) => {
 
 router.post("/spendkudos", middleware, async (req, res) => {
 
-
-
     const { kudos } = req.body;
 
     const user = await User.findById(req.user.id);
@@ -166,7 +164,7 @@ router.post("/spendkudos", middleware, async (req, res) => {
 
 
 
-        user.kudosBank -= kudos;
+        user.kudosBank -= parseInt(kudos);
 
         // await giver.save();
 

@@ -56,20 +56,6 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     return () => document.removeEventListener("keydown", keyPress);
   }, [keyPress]);
 
-  const [data, setData] = useState({
-    amount1: 0,
-    amount2: 0,
-    amount3: 0
-  });
-
-  const onChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    console.log(data);
-  };
 
   const close = () => {
     return setShowSpendKudosModal((prev) => !prev);
@@ -86,6 +72,26 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     close();
     resetTotal();
   }
+
+  const [data, setData] = useState({
+    amount1: 0,
+    amount2: 0,
+    amount3: 0
+  });
+
+  const onChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setTotalPrice(Number(Number(data.amount1) * 1000 + Number(data.amount2) * 400 + Number(data.amount3) * 1400));
+    console.log(totalPrice);
+    context.spendKudos(totalPrice);
+  };
+
 
   return (
     <>

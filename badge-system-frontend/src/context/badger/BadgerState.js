@@ -255,6 +255,8 @@ const BadgerState = (props) => {
 
         //const kudos = parseInt(kudosAmount);
 
+        console.log("here isssssssssssssss", token);
+
         const info = { email, kudos };
 
         const config = {
@@ -288,16 +290,20 @@ const BadgerState = (props) => {
 
     }
 
-    // Send Kudos
-    const spendKudos = async (kudos) => {
+    // Spend Kudos
+    const spendKudos = async (kudos, token) => {
 
-        // const info = {kudos};
+        //const info = { kudos };
+
+        console.log('Can i get token here:', token);
 
         const config = {
             headers: {
                 "Content-Type": "application/json",
+                "auth-token": token
             },
         };
+
 
         try {
             const res = await axios.post("/api/auth/spendkudos", kudos, config);

@@ -25,6 +25,7 @@ class Card extends React.Component {
         this.state = {
             mode: 1,
             uname: "",
+            personalInfo: "",
             imgs: this.props.arr,
             fontSelected: {
                 text1: "STHeiti",
@@ -45,6 +46,7 @@ class Card extends React.Component {
         this.NextClick = this.NextClick.bind(this);
         this.BackClick = this.BackClick.bind(this);
         this.getMsgClick = this.getMsgClick.bind(this);
+        this.getMsgClick2 = this.getMsgClick2.bind(this);
         this.getChecked1 = this.getChecked1.bind(this);
         this.getChecked2 = this.getChecked2.bind(this);
         this.getChecked3 = this.getChecked3.bind(this);
@@ -96,12 +98,16 @@ class Card extends React.Component {
             ctx.font = "70px " + this.state.fontFamily
             ctx.textAlign = 'center';
             ctx.fillText(this.state.uname, 450, 100)
-            if (this.state.uname === "") {
+
+            ctx.fillText(this.state.personalInfo, 450, 200)
+
+            /*if (this.state.uname === "") {
                 alert("Enter your name")
                 this.setState({
                     mode: 2
                 })
             }
+            */
             let arr = []
             for (let i in this.state.imgs) {
                 if (this.state.imgs[i].mode) {
@@ -188,10 +194,15 @@ class Card extends React.Component {
 
     getMsgClick(e) {
         this.setState({
-            uname: e.target.value
+            uname: e.target.value,
         })
     }
 
+    getMsgClick2(e) {
+        this.setState({
+            personalInfo: e.target.value
+        })
+    }
     getChecked1(e) {
         this.setState({
             checked1: {
@@ -282,6 +293,9 @@ class Card extends React.Component {
                     <div className="email-funtion-title"><p>Enter your name</p></div>
                     <div>
                         <input className="uk-input" placeholder="Enter your name" value={this.state.uname} onChange={this.getMsgClick} />
+                    </div>
+                    <div>
+                        <textarea className="personalInfo-div" type="text" wrap="virtual" value={this.state.personalInfo} placeholder="Enter personal information" onChange={this.getMsgClick2} />
                     </div>
                     <div className="email-funtion-title"><p>select your font</p></div>
                     <div className="uk-margin font-box">
