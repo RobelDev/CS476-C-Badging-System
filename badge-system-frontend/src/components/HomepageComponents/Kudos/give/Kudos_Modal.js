@@ -64,11 +64,6 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
   });
 
-  useEffect(() => {
-    sendKudos(kudosInfo, context.token);
-  }, [context.kudosInfo.kudos]);
-
-
   const { email, reason, kudos } = data;
 
   const onChange = async (e) => {
