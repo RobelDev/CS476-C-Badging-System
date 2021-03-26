@@ -6,6 +6,7 @@ import Printer from './Printer';
 import "./BadgePrinting.css";
 import BadgerContext from '../../../context/badger/BadgerContext';
 import logo from '../../../Assets/Team_Badgers_Logo.png';
+import BadgeObject from "../UserPanelComponents/BadgeObject"
 
 import b5 from '../../../Assets/5yrFull.png';
 import b10 from '../../../Assets/10yrFull.png';
@@ -85,9 +86,17 @@ export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModa
     var image = logo;
     const context = useContext(BadgerContext);
 
+    var listOfBadges = [];
+
+    const populateUserPanel = () => {
+       for (var index = 0; index < context.myBadges.length; index++) {
+           listOfBadges[index] = <Printer badgeData={ context.myBadges[index] } />
+       }
+    }
+
     const badgeArray = [];
 
-    function getBadgeImage(badgeName) {
+    function getBadgeImage(badgeName, badgeDate) {
         const name = badgeName;
 
         switch (name) {
@@ -154,8 +163,8 @@ export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModa
                             ><i class="fas fa-times" />
                         </CloseModalButton>
                     </div>
-                        {badgerImg}
-                        <div>badger name</div>
+                    {populateUserPanel()}
+                { listOfBadges}
                 </div>                              
             </animated.div>
         </Background>

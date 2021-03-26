@@ -1,3 +1,4 @@
+
 import React, { useContext } from 'react';
 import './Printer.css';
 import img1 from '../imgs/1.jpg';
@@ -18,51 +19,70 @@ import logo from '../../../Assets/Team_Badgers_Logo.png';
 
 
 
-class Printer extends React.Component {
+const Printer = (props) => {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            uname: "",
-            imgs: this.props.arr,
-            
+    var image = logo;
+
+    const getBadgeImage = () => {
+        const name = props.badgeData.badgeName;
+
+        switch (name) {
+            case "5yr":
+                image = b5;
+                break;
+            case "10yr":
+                image = b10;
+                break;
+            case "15yr":
+                image = b15;
+                break;
+            case "20yr":
+                image = b20;
+                break;
+            case "25yr":
+                image = b25;
+                break;
+            case "30yr":
+                image = b30;
+                break;
+            case "35yr":
+                image = b35;
+                break;
+            case "40yr":
+                image = b40;
+                break;
+
         }
-        this.closeClick = this.closeClick.bind(this);
+
     }
 
+    return(
+        <div className="modal-print-content">
+            <span title={ props.badgeData.badgeName }>
+                <a>
+                    <form class="modal-print-content-form">
+                        <label for="badge1">
+                            {getBadgeImage()}
+                            <img class="modal-print-content-img" src={image}/>
+                            {/*<div class="modal-badge-info-div">
+                    
+                
+                
+                
+                   
+                                <p class="badge-description">
+                                    Badge Description: { props.badgeData.reason}
+                                </p>
 
-    
-
-    
-
-    closeClick() {
-        document.querySelector("#box").style.display = "none";
-    }
-
-
-    render() {
-            return (
-                <div className="modal-content">
-
-                    {
-                        this.state.imgs.map((item, index) => {
-                            return (
-                                <div className="modal-content">
-                                    <form class="send-badge-form" onSubmit="">
-                                        <label for="badge1">
-                                            <a href={this.state.imgs[index].img} target="_blank" rel="noreferrer">
-                                                <img src={this.state.imgs[index].img} />
-                                                <div>badge</div>
-                                            </a>
-                                        </label>
-                                    </form>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-        )
-        
-    }
+                                <p class="badge-date">
+                                    Date Received: { props.badgeData.date }
+                                </p>
+                            </div>*/}
+                        </label>
+                    </form>
+                </a>
+            </span>
+        </div>
+    );
 }
 export default Printer
