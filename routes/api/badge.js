@@ -21,13 +21,15 @@ router.post("/create", middleware, async (req, res) => {
     let userG = await User.findOne({ email: receiver });
     let me = await User.findById(req.user.id);
 
-    let badges = await Badge.find( {user : userG.id });
-
+    
 
     if (!userG) {
         console.log("no user found");
         return res.send("no user")
     }
+    
+    // let badges = await Badge.find( {user : userG.id });
+
 
     if( me.email == receiver ){
         console.log("you cant send badges to your self")
@@ -44,19 +46,19 @@ router.post("/create", middleware, async (req, res) => {
 
     var arr = [];
 
-     badges && badges.map(bn => arr.push(bn.badgeName));
+    //  badges && badges.map(bn => arr.push(bn.badgeName));
     
      
     try {
 
-        const resp = badges && badges.map( bn => { bn.badgeName == (badgeName) ? "exists" : "no"} );
+        // const resp = badges && badges.map( bn => { bn.badgeName == (badgeName) ? "exists" : "no"} );
 
 
-        if(arr.indexOf(badgeName) > -1){
-            console.log("Badge already exists/given ");
-            return res.send("Badge already exists");
-         }
-         else{
+        // if(arr.indexOf(badgeName) > -1){
+        //     console.log("Badge already exists/given ");
+        //     return res.send("Badge already exists");
+        //  }
+        //  else{
 
          
             const badgeToBeGiven = new Badge(field);
@@ -64,7 +66,7 @@ router.post("/create", middleware, async (req, res) => {
             await badgeToBeGiven.save();
 
             return res.json(badgeToBeGiven);
-         }
+         //}
 
     } catch (error) {
         console.error(error.message);
