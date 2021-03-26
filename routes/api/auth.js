@@ -113,8 +113,12 @@ router.post("/giveKudos", middleware, async (req, res) => {
 
     let kudosReciever = await User.findOne({ email }).select("-password");
 
-
-
+    const giver = await User.findById(
+        req.user.id,
+    );
+    if (!giver) {
+        return res.send("No signed in user testtt")
+    }
     if (!kudosReciever) {
         return res.send("No found user with that email")
     }
@@ -122,21 +126,20 @@ router.post("/giveKudos", middleware, async (req, res) => {
     try {
 
 
-        const giver = await User.findById(
-            req.user.id,
-        );
-
+        
+            
         if(giver.kudosBank >= parseInt(kudos)){
 
                 
             giver.kudosBank -= parseInt(kudos);
 
-            await giver.save();
 
             kudosReciever.kudosBank += parseInt(kudos);
 
+            await giver.save();
+
             await kudosReciever.save();
-            res.json(giver);
+            res.send("kudos sent");
 
 
         }

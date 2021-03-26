@@ -24,10 +24,10 @@ router.post("/create", middleware, async (req, res) => {
     // let badges = await Badge.find( {user : userG._id });
 
 
-    if (!userG) {
-        console.log("no user found");
-        return res.send("no user")
-    }
+    // if (!userG) {
+    //     console.log("no user found");
+    //     return res.send("no user")
+    // }
 
     if( me.email == receiver ){
         console.log("you cant send badges to your self")
