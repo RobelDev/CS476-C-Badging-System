@@ -20,22 +20,25 @@ router.post("/create", middleware, async (req, res) => {
 
     let me = await User.findById(req.user.id);
 
-    
+    console.log("This is from the backend test : ", receiver)
+    console.log("This is from the backend test reason : ", reason)
+    console.log("This is from the backend test badgeName: ", badgeName)
 
-    
 
-    
-
-    
-    try {
-
-        let userG = await User.findOne({ email: receiver });
+    let userG = await User.findOne({ email: receiver });
 
 
         if (!userG) {
             console.log("no user found");
             return res.send("no user")
         }
+
+    
+
+    
+    try {
+
+        
 
         const field = {
             user: userG.id,
