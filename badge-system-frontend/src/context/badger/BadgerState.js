@@ -146,7 +146,7 @@ const BadgerState = (props) => {
                 type: LOAD_USER,
                 payload: res.data
             });
-            
+
             dispatch(getMyBadges(token));
             dispatch(getAllBadges());
 
@@ -272,7 +272,7 @@ const BadgerState = (props) => {
 
         try {
 
-            console.log("the state function")
+            // console.log("the state function")
 
             const res = await axios.post("/api/auth/giveKudos", info, config);
 
@@ -297,7 +297,7 @@ const BadgerState = (props) => {
 
         const info = { kudos };
 
-        console.log('Can i get token here:', token);
+        console.log("function call");
 
         const config = {
             headers: {
@@ -310,7 +310,7 @@ const BadgerState = (props) => {
         try {
             const res = await axios.post("/api/auth/spendKudos", info, config);
 
-            console.log("kkkkkkkkkkkkkkkk", res)
+            // console.log("kkkkkkkkkkkkkkkk", res)
 
             /*dispatch({
                 type: CHANGE_KUDOS
