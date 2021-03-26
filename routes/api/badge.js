@@ -35,7 +35,7 @@ router.post("/create", middleware, async (req, res) => {
     }
 
     const field = {
-        user: userG._id,
+        user: userG.id,
         // sender: ,
         receiver,
         reason,
