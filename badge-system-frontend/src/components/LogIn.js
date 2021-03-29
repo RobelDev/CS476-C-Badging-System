@@ -24,9 +24,10 @@ const LogIn = () => {
     const [data, setData] = useState({
         email: "",
         password: "",
+        passwordVerif: ""
     });
 
-    const { email, password } = data;
+    const { email, password, passwordVerif } = data;
 
     const onChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
@@ -38,10 +39,27 @@ const LogIn = () => {
         // context.getMyBadges();
     };
 
+    const validate = async (e) => {
+
+        var input_1 = data.password;
+        var input_2 = data.passwordVerif;
+
+        if (input_1 !== "" && input_1 !== input_2 && input_2 !== "") {
+
+            console.log("Passwords don't match");
+        }
+        else {
+            context.registerUser({ email, password });
+            console.log("Registration Successful");
+        }
+    }
+
     const onSubmitRegister = async (e) => {
         e.preventDefault();
-        context.registerUser({ email, password });
+        validate();
     };
+
+    
 
     if (context.auth && context.token) {
         return (<Homepage />)
@@ -109,7 +127,8 @@ const LogIn = () => {
                             <form onSubmit={onSubmitRegister} class="center">
                                 <div class="EmailBox">
                                     <label for="email"></label>
-                                    <input class="login-input" type="email"
+                                    <input class="login-input"
+                                        type="email"
                                         name="email"
                                         value={email}
                                         placeholder="Email"
@@ -118,8 +137,9 @@ const LogIn = () => {
                                 </div>
 
                                 <div class="PasswordBox">
-                                    <label for="password"></label>
-                                    <input class="login-input" type="password"
+                                    <input class="login-input"
+                                        type="password"
+                                        id="passwordVerif"
                                         name="password"
                                         value={password}
                                         placeholder="Password"
@@ -127,6 +147,22 @@ const LogIn = () => {
                                         minLength="8"
                                         required />
                                 </div>
+
+                                <div class="PasswordBox2">
+                                    <input class="login-input"
+                                        type="password"
+                                        id="passwordVerif"
+                                        name="passwordVerif"
+                                        value={passwordVerif}
+                                        placeholder="Password"
+                                        onChange={onChange}
+                                        minLength="8"
+                                        required />
+                                </div>
+
+                                <span class="invalid-password-check">
+                                    Passwords do not match
+                                </span>
 
 
                                 <button type="submit" class="LogInButton">REGISTER</button>
@@ -248,6 +284,24 @@ const LogIn = () => {
                                         minLength="8"
                                         required />
                                 </div>
+
+                                <div class="PasswordBox2">
+                                    <input class="login-input"
+                                        type="password"
+                                        id="passwordVerif"
+                                        name="passwordVerif"
+                                        value={passwordVerif}
+                                        placeholder="Verify Password"
+                                        onChange={onChange}
+                                        minLength="8"
+                                        required />
+                                </div>
+
+                                <span class="invalid-password-check">
+                                    Passwords do not match
+                                </span>
+
+                                {/* Working on making the status text visible based on proper condition  */ }
 
 
                                 <button type="submit" class="LogInButton">REGISTER</button>
