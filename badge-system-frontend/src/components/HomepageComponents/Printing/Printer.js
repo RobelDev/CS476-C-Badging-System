@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import './Printer.css';
+import PDF from './PDF';
 import img1 from '../imgs/1.jpg';
 import img2 from '../imgs/2.jpeg';
 import img4 from '../imgs/4.jpg';
@@ -59,7 +60,8 @@ const Printer = (props) => {
     return(
         <div className="modal-print-content">
             <span title={ props.badgeData.badgeName }>
-                <a>
+            {getBadgeImage()}
+            <a href={<PDF title={props.badgeData.badgeName} image={image} />} target="_blank" rel="noreferrer">
                     <form class="modal-print-content-form">
                         <label for="badge1">
                             {getBadgeImage()}

@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import PDF from './PDF';
+
+class Post extends Component {
+    state = {
+        title: '',
+        image: '',
+        postSubmitted: false
+    }
+
+    onChange = input => e => {
+        this.setState({
+            [input]: e.target.value
+        });
+    }
+
+    sunmitPost = (e) => {
+        
+        if(!this.state.title){
+            alert('All fields are required!');
+            e.preventDefault();
+        }else{
+            this.setState({
+                postSubmitted: true
+            });
+        }
+    }
+
+    render(){
+        return(
+            <>
+                {  !this.state.postSubmitted ? 
+                    (
+                                        <form className="form-horizontal" method="post">
+                                            <fieldset>
+                                                <legend className="text-center header">Add new Post</legend>
+                                                <div className="form-group">
+                                                    <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-user bigicon"></i></span>
+                                                    <input onChange={this.onChange('title')} name="title" type="text" placeholder="Post Title" className="form-control" />
+                                                </div>
+                                                <div className="form-group">
+                                                    <span className="col-md-1 col-md-offset-2 text-center"><i className="fa fa-user bigicon"></i></span>
+                                                    <input onChange={this.onChange('image')} name="image" type="text" placeholder="https://" className="form-control" />
+                                                </div>
+                                                <div className="form-group">
+                                                    <button type="button" onClick={this.sunmitPost} className="btn btn-primary btn-lg">Submit</button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                  ) : (
+                        <PDF title={this.state.title} content={this.state.content} image={this.state.image} />
+                    )
+                }
+            </>
+        );
+    }
+}
+
+export default Post;
