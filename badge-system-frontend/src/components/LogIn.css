@@ -76,6 +76,11 @@ form input {
     margin-bottom: 3vh;
 }
 
+.PasswordBox2 {
+    margin-top: -1.5vh;
+    margin-bottom: 6vh;
+}
+
 
 .LogInButton {
     width: 19vw;
@@ -181,5 +186,12 @@ form input {
     margin-left: -16.2vw;
     margin-top: 2.3vh;
     position: absolute;
+    color: red;
+}
+
+.invalid-password-check {
+    font-size: 0.9vw;
+    position: absolute;
+    margin-top: -4vh;
     color: red;
 }
