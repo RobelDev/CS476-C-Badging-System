@@ -73,14 +73,13 @@ form input {
 }
 
 .PasswordBox {
-    margin-bottom: 3vh;
-}
-
-.PasswordBox2 {
-    margin-top: -1.5vh;
     margin-bottom: 6vh;
 }
 
+.PasswordBox2 {
+    margin-top: -4.5vh;
+    margin-bottom: 5vh;
+}
 
 .LogInButton {
     width: 19vw;
@@ -182,16 +181,24 @@ form input {
 }
 
 .invalid-login-text {
-    font-size: 0.7vw;
-    margin-left: -16.2vw;
-    margin-top: 2.3vh;
+    font-size: 0.9vw;
+    margin-top: -4.3vh;
     position: absolute;
     color: red;
 }
 
 .invalid-password-check {
+    display: none;
     font-size: 0.9vw;
     position: absolute;
     margin-top: -4vh;
     color: red;
+}
+
+.reg-success {
+    display: none;
+    font-size: 0.9vw;
+    position: absolute;
+    margin-top: -4vh;
+    color: blue;
 }

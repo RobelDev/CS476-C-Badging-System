@@ -21,6 +21,9 @@ const LogIn = () => {
         }
     }
 
+    function displayText() {
+    }
+
     const [data, setData] = useState({
         email: "",
         password: "",
@@ -44,11 +47,17 @@ const LogIn = () => {
         var input_1 = data.password;
         var input_2 = data.passwordVerif;
 
-        if (input_1 !== "" && input_1 !== input_2 && input_2 !== "") {
+        if (input_1 !== "" && input_2 !== "" && input_1 !== input_2 ) {
+
+            document.getElementById("not-matching").style.display = 'block';
+            document.getElementById("reg-success").style.display = 'none';
 
             console.log("Passwords don't match");
         }
         else {
+            document.getElementById("not-matching").style.display = 'none';
+            document.getElementById("reg-success").style.display = 'block';
+
             context.registerUser({ email, password });
             console.log("Registration Successful");
         }
@@ -58,8 +67,6 @@ const LogIn = () => {
         e.preventDefault();
         validate();
     };
-
-    
 
     if (context.auth && context.token) {
         return (<Homepage />)
@@ -85,10 +92,6 @@ const LogIn = () => {
                                 Log in to reward your collegues with badges.
                             </span>
 
-                            <span class="invalid-login-text">
-                                Incorrect Email or Password
-                            </span>
-
                             <form class="log-in-form" onSubmit={onSubmitSignin} class="center">
                                 <div class="EmailBox">
                                     <label for="email"></label>
@@ -110,6 +113,10 @@ const LogIn = () => {
                                         minLength="8"
                                         required />
                                 </div>
+
+                                <span class="invalid-login-text">
+                                    Incorrect Email or Password
+                                </span>
 
                                 <button type="submit" class="LogInButton">SIGN IN</button>
                             </form>
@@ -160,10 +167,13 @@ const LogIn = () => {
                                         required />
                                 </div>
 
-                                <span class="invalid-password-check">
+                                <span id="not-matching" class="invalid-password-check">
                                     Passwords do not match
                                 </span>
 
+                                <span id="reg-success" class="reg-success">
+                                    Registration Successful!
+                                </span>
 
                                 <button type="submit" class="LogInButton">REGISTER</button>
                             </form>
@@ -297,11 +307,14 @@ const LogIn = () => {
                                         required />
                                 </div>
 
-                                <span class="invalid-password-check">
+                                <span id="not-matching" class="invalid-password-check">
                                     Passwords do not match
                                 </span>
 
-                                {/* Working on making the status text visible based on proper condition  */ }
+                                <span id="reg-success" class="reg-success">
+                                    Registration Successful!
+                                </span>
+
 
 
                                 <button type="submit" class="LogInButton">REGISTER</button>
