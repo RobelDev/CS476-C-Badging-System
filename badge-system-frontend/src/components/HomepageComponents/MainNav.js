@@ -54,14 +54,14 @@ const MainNav = () => {
             <Kudos_Modal showModal={showModal} setShowModal={setShowModal} />
             <EmailModal showEmailModal={showEmailModal} setShowEmailModal={setShowEmailModal} />
             <SpendKudos showSpendKudosModal={showSpendKudosModal} setShowSpendKudosModal={setShowSpendKudosModal} />
-            { /*<BadgePrinting showBadgePrintingModal={showBadgePrintingModal} setShowBadgePrintingModal={setShowBadgePrintingModal} />*/}
+            <BadgePrinting showBadgePrintingModal={showBadgePrintingModal} setShowBadgePrintingModal={setShowBadgePrintingModal} />
 
             <a href="#" ><i class="fas fa-home"></i><span>Home</span></a>
-            <a href="#" onClick={openGiveBadgeModal}><i class="fas fa-award"></i><span>Give a Badge</span></a>
-            <a href="#" onClick={openModal}><i class="fas fa-coins"></i><span>Give Kudos</span></a>
+            <a href="#" onClick={openGiveBadgeModal}><i class="fas fa-award"></i><span>Send a Badge</span></a>
+            <a href="#" onClick={openModal}><i class="fas fa-coins"></i><span>Send Kudos</span></a>
 
-            <a href="#" onClick={openSpendKudosModal}><i class="fas fa-coins"></i><span>Spend Kudos</span></a>
-            { /* <a href="#" onClick={openBadgePrinter}><i class="fas fa-print"></i><span>Badge Printing</span></a> */}
+            <a href="#" onClick={openSpendKudosModal}><i class="fas fa-coins"></i><span>Kudos Shop</span></a>
+            <a href="#" onClick={openBadgePrinter}><i class="fas fa-print"></i><span>Badge Printing</span></a> 
 
             <a href="#" onClick={openEmailModal}><i class="fas fa-file-signature"></i><span>Generate Email Signature</span></a>
 
