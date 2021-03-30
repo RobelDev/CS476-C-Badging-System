@@ -84,7 +84,7 @@ const BadgerState = (props) => {
                 payload: res.data
             });
 
-            console.log(res.data)
+            //console.log(res.data)
 
 
         } catch (error) {
@@ -116,7 +116,7 @@ const BadgerState = (props) => {
 
             dispatch(loadUser(res.data.token));
 
-            console.log(res.data)
+            //console.log(res.data)
 
         } catch (error) {
             console.log(error);
@@ -150,7 +150,7 @@ const BadgerState = (props) => {
             dispatch(getMyBadges(token));
             dispatch(getAllBadges());
 
-            console.log(res);
+            //console.log(res);
 
         } catch (error) {
             console.log(error);
@@ -188,7 +188,7 @@ const BadgerState = (props) => {
 
             setisBadgeSent(true);
 
-            console.log(res);
+            // console.log(res);
 
 
 
@@ -218,7 +218,7 @@ const BadgerState = (props) => {
                 payload: res.data
             })
 
-            console.log(res.data);
+            //console.log(res.data);
 
 
         } catch (error) {
@@ -258,6 +258,7 @@ const BadgerState = (props) => {
         //const kudos = parseInt(kudosAmount);
 
         console.log("here isssssssssssssss", token);
+        console.log("hhhhhhhhhhhhhhh", kudos);
 
         const info = { email, kudos };
 

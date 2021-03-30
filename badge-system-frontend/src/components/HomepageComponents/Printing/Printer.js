@@ -57,15 +57,15 @@ const Printer = (props) => {
 
     }
 
-    return(
+    return (
         <div className="modal-print-content">
-            <span title={ props.badgeData.badgeName }>
-            {getBadgeImage()}
-            <a href={<PDF title={props.badgeData.badgeName} image={image} />} target="_blank" rel="noreferrer">
+            <span title={props.badgeData.badgeName}>
+                {getBadgeImage()}
+                <a href={<PDF title={props.badgeData.badgeName} image={image} />} target="_blank" rel="noreferrer">
                     <form class="modal-print-content-form">
                         <label for="badge1">
                             {getBadgeImage()}
-                            <img class="modal-print-content-img" src={image}/>
+                            <img class="modal-print-content-img" src={image} />
                             {/*<div class="modal-badge-info-div">
                     
                 

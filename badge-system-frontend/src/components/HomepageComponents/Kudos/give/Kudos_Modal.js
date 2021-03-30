@@ -19,9 +19,9 @@ const Background = styled.div`
 
 export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
-  const context = useContext(BadgerContext)
 
-  const modalRef = useRef()
+
+  const modalRef = useRef();
 
   const animation = useSpring({
     config: {
@@ -54,8 +54,18 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     [keyPress]
   );
 
-
   const { kudosInfo, saveKudosInfo, sendKudos, setKudosFlag } = useContext(BadgerContext);
+
+  useEffect(
+    () => {
+      sendKudos(kudosInfo, context.token)
+    },
+    [kudosInfo.kudos]);
+
+
+
+
+  const context = useContext(BadgerContext);
 
   const [data, setData] = useState({
     email: "",
@@ -78,6 +88,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
       window.alert("Can not send kudos more than" + context.user.kudosBank)
     }
     else {
+      console.log("function call here");
       context.saveKudosInfo(email, reason, kudos);
     }
   };

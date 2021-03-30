@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
@@ -17,4 +17,4 @@ const PDF = (props) => {
   );
 }
 
-export default PDF;
+export default PDF; */
