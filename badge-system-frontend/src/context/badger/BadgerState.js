@@ -43,7 +43,7 @@ const BadgerState = (props) => {
     const [kudosInfo, setKudosInfo] = useState({
         email: "",
         reason: "",
-        kudos: 0
+        kudos: ""
     })
 
     const saveBadgesInfo = (value1, value2, value3) => {
@@ -257,7 +257,6 @@ const BadgerState = (props) => {
 
         //const kudos = parseInt(kudosAmount);
 
-        console.log("here isssssssssssssss", token);
         console.log("hhhhhhhhhhhhhhh", kudos);
 
         const info = { email, kudos };
@@ -279,6 +278,7 @@ const BadgerState = (props) => {
 
 
             setisKudosChanged(true);
+
             //console.log("lllllllll", isKudosChanged)
 
             /* dispatch({
@@ -351,6 +351,7 @@ const BadgerState = (props) => {
             registerUser,
             logIn,
             logOut,
+            loadUser,
             sendKudos,
             spendKudos,
             creatBadge,

@@ -126,11 +126,11 @@ router.post("/giveKudos", middleware, async (req, res) => {
     try {
 
 
-        
-            
-        if(giver.kudosBank >= parseInt(kudos)){
 
-                
+
+        if (giver.kudosBank >= parseInt(kudos)) {
+
+
             giver.kudosBank -= parseInt(kudos);
 
 
@@ -139,11 +139,13 @@ router.post("/giveKudos", middleware, async (req, res) => {
             await giver.save();
 
             await kudosReciever.save();
+
+            res.json(giver);
             res.send("kudos sent");
 
 
         }
-        else{
+        else {
             res.send("not sufficient kudos");
         }
 
@@ -173,21 +175,21 @@ router.post("/spendkudos", middleware, async (req, res) => {
     try {
 
 
-        if(user.kudosBank >= kudos){
-
-        
-        user.kudosBank -= kudos;
-
-        // await giver.save();
-
-        // kudosReciever.kudosBank +=  kudos;
-
-        await user.save();
+        if (user.kudosBank >= kudos) {
 
 
+            user.kudosBank -= kudos;
 
-        res.json(user);
-    }
+            // await giver.save();
+
+            // kudosReciever.kudosBank +=  kudos;
+
+            await user.save();
+
+
+
+            res.json(user);
+        }
 
     } catch (error) {
 

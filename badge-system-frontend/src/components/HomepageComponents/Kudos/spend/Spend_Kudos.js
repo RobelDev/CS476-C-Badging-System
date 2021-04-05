@@ -65,7 +65,10 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     data.amount1 = 0;
     data.amount2 = 0;
     data.amount3 = 0;
-    console.log(data);
+
+    total.amount1 = 0;
+    total.amount2 = 0;
+    total.amount3 = 0;
   }
 
   const reset = () => {
@@ -73,32 +76,51 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     resetTotal();
   }
 
-  const [data, setData] = useState({
+  var data = {
+    amount1: 10,
+    amount2: 0,
+    amount3: 0,
+  }
+
+  const [total, setTotal] = useState({
     amount1: 0,
     amount2: 0,
     amount3: 0
   });
 
+  const onChange = async (e) => {
+    setTotal({ ...total, [e.target.name]: e.target.value });
+    data.[e.target.name] = e.target.value;
+    console.log(e.target.value)
+    console.log("Data", data);
+    console.log("Total", total);
 
-  const onChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const [totalPrice, setTotalPrice] = useState({ kudos: 0 });
+  var spendKudosInfo = { kudos: 0 }
 
-  useEffect(() => {
-    console.log("I am here", totalPrice);
-    context.spendKudos(totalPrice, context.token);
-  }, [totalPrice.kudos]);
+  /* useEffect(() => {
+     console.log("Total", total)
+     console.log("I am here", totalPrice);
+     context.spendKudos(totalPrice, context.token);
+   }, [total.amount1, total.amount2, total.amount3]);*/
 
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("Total:", Number(Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140))
-    setTotalPrice({ ...totalPrice, kudos: Number(Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140) });
-    //console.log(totalPrice);
-    if (totalPrice > context.user.kudosBank) {
+    //var kudos = Number(Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140);
+    var kudos = Number(Number(total.amount1) * 100 + Number(total.amount2) * 40 + Number(total.amount3) * 140);
+    console.log("here is total kudos", kudos);
+    if (kudos > context.user.kudosBank) {
       window.alert("Can not spend kudos more than" + context.user.kudosBank)
+    }
+    else {
+      spendKudosInfo.kudos = kudos;
+      console.log("here is total kudos", spendKudosInfo);
+      context.loadUser(context.token);
+      context.spendKudos(spendKudosInfo, context.token);
+      context.loadUser(context.token);
+      reset();
     }
   };
 
@@ -197,7 +219,7 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
                       </div>
                     </div>
                     <div class="modal-kudos-cost">
-                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(data.amount1) * 100 + Number(data.amount2) * 40 + Number(data.amount3) * 140} </div>
+                      <div style={{ "margin-top": "2vh", "font color": "white" }}> Total (kudos) {Number(total.amount1) * 100 + Number(total.amount2) * 40 + Number(total.amount3) * 140} </div>
                       <div> Your Kudos: {context.user.kudosBank}</div>
                     </div>
                   </div>

@@ -56,11 +56,11 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
 
   const { kudosInfo, saveKudosInfo, sendKudos, setKudosFlag } = useContext(BadgerContext);
 
-  useEffect(
+  /*useEffect(
     () => {
       sendKudos(kudosInfo, context.token)
     },
-    [kudosInfo.kudos]);
+    [kudosInfo.kudos, kudosInfo.email, kudosInfo.reason]);*/
 
 
 
@@ -84,12 +84,22 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log("sddddd", kudos)
-    if (kudos > context.user.kudosBank) {
+    var kudosData = {
+      email: data.email,
+      reason: data.reason,
+      kudos: data.kudos
+    }
+    console.log("here is total info", kudosData);
+    if (kudosData.kudos > context.user.kudosBank) {
       window.alert("Can not send kudos more than" + context.user.kudosBank)
     }
     else {
       console.log("function call here");
+      context.loadUser(context.token);
+      sendKudos(kudosData, context.token);
+      context.loadUser(context.token);
       context.saveKudosInfo(email, reason, kudos);
+      setShowModal(false);
     }
   };
 
