@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext, useEffect } from 'react'
 import BadgerContext from '../../context/badger/BadgerContext'
 
 import BadgeObject from "./UserPanelComponents/BadgeObject"
@@ -12,10 +12,14 @@ const UserPanel = () => {
     var listOfBadges = [];
 
     const populateUserPanel = () => {
+       context.getMyBadges(context.token);
+
        for (var index = 0; index < context.myBadges.length; index++) {
            listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
        }
     }
+
+    useEffect(() => { populateUserPanel() }, [context.myBadges.length]);
 
     return(
         <div class="user-panel-div">
@@ -25,8 +29,8 @@ const UserPanel = () => {
                 </div>
 
                 {populateUserPanel()}
-                { listOfBadges}
-
+                { listOfBadges }
+                
             </div>
 
         </div>
