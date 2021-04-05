@@ -119,6 +119,12 @@ router.post("/giveKudos", middleware, async (req, res) => {
     if (!giver) {
         return res.send("No signed in user testtt")
     }
+
+    if(giver.email == email){
+        console.log("Can not send kudos to yourslef!")
+        return res.send("Can not send kudos to yourslef!");
+
+    }
     if (!kudosReciever) {
         return res.send("No found user with that email")
     }
