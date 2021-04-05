@@ -4,7 +4,7 @@ import BadgerContext from '../context/badger/BadgerContext'
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
-import { WaterfallFeed } from "./HomepageComponents/WaterfallFeed"
+import  WaterfallFeed  from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
