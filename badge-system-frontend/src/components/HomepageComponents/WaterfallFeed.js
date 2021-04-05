@@ -21,10 +21,19 @@ const WaterFall = () => {
     return(
         <Fragment>
             <div class="feed-title">Reward Feed</div>
-            <div class="feed-div">
+
+                <div class="feed-div">
+
+                    {context.allBadges && context.allBadges.map(badge => <BadgeObject badgeData ={ badge} />)}
+
+                </div>
+
             
         </Fragment>
     );
 }
+
+
+export default WaterFall
 
 

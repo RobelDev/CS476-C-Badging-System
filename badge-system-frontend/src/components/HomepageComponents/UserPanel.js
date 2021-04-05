@@ -13,13 +13,14 @@ const UserPanel = () => {
 
     const populateUserPanel = () => {
        context.getMyBadges(context.token);
-
-       for (var index = 0; index < context.myBadges.length; index++) {
-           listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
-       }
+    
+       if(context.myBadges){
+            for (var index = 0; index < context.myBadges.length; index++) {
+                listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
+         }
+         }
     }
-
-    useEffect(() => { populateUserPanel() }, [context.myBadges.length]);
+    useEffect(() => { populateUserPanel() }, [context.myBadges]);
 
     return(
         <div class="user-panel-div">
