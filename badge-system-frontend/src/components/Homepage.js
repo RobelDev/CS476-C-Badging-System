@@ -24,12 +24,12 @@ const Homepage = () => {
     }
 
     const updateKudos = () => {
+        context.loadUser(context.token);
         context.getMyKudos(context.token);
         kudos = context.myKudos;
     }
 
-    useEffect(() => { updateKudos() }, [context.myKudos])
-
+    useEffect(() => { updateKudos() }, [context.user.kudosBank])
     
 
     return (
@@ -66,7 +66,7 @@ const Homepage = () => {
             <div class="kudos-div">
                 <div class="kudos-amount">
                     {setKudos()}
-                    Kudos: {context.myKudos}
+                    Kudos: {kudos}
                 </div>
             </div>
 

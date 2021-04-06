@@ -139,8 +139,8 @@ router.post("/giveKudos", middleware, async (req, res) => {
     }
 
     if(giver.email == email){
-        console.log("Can not send kudos to yourslef!")
-        return res.send("Can not send kudos to yourslef!");
+        console.log("Can not send kudos to yourself!")
+        return res.send("Can not send kudos to yourself!");
 
     }
     if (!kudosReciever) {
@@ -148,9 +148,6 @@ router.post("/giveKudos", middleware, async (req, res) => {
     }
 
     try {
-
-
-
 
         if (giver.kudosBank >= parseInt(kudos)) {
 
@@ -165,17 +162,13 @@ router.post("/giveKudos", middleware, async (req, res) => {
             await kudosReciever.save();
 
             return res.json(giver);
-            //res.send("kudos sent");
+            // res.send("kudos sent");
 
 
         }
         else {
             res.send("not sufficient kudos");
         }
-
-
-
-
 
     } catch (error) {
 
