@@ -24,7 +24,7 @@ const Homepage = () => {
     }
 
     const updateKudos = () => {
-        context.loadUser(context.token);
+        //context.loadUser(context.token);
         context.getMyKudos(context.token);
         kudos = context.myKudos;
     }
