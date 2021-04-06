@@ -117,9 +117,9 @@ export const SpendKudos = ({ showSpendKudosModal, setShowSpendKudosModal }) => {
     else {
       spendKudosInfo.kudos = kudos;
       console.log("here is total kudos", spendKudosInfo);
-      context.loadUser(context.token);
+      //context.loadUser(context.token);
       context.spendKudos(spendKudosInfo, context.token);
-      context.loadUser(context.token);
+      //context.loadUser(context.token);
       reset();
     }
   };

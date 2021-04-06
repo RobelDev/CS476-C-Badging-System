@@ -1,10 +1,10 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useEffect } from "react";
 
 import BadgerContext from '../context/badger/BadgerContext'
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
-import  WaterfallFeed  from "./HomepageComponents/WaterfallFeed"
+import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
@@ -16,6 +16,17 @@ const Homepage = () => {
         e.preventDefault();
         context.logOut();
     };
+
+    var kudos;
+
+    useEffect(() => { displayKudos() }
+        , [context.user.kudosBank])
+
+    const displayKudos = () => {
+        context.loadUser(context.token);
+        kudos = context.user.kudosBank;
+    }
+
 
     return (
         <div class="HomepageContainer">
@@ -50,7 +61,8 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    Kudos: {context.user.kudosBank}
+                    {displayKudos()}
+                    Kudos: {kudos}
                 </div>
             </div>
 
