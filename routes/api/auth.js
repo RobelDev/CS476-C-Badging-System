@@ -114,7 +114,7 @@ router.get("/getMyKudos", middleware, async (req, res) => {
     }
 
     try {
-        res.json(user.kudosBank);
+        res.json(user);
 
     } catch (error) {
 

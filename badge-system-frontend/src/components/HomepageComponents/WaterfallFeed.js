@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useContext, useEffect} from 'react'
 import BadgerContext from '../../context/badger/BadgerContext'
 
-import BadgeObject from "./UserPanelComponents/BadgeObject"
+import MessageObject from "./WaterfallFeedComponents/MessageObject"
 import "./WaterfallFeed.css"
 
 
@@ -15,7 +15,7 @@ const WaterFall = () => {
 
         if (context.allBadges) {
             for (var index = 0; index < context.allBadges.length; index++) {
-                allBadgesList[index] = <BadgeObject badgeData={context.allBadges[index]} />
+                allBadgesList[index] = <MessageObject badgeData={context.allBadges[index]} />
             }
         }
     }
@@ -26,7 +26,7 @@ const WaterFall = () => {
 
         if (context.allBadges) {
             for (var index = 0; index < context.allBadges.length; index++) {
-                allBadgesList[index] = <BadgeObject badgeData={context.allBadges[index]} />
+                allBadgesList[index] = <MessageObject badgeData={context.allBadges[index]} />
             }
         }
     }

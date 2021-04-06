@@ -279,7 +279,6 @@ const BadgerState = (props) => {
     // Send Kudos
     const sendKudos = async ({ email, kudos }, token) => {
 
-
         //const kudos = parseInt(kudosAmount);
 
         console.log("hhhhhhhhhhhhhhh", kudos);
@@ -292,8 +291,6 @@ const BadgerState = (props) => {
                 "auth-token": token
             },
         };
-
-
 
         try {
 

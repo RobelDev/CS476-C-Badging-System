@@ -119,6 +119,7 @@ label #sidebar-button:hover{
     padding: 1.1vw;
     font-size: 3vw;
     padding-left: 5vw;
+    padding-bottom: 15vh;
 }
 
 .UserPanelContainer {

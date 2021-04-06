@@ -1,18 +1,35 @@
-.message-container {
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    padding-bottom: 5vh;
+.message-div {
 }
 
-.message-part-1 {
-    display: flex;
+.badge-img {
+    width: 8vw;
+    height: 8vw;
 }
 
-.icon-container {
-    padding-left: 10vw;
+.message-date {
+    font-size: 0.8vw;
+    margin-left: 2vw;
 }
-.reward-icon {
-    border-radius: 50%;
-    width: 5vh;
+
+.message-title {
+    font-size: 2vw;
+    margin-left: 2vw;
+}
+
+.message-details {
+    font-size: 1.5vw;
+    margin-left: 4vw;
+}
+
+.message-card {
+    padding-top: 4vh;
+    padding-left: 1vw;
+    height: 25vh;
+    border-bottom: solid 0.2vh rgba(88, 72, 72, 0.30);
+    margin-bottom: 2vh;
+    width: 60vw;
+}
+
+.receiver {
+    text-decoration: underline;
 }
