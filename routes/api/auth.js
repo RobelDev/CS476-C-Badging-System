@@ -105,6 +105,24 @@ router.post("/register", async (req, res) => {
     }
 });
 
+router.get("/getMyKudos", middleware, async (req, res) => {
+
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+        return res.send("No found user")
+    }
+
+    try {
+        res.json(user.kudosBank);
+
+    } catch (error) {
+
+        console.error(error.message);
+        res.status(500).send("Server Error");
+    }
+});
+
 
 router.post("/giveKudos", middleware, async (req, res) => {
 
@@ -146,8 +164,8 @@ router.post("/giveKudos", middleware, async (req, res) => {
 
             await kudosReciever.save();
 
-            res.json(giver);
-            res.send("kudos sent");
+            return res.json(giver);
+            //res.send("kudos sent");
 
 
         }

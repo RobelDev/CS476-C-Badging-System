@@ -4,6 +4,7 @@ import {
     LOG_IN,
     CREAT_BADGE,
     GET_MY_BADGES,
+    GET_MY_KUDOS,
     GET_ALL_BADGES,
     LOG_OUT,
     REGISTER_USER,
@@ -59,6 +60,13 @@ export default (state, action) => {
 
             };
 
+        case GET_MY_KUDOS:
+            return {
+                ...state,
+                kudosBank: action.payload,
+                loading: false,
+            }
+
 
         case CHANGE_KUDOS:
             return {
@@ -81,6 +89,7 @@ export default (state, action) => {
                 user: {},
                 auth: false,
                 myBadges: {},
+                kudosBank: 0,
                 loading: false,
             };
 

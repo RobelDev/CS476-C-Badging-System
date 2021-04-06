@@ -9,22 +9,40 @@ const WaterFall = () => {
 
     const context = useContext(BadgerContext);
 
-    const waterFallPopulate = () => {
-        context.getAllBadges(context.token);
+    var allBadgesList = [];
+
+    const populateFeed = () => {
+
+        if (context.allBadges) {
+            for (var index = 0; index < context.allBadges.length; index++) {
+                allBadgesList[index] = <BadgeObject badgeData={context.allBadges[index]} />
+            }
+        }
     }
 
-    useEffect(() => { setInterval(waterFallPopulate(), 5000);}, [context.allBadges])
+    const updateFeed = () => {
+
+        context.getAllBadges(context.token);
+
+        if (context.allBadges) {
+            for (var index = 0; index < context.allBadges.length; index++) {
+                allBadgesList[index] = <BadgeObject badgeData={context.allBadges[index]} />
+            }
+        }
+    }
+
+    useEffect(() => { updateFeed()}, [context.allBadges])
 
     return(
         <Fragment>
             <div class="feed-title">Reward Feed</div>
 
-                <div class="feed-div">
-                    {context.allBadges && context.allBadges.map(badge => <BadgeObject badgeData ={badge} />)}
+            <div class="feed-div">
+                {populateFeed()}
+                {allBadgesList}
 
-                </div>
+            </div>
 
-            
         </Fragment>
     );
 }

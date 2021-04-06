@@ -20,17 +20,14 @@ const UserPanel = () => {
     }
 
     const updateUserPanel = () => {
+        context.getMyBadges(context.token);
 
-       context.getMyBadges(context.token);
-    
-       if(context.myBadges){
-            for (var index = 0; index < context.myBadges.length; index++) {
-                listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
-            }
-         }
+        for (var index = 0; index < context.myBadges.length; index++) {
+            listOfBadges[index] = <BadgeObject badgeData={context.myBadges[index]} />
+        }
     }
 
-    useEffect(() => { setInterval(updateUserPanel, 5000) }, [context.myBadges]);
+    useEffect(() => { updateUserPanel() }, [context.myBadges]);
 
     return(
         <div class="user-panel-div">
@@ -38,7 +35,7 @@ const UserPanel = () => {
                 <div class="badge-library-header">
                     Your Badges
                 </div>
-                { populateUserPanel()}
+                { populateUserPanel() }
                 { listOfBadges }
                 
             </div>

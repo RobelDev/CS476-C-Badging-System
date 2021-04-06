@@ -19,12 +19,16 @@ const Homepage = () => {
 
     var kudos;
 
-    const displayKudos = () => {
-        context.loadUser(context.token);
+    const setKudos = () => {
         kudos = context.user.kudosBank;
     }
 
-    useEffect(() => { setInterval(displayKudos(), 5000) }, [context.user.kudosBank])
+    const updateKudos = () => {
+        context.getMyKudos(context.token);
+        kudos = context.myKudos;
+    }
+
+    useEffect(() => { updateKudos() }, [context.myKudos])
 
     
 
@@ -61,7 +65,8 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    Kudos: {context.user.kudosBank}
+                    {setKudos()}
+                    Kudos: {context.myKudos}
                 </div>
             </div>
 
