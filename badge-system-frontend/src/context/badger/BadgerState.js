@@ -147,9 +147,6 @@ const BadgerState = (props) => {
                 payload: res.data
             });
 
-            dispatch(getMyBadges(token));
-            dispatch(getAllBadges());
-
             //console.log(res);
 
         } catch (error) {

@@ -19,14 +19,14 @@ const Homepage = () => {
 
     var kudos;
 
-    useEffect(() => { displayKudos() }
-        , [context.user.kudosBank])
-
     const displayKudos = () => {
         context.loadUser(context.token);
         kudos = context.user.kudosBank;
     }
 
+    useEffect(() => { setInterval(displayKudos(), 5000) }, [context.user.kudosBank])
+
+    
 
     return (
         <div class="HomepageContainer">
@@ -61,8 +61,7 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    {displayKudos()}
-                    Kudos: {kudos}
+                    Kudos: {context.user.kudosBank}
                 </div>
             </div>
 

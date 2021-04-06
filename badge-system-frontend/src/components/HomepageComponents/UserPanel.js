@@ -12,15 +12,25 @@ const UserPanel = () => {
     var listOfBadges = [];
 
     const populateUserPanel = () => {
+        if (context.myBadges) {
+            for (var index = 0; index < context.myBadges.length; index++) {
+                listOfBadges[index] = <BadgeObject badgeData={context.myBadges[index]} />
+            }
+        }
+    }
+
+    const updateUserPanel = () => {
+
        context.getMyBadges(context.token);
     
        if(context.myBadges){
             for (var index = 0; index < context.myBadges.length; index++) {
                 listOfBadges[index] = <BadgeObject badgeData={ context.myBadges[index] } />
-         }
+            }
          }
     }
-    useEffect(() => { populateUserPanel() }, [context.myBadges]);
+
+    useEffect(() => { setInterval(updateUserPanel, 5000) }, [context.myBadges]);
 
     return(
         <div class="user-panel-div">
@@ -28,8 +38,7 @@ const UserPanel = () => {
                 <div class="badge-library-header">
                     Your Badges
                 </div>
-
-                {populateUserPanel()}
+                { populateUserPanel()}
                 { listOfBadges }
                 
             </div>

@@ -39,7 +39,7 @@ const LogIn = () => {
     const onSubmitSignin = async (e) => {
         e.preventDefault();
         context.logIn({ email, password });
-        // context.getMyBadges();
+        context.getMyBadges(context.token);
     };
 
     const validate = async (e) => {

@@ -7,24 +7,20 @@ import "./WaterfallFeed.css"
 
 const WaterFall = () => {
 
-    const context = useContext(BadgerContext)
+    const context = useContext(BadgerContext);
 
     const waterFallPopulate = () => {
         context.getAllBadges(context.token);
-        
     }
 
-    useEffect(() => {
-        waterFallPopulate();
-    }, [context.allBadges])
+    useEffect(() => { setInterval(waterFallPopulate(), 5000);}, [context.allBadges])
 
     return(
         <Fragment>
             <div class="feed-title">Reward Feed</div>
 
                 <div class="feed-div">
-
-                    {context.allBadges && context.allBadges.map(badge => <BadgeObject badgeData ={ badge} />)}
+                    {context.allBadges && context.allBadges.map(badge => <BadgeObject badgeData ={badge} />)}
 
                 </div>
 
