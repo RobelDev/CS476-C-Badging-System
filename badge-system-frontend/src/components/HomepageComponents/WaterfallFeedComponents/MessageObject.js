@@ -50,7 +50,7 @@ const MessageObject = (props) => {
 
 
     return (
-        <li class="message-card" style={{ display: "flex" }}>
+        <div class="message-card" style={{ display: "flex" }}>
             {getBadgeImage()}
 
             <img class="badge-img" src={image} />
@@ -71,7 +71,7 @@ const MessageObject = (props) => {
 
             </div>
 
-        </li>
+        </div>
     );
 }
 
