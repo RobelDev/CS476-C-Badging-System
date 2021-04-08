@@ -111,7 +111,7 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
             <div className="kudos-modal-wrapper" showModal={showModal}>
 
               <div className="kudos-title-div">
-                <p>Send Kudos</p>
+                Send Kudos
 
                 <button className="kudos-close-modal-button"
                   onClick={() => setShowModal(prev => !prev)}

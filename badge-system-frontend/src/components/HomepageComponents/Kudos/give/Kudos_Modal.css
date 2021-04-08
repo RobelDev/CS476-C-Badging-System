@@ -8,24 +8,26 @@
 }
 
 .kudos-title-div p {
-    font-size: 3vh;
+    
     color: white;
     height: 6vh;
     margin-top: 0.5vh;
 }
 
 .kudos-title-div {
+    font-size: 3vh;
     width: 25vw;
     display: flex;
     height: 5vh;
     border-bottom: solid #262626;
     border-bottom-width: 3px;
     padding-left: 1vw;
+    text-wrap: none;
+    justify-content: space-between;
 }
 
 .kudos-close-modal-button {
     margin-top: 0.5vh;
-    margin-left: 12vw;
     z-index: 10;
     color: white;
     background-color: rgba(0, 0, 0, 0.00);
@@ -34,13 +36,13 @@
     height: 4vh;
 }
 
-    .kudos-close-modal-button i {
-        font-size: 1.7vw;
-    }
+.kudos-close-modal-button i {
+    font-size: 1.7vw;
+}
 
-    .kudos-close-modal-button:hover {
-        color: crimson;
-    }
+.kudos-close-modal-button:hover {
+    color: crimson;
+}
 
 .kudos-modal-content {
     margin-top: 3vh;
@@ -66,9 +68,9 @@
     margin-left: 2vw;
 }
 
-    .kudos-modal-form p {
-        font-size: 0.8vw;
-    }
+.kudos-modal-form p {
+    font-size: 0.8vw;
+}
 
 .kudos-recipient-input-div {
     margin-top: 1vh;
