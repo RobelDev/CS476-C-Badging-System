@@ -12,7 +12,7 @@ const UserPanel = () => {
     var listOfBadges = [];
 
     const populateUserPanel = () => {
-        if (context.myBadges) {
+        if (context.myBadges[0] != null  ) {
             for (var index = 0; index < context.myBadges.length; index++) {
                 listOfBadges[index] = <BadgeObject badgeData={context.myBadges[index]} />
             }
