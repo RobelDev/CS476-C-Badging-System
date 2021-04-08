@@ -71,7 +71,7 @@ label #sidebar-button:hover{
 
 #check:checked ~ .NavbarContainer {
     left: -15%;
-    border-bottom-right-radius: 17vw;
+    border-bottom-right-radius: 25vh;
 }
 
 #check:checked ~ .WaterfallFeedContainer{
@@ -81,7 +81,7 @@ label #sidebar-button:hover{
 }
 
 #check:checked ~ .NavbarContainer a span{
-    display: none;
+    display:none;
 }
 
 #check:checked ~ .NavbarContainer a{

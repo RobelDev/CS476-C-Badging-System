@@ -35,7 +35,7 @@ const Homepage = () => {
     return (
         <div class="HomepageContainer">
 
-            <input type="checkbox" id="check" />
+            <input type="checkbox" id="check" defaultChecked/>
 
             <div class="HeaderContainer">
                 <label for="check">
