@@ -143,46 +143,47 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
                                             Below is where the list of badges will go, 
                                             for now there are just radio buttons and labels
                                         */}
-                                        <span title="5 years badger">
+                                        <span title="5 Year Anniversary Badge">
                                             <input type="radio" id="5yr" name="badgeButton" value="5yr" />
                                             <label for="5yr"><img src={b5} /></label>
                                         </span>
 
-                                        <span title="10 years badger">
+                                        <span title="10 Year Anniversary Badge">
                                             <input type="radio" id="10yr" name="badgeButton" value="10yr" />
                                             <label for="10yr"><img src={b10} /></label>
                                         
                                         </span>
 
-                                        <span title="15 years badger">
+                                        <span title="15 Year Anniversary Badge">
                                             <input type="radio" id="15yr" name="badgeButton" value="15yr" />
                                             <label for="15yr"><img src={b15} /></label>
                                         
                                         </span>
 
-                                        <span title="20 years badger">
+                                        <span title="20 Year Anniversary Badge">
                                             <input type="radio" id="20yr" name="badgeButton" value="20yr" />
                                             <label for="20yr"><img src={b20} /></label>
                                         
                                         </span>
 
-                                        <span title="25 years badger">
+                                        <span title="25 Year Anniversary Badge">
                                             <input type="radio" id="25yr" name="badgeButton" value="25yr" />
                                             <label for="25yr"><img src={b25} /></label>
                                             
                                         </span>
 
-                                        <span title="30 years badger">
+                                        <span title="30 Year Anniversary Badge">
                                             <input type="radio" id="30yr" name="badgeButton" value="30yr" />
                                             <label for="30yr"><img src={b30} /></label>
                                         
                                         </span>
 
-                                        <input type="radio" id="35yr" name="badgeButton" value="35yr" />
-                                        <label for="35yr"><img src={b35} /></label>
-                                        <div>35 years badger</div>
+                                        <span title="35 Year Anniversary Badge">
+                                            <input type="radio" id="35yr" name="badgeButton" value="35yr" />
+                                            <label for="35yr"><img src={b35} /></label>
+                                        </span>
 
-                                        <span title="40 years badger">
+                                        <span title="40 Year Anniversary Badge">
                                             <input type="radio" id="40yr" name="badgeButton" value="40yr" />
                                             <label for="40yr"><img src={b40} /></label>
                                         
