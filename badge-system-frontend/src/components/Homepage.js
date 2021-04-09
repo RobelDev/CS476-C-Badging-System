@@ -16,6 +16,7 @@ const Homepage = () => {
         e.preventDefault();
         context.logOut();
     };
+    /*
 
     var kudos;
 
@@ -29,13 +30,18 @@ const Homepage = () => {
         kudos = context.myKudos;
     }
 
-    useEffect(() => { updateKudos() }, [context.user.kudosBank])
-    
+    useEffect(() => { updateKudos() }, [context.user.kudosBank]) */
+    useEffect(() => {
+        context.loadUser(context.token); const interval = setInterval(() => {
+            context.loadUser(context.token)
+        }, 1000); return () => clearInterval(interval)
+    }, [])
+
 
     return (
         <div class="HomepageContainer">
 
-            <input type="checkbox" id="check" defaultChecked/>
+            <input type="checkbox" id="check" defaultChecked />
 
             <div class="HeaderContainer">
                 <label for="check">
@@ -65,8 +71,8 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
-                    {setKudos()}
-                    Kudos: {kudos}
+                    {/*setKudos()*/}
+                    Kudos: {context.user.kudosBank}
                 </div>
             </div>
 
