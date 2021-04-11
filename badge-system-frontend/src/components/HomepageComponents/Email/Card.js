@@ -4,17 +4,9 @@ import img1 from '../imgs/1.jpg';
 import img2 from '../imgs/2.jpeg';
 import img4 from '../imgs/4.jpg';
 import img5 from '../imgs/5.jpg';
-import BadgerContext from '../../../context/badger/BadgerContext'
-import { SetArray } from "./SetArray"
-import b5 from '../../../Assets/5yrFull.png'
-import b10 from '../../../Assets/10yrFull.png'
-import b15 from '../../../Assets/15yrFull.png'
-import b20 from '../../../Assets/20yrFull.png'
-import b25 from '../../../Assets/25yrFull.png'
-import b30 from '../../../Assets/30yrFull.png'
-import b35 from '../../../Assets/35yrFull.png'
-import b40 from '../../../Assets/40yr.png'
-import logo from '../../../Assets/Team_Badgers_Logo.png'
+import addressIcon from './imgs/address.png'
+import emailIcon from './imgs/email.png'
+import phoneIcon from './imgs/phone.png'
 
 
 
@@ -101,13 +93,26 @@ class Card extends React.Component {
             canvas.width = "900"
             canvas.height = "500"
 
-            ctx.font = "50px " + this.state.fontFamily
-            ctx.textAlign = 'center';
+            let addressImg = new Image();
+            addressImg.src = addressIcon;
+
+            let emailImg = new Image();
+            emailImg.src = emailIcon;
+
+            let phoneImg = new Image();
+            phoneImg.src = phoneIcon;
+
+            ctx.font = "40px " + this.state.fontFamily
+
             ctx.fillText(this.state.uname, 150, 100)
             ctx.fillText(this.state.personalInfo, 150, 170)
             ctx.fillText(this.state.phone, 150, 240)
             ctx.fillText(this.state.email, 150, 310)
             ctx.fillText(this.state.address, 150, 380)
+            addressImg.onload = () => { ctx.drawImage(addressImg, 50, 350, 50, 50) }
+            emailImg.onload = () => { ctx.drawImage(emailImg, 50, 280, 50, 50) }
+            phoneImg.onload = () => { ctx.drawImage(phoneImg, 50, 210, 50, 50) }
+
 
             /*if (this.state.uname === "") {
                 alert("Enter your name")
