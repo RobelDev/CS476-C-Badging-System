@@ -9,5 +9,6 @@ export const CHANGE_KUDOS = 'CHANGE_KUDOS';
 export const LOG_OUT = 'LOG_OUT';
 export const LOG_OUT_FAIL = 'LOG_OUT_FAIL';
 export const GIVE_BADGES = 'GIVE_BADGES';
+export const GET_MY_KUDOS = 'GET_MY_KUDOS';
 
 //HERE FOR TEST

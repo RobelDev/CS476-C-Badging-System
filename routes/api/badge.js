@@ -28,7 +28,7 @@ router.post("/create", middleware, async (req, res) => {
     let userG = await User.findOne({ email: receiver });
 
 
-        if (!userG) {
+    if (!userG) {
             console.log("no user found");
             return res.send("no user")
         }
@@ -53,7 +53,7 @@ router.post("/create", middleware, async (req, res) => {
     
         if( me.email == receiver ){
             console.log("you cant send badges to your self")
-            return res.send("you cant send badges to your self")
+            // return res.send("you cant send badges to your self")
         }
 
         var arr = [];
@@ -76,8 +76,10 @@ router.post("/create", middleware, async (req, res) => {
 
             await badgeToBeGiven.save();
 
-            return res.json(badgeToBeGiven);
          }
+
+         res.json(badgeToBeGiven);
+
 
     } catch (error) {
         console.error(error.message);

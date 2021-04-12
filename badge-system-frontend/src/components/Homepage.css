@@ -71,7 +71,7 @@ label #sidebar-button:hover{
 
 #check:checked ~ .NavbarContainer {
     left: -15%;
-    border-bottom-right-radius: 17vw;
+    border-bottom-right-radius: 25vh;
 }
 
 #check:checked ~ .WaterfallFeedContainer{
@@ -81,7 +81,7 @@ label #sidebar-button:hover{
 }
 
 #check:checked ~ .NavbarContainer a span{
-    display: none;
+    display:none;
 }
 
 #check:checked ~ .NavbarContainer a{
@@ -119,6 +119,7 @@ label #sidebar-button:hover{
     padding: 1.1vw;
     font-size: 3vw;
     padding-left: 5vw;
+    padding-bottom: 15vh;
 }
 
 .UserPanelContainer {
@@ -177,8 +178,10 @@ label #sidebar-button:hover{
 }
 
 .kudos-amount {
-    font-size: 3vh;
+    font-size: 1.5vw;
     padding-top: 0vh;
+    padding-left: 0.1vw;
+    padding-right: 0.1vw;
     text-decoration: none;
 }
 

@@ -1,10 +1,10 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useEffect } from "react";
 
 import BadgerContext from '../context/badger/BadgerContext'
 
 import MainNav from "./HomepageComponents/MainNav"
 import UserPanel from "./HomepageComponents/UserPanel"
-import { WaterfallFeed } from "./HomepageComponents/WaterfallFeed"
+import WaterfallFeed from "./HomepageComponents/WaterfallFeed"
 
 import "./Homepage.css"
 
@@ -16,11 +16,32 @@ const Homepage = () => {
         e.preventDefault();
         context.logOut();
     };
+    /*
+
+    var kudos;
+
+    const setKudos = () => {
+        kudos = context.user.kudosBank;
+    }
+
+    const updateKudos = () => {
+        //context.loadUser(context.token);
+        context.getMyKudos(context.token);
+        kudos = context.myKudos;
+    }
+
+    useEffect(() => { updateKudos() }, [context.user.kudosBank]) */
+    useEffect(() => {
+        context.loadUser(context.token); const interval = setInterval(() => {
+            context.loadUser(context.token)
+        }, 1000); return () => clearInterval(interval)
+    }, [])
+
 
     return (
         <div class="HomepageContainer">
 
-            <input type="checkbox" id="check" />
+            <input type="checkbox" id="check" defaultChecked />
 
             <div class="HeaderContainer">
                 <label for="check">
@@ -50,6 +71,7 @@ const Homepage = () => {
 
             <div class="kudos-div">
                 <div class="kudos-amount">
+                    {/*setKudos()*/}
                     Kudos: {context.user.kudosBank}
                 </div>
             </div>

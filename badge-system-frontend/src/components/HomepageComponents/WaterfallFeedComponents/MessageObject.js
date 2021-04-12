@@ -3,92 +3,76 @@ import React from "react"
 import './MessageObject.css'
 
 import logo from '../../../Assets/Team_Badgers_Logo.png'
-import img1 from "../imgs/1.jpg"
 
-class MessageObject extends React.Component {
-    constructor() {
-        super();
-        this.state = {};
+import b5 from '../../../Assets/5yrFull.png'
+import b10 from '../../../Assets/10yrFull.png'
+import b15 from '../../../Assets/15yrFull.png'
+import b20 from '../../../Assets/20yrFull.png'
+import b25 from '../../../Assets/25yrFull.png'
+import b30 from '../../../Assets/30yrFull.png'
+import b35 from '../../../Assets/35yrFull.png'
+import b40 from '../../../Assets/40yr.png'
+
+const MessageObject = (props) => {
+
+    var image = logo;
+
+    const getBadgeImage = () => {
+        const name = props.badgeData.badgeName;
+
+        switch (name) {
+            case "5yr":
+                image = b5;
+                break;
+            case "10yr":
+                image = b10;
+                break;
+            case "15yr":
+                image = b15;
+                break;
+            case "20yr":
+                image = b20;
+                break;
+            case "25yr":
+                image = b25;
+                break;
+            case "30yr":
+                image = b30;
+                break;
+            case "35yr":
+                image = b35;
+                break;
+            case "40yr":
+                image = b40;
+                break;
+        }
     }
 
-    render() {
-        return(
-            <li style={{listStyle: "none"}}>
-                <div class="message-container">
-                {/* <div class="card" style={"width: 18rem"}>
-  <img class="card-img-top" src="..." alt="Card image cap" />
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> */}
-                    
-                    <div class="message-part-1">
-                        <div class="message-id">
-                            <a href="#user-link">Tristan Marcus</a> recieved the Team Badgers Badge!
 
-                        </div>
-                        <br />
-                        <div>
-                        <img src={img1} alt="jj"/>
-                        </div>
-                        {/* <div class="icon-container"> */}
-                        {/* </div> */}
-                        
-                    </div>
-                    
-                    <div class="message-part-2">
-                        <p class="message-description">
-Mater Front-End web development         </p>
-                    </div>
-                    
-                    <hr />
+    return (
+        <div class="message-card" style={{ display: "flex" }}>
+            {getBadgeImage()}
 
-                    <div class="message-part-1">
-                        <div class="message-id">
-                            <a href="#user-link">Robel </a> recieved the Team Badgers Badge!
+            <img class="badge-img" src={image} />
 
-                        </div>
-                        <br />
-                        <div>
-                        <img src={img1} alt="jj"/>
-                        </div>
-                        {/* <div class="icon-container"> */}
-                        {/* </div> */}
-                        
-                    </div>
-                    
-                    <div class="message-part-2">
-                        <p class="message-description">
-Mater at Amazon Cloud Services (AWS)</p>
-                    </div>
+            <div class="message-div">
+                <div class="message-date">
+                    Sent at: { props.badgeData.date }
                 </div>
 
+                <p class="message-title">
+                    <span class="receiver">{props.badgeData.receiver} </span>
+                    received the {props.badgeData.badgeName} badge!
+                </p>
 
-                <div class="message-part-1">
-                        <div class="message-id">
-                            <a href="#user-link">Abdu y</a> recieved the Team Badgers Badge!
+                <p class="message-details">
+                    {props.badgeData.reason}
+                </p>
 
-                        </div>
-                        <br />
-                        <div>
-                        <img src={img1} alt="jj"/>
-                        </div>
-                        {/* <div class="icon-container"> */}
-                        {/* </div> */}
-                        
-                    </div>
-                    
-                    <div class="message-part-2">
-                        <p class="message-description">
-                        Master at Java programming language. 
-                        </p>
-                    </div>
-                
-            </li>
-        );
-    }
+            </div>
+
+        </div>
+    );
 }
 
 export default MessageObject;

@@ -124,13 +124,14 @@
     display: none;
   }
 
-  .modal-form-right label:hover + div {
+.modal-form-right label:hover + div {
     position: relative;
     display: block;
     margin-left: 8vw;
     margin-bottom: 30px;
     color: red;
 }
+
 .modal-form-right input {
     margin-left: -5vw;
     margin-bottom: 10vh;
@@ -160,7 +161,7 @@
 
 .send-badge-button {
     background-color: crimson;
-    position: absolute;
+    position: sticky;
     top: 90%;
     left: 27.5%;
     border-radius: 0.3vw;

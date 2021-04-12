@@ -1,127 +1,53 @@
-import React, { useContext } from "react"
-import { useState } from "react";
-
+import React, { Fragment, useState, useContext, useEffect} from 'react'
 import BadgerContext from '../../context/badger/BadgerContext'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
-import MessageObject from "./WaterfallFeedComponents/MessageObject"
 
+import MessageObject from "./WaterfallFeedComponents/MessageObject"
 import "./WaterfallFeed.css"
 
 
-export const WaterfallFeed = () => {
-
-    const kudosInfoArray = [];
-
-    var email;
-    var kudosReason;
-    var kudos;
-    var receiver;
-    var badgeName;
-    var badgeReason
+const WaterFall = () => {
 
     const context = useContext(BadgerContext);
 
-    const showKudosInfo = () => {
+    var allBadgesList = [];
 
-        //console.log("Waterfallfeed called here", context.isKudosChanged);
+    const populateFeed = () => {
 
-        if (context.isKudosChanged) {
-            email = context.kudosInfo.email;
-            kudosReason = context.kudosInfo.reason;
-            kudos = context.kudosInfo.kudos;
-
+        if (context.allBadges) {
+            for (var index = 0; index < context.allBadges.length; index++) {
+                allBadgesList[index] = <MessageObject badgeData={context.allBadges[index]} />
+            }
         }
     }
 
-    const showBadgesInfo = () => {
+    const updateFeed = () => {
 
-        //console.log("Waterfallfeed called here", context.isBadgeSent);
+        context.getAllBadges(context.token);
 
-        if (context.isBadgeSent) {
-            receiver = context.badgesInfo.receiver;
-            badgeReason = context.badgesInfo.reason;
-            badgeName = context.badgesInfo.badgeName;
-
+        if (context.allBadges) {
+            for (var index = 0; index < context.allBadges.length; index++) {
+                allBadgesList[index] = <MessageObject badgeData={context.allBadges[index]} />
+            }
         }
     }
 
-    return (
-        <div class="waterfall-feed-container">
-            <div class="feed-title">
-                Reward Feed
-            </div>
+    useEffect(() => { updateFeed()}, [context.allBadges])
+
+    return(
+        <Fragment>
+            <div class="feed-title">Reward Feed</div>
 
             <div class="feed-div">
-                {showKudosInfo()}
-                <div>{email}</div>
-                <div>{kudosReason}</div>
-                <div>{kudos}</div>
-                {/*(<ChatRoom />
-                <MessageObject />*/}
+                {populateFeed()}
+                {allBadgesList}
+
             </div>
 
-            <div class="feed-div">
-                {showBadgesInfo()}
-                <div>{receiver}</div>
-                <div>{badgeReason}</div>
-                <div>{badgeName}</div>
-                {/*(<ChatRoom />
-                <MessageObject />*/}
-            </div>
-        </div>
+        </Fragment>
     );
 }
 
 
-/*function ChatRoom() {
-    const messagesRef = firestore.collection('messages');
-    const query = messagesRef.orderBy('createdAt').limit(25);
+export default WaterFall
 
-    const [messages] = useCollectionData(query, { idField: 'id' });
-    const [formValue, setFormValue] = useState('');
-
-    const sendMessage = async (e) => {
-        e.preventDefault();
-        const { uid, photoURL } = auth.currentUser;
-
-        await messagesRef.add({
-            text: formValue,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            uid,
-            photoURL
-        });
-    }
-
-    return (
-        <>
-            <div>
-                {messages && messages.map(msg => <RewardMessage key={msg.id} message={msg} />)}
-            </div>
-            <form onSubmit={sendMessage}>
-
-                <input value={formValue} onChange={(e) => setFormValue(e.target.value)} />
-                <button class="send-button" type="submit">SEND</button>
-
-            </form>
-        </>
-    );
-}
-
-
-function RewardMessage(props) {
-    const { text, uid, photoURL } = props.message;
-
-    const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
-
-    return (
-        <div classname={`message ${messageClass}`}>
-            <img src={photoURL} />
-            <p>
-                {text}
-            </p>
-        </div>
-    );
-}
-
-*/
 

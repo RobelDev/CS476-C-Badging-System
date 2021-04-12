@@ -10,6 +10,7 @@ import {
     REGISTER_USER,
     CREAT_BADGE,
     GET_MY_BADGES,
+    GET_MY_KUDOS,
     GET_ALL_BADGES,
     CHANGE_KUDOS,
     GIVE_BADGES,
@@ -25,6 +26,7 @@ const BadgerState = (props) => {
         auth: false,
         loading: false,
         myBadges: [],
+        kudosBank: 0,
         allBadges: [],
         isBadgesGet: false,
     }
@@ -147,9 +149,6 @@ const BadgerState = (props) => {
                 payload: res.data
             });
 
-            dispatch(getMyBadges(token));
-            dispatch(getAllBadges());
-
             //console.log(res);
 
         } catch (error) {
@@ -227,6 +226,32 @@ const BadgerState = (props) => {
 
     }
 
+    const getMyKudos = async (token) => {
+
+        const config = {
+            headers: {
+                "Content-Type": "application/json",
+                "auth-token": token
+            }
+        };
+
+        try {
+            const res = await axios.get("/api/auth/getMyKudos", config);
+
+            dispatch({
+                type: GET_MY_KUDOS,
+                payload: res.data
+            })
+
+            //console.log(res.data);
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+    }
+
 
     // Get all badges
     const getAllBadges = async () => {
@@ -254,7 +279,6 @@ const BadgerState = (props) => {
     // Send Kudos
     const sendKudos = async ({ email, kudos }, token) => {
 
-
         //const kudos = parseInt(kudosAmount);
 
         console.log("hhhhhhhhhhhhhhh", kudos);
@@ -267,8 +291,6 @@ const BadgerState = (props) => {
                 "auth-token": token
             },
         };
-
-
 
         try {
 
@@ -340,6 +362,7 @@ const BadgerState = (props) => {
             auth: state.auth,
             loading: state.loading,
             myBadges: state.myBadges,
+            myKudos: state.kudosBank,
             allBadges: state.allBadges,
             isKudosChanged,
             isBadgeSent,
@@ -352,6 +375,7 @@ const BadgerState = (props) => {
             logIn,
             logOut,
             loadUser,
+            getMyKudos,
             sendKudos,
             spendKudos,
             creatBadge,
