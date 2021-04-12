@@ -12,7 +12,7 @@ const UserPanel = () => {
     var listOfBadges = [];
 
     const populateUserPanel = () => {
-        if (context.myBadges[0] != null  ) {
+        if (context.myBadges[0] != null) {
             for (var index = 0; index < context.myBadges.length; index++) {
                 listOfBadges[index] = <BadgeObject badgeData={context.myBadges[index]} />
             }
@@ -29,15 +29,15 @@ const UserPanel = () => {
 
     useEffect(() => { updateUserPanel() }, [context.myBadges]);
 
-    return(
+    return (
         <div class="user-panel-div">
             <div class="badge-library-div">
                 <div class="badge-library-header">
                     Your Badges
                 </div>
-                { populateUserPanel() }
-                { listOfBadges }
-                
+                {populateUserPanel()}
+                {listOfBadges}
+
             </div>
 
         </div>

@@ -86,8 +86,14 @@ export const GiveBadge = ({ showGiveBadgeModal, setShowGiveBadgeModal }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        data.badgeName = getBadgeName();
-        context.creatBadge(data, context.token);
+
+        if (data.receiver == context.user.email) {
+
+        }
+        else {
+            data.badgeName = getBadgeName();
+            context.creatBadge(data, context.token);
+        }
     }
 
     return (

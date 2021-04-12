@@ -16,6 +16,8 @@ import b30 from '../../../Assets/30yrFull.png'
 import b35 from '../../../Assets/35yrFull.png'
 import b40 from '../../../Assets/40yr.png'
 
+
+
 const Background = styled.div`
   width: 100%;
   height: 100%;

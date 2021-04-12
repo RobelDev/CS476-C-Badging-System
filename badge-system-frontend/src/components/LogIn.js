@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useContext } from 'react'
 import "./LogIn.css"
+
 import BadgerContext from '../context/badger/BadgerContext'
 import Homepage from "./Homepage"
 

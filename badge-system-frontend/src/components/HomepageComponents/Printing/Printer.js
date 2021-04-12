@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import './Printer.css';
 import PDF from './PDF';
@@ -17,6 +16,7 @@ import b30 from '../../../Assets/30yrFull.png';
 import b35 from '../../../Assets/35yrFull.png';
 import b40 from '../../../Assets/40yr.png';
 import logo from '../../../Assets/Team_Badgers_Logo.png';
+import twentyYearsExperience from './img/twentyYearsExperience.pdf';
 
 
 
@@ -25,7 +25,7 @@ const Printer = (props) => {
     var image = logo;
 
     const getBadgeImage = () => {
-        const name = props.badgeData.badgeName;
+        const name = props.badgeName;
 
         switch (name) {
             case "5yr":
@@ -61,7 +61,7 @@ const Printer = (props) => {
         <div className="modal-print-content">
             <span title={props.badgeData.badgeName}>
                 {getBadgeImage()}
-                <a href={<PDF title={props.badgeData.badgeName} image={image} />} target="_blank" rel="noreferrer">
+                <a href={twentyYearsExperience} target="_blank" rel="twentyYearsExperience">
                     <form class="modal-print-content-form">
                         <label for="badge1">
                             {getBadgeImage()}
@@ -75,7 +75,6 @@ const Printer = (props) => {
                                 <p class="badge-description">
                                     Badge Description: { props.badgeData.reason}
                                 </p>
-
                                 <p class="badge-date">
                                     Date Received: { props.badgeData.date }
                                 </p>

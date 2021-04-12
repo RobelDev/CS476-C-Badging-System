@@ -4,17 +4,9 @@ import img1 from '../imgs/1.jpg';
 import img2 from '../imgs/2.jpeg';
 import img4 from '../imgs/4.jpg';
 import img5 from '../imgs/5.jpg';
-import BadgerContext from '../../../context/badger/BadgerContext'
-import { SetArray } from "./SetArray"
-import b5 from '../../../Assets/5yrFull.png'
-import b10 from '../../../Assets/10yrFull.png'
-import b15 from '../../../Assets/15yrFull.png'
-import b20 from '../../../Assets/20yrFull.png'
-import b25 from '../../../Assets/25yrFull.png'
-import b30 from '../../../Assets/30yrFull.png'
-import b35 from '../../../Assets/35yrFull.png'
-import b40 from '../../../Assets/40yr.png'
-import logo from '../../../Assets/Team_Badgers_Logo.png'
+import addressIcon from './imgs/address.png'
+import emailIcon from './imgs/email.png'
+import phoneIcon from './imgs/phone.png'
 
 
 
@@ -63,6 +55,7 @@ class Card extends React.Component {
         this.closeClick = this.closeClick.bind(this);
         this.setChecked = this.setChecked.bind(this);
         this.showImgInfo = this.showImgInfo.bind(this);
+        this.checkInfo = this.checkInfo.bind(this);
     }
 
     showImgInfo() {
@@ -101,13 +94,16 @@ class Card extends React.Component {
             canvas.width = "900"
             canvas.height = "500"
 
-            ctx.font = "50px " + this.state.fontFamily
-            ctx.textAlign = 'center';
+
+            ctx.font = "40px " + this.state.fontFamily
+
             ctx.fillText(this.state.uname, 150, 100)
             ctx.fillText(this.state.personalInfo, 150, 170)
             ctx.fillText(this.state.phone, 150, 240)
             ctx.fillText(this.state.email, 150, 310)
             ctx.fillText(this.state.address, 150, 380)
+
+
 
             /*if (this.state.uname === "") {
                 alert("Enter your name")
@@ -130,12 +126,21 @@ class Card extends React.Component {
             } else if (arr.length === 1) {
                 let img = new Image();
                 img.src = arr[0].img
-                img.alt = "demo"
-                img.onload = function () {
-                    ctx.drawImage(img, 650, 170, 150, 150)
-                    let png = canvas.toDataURL("image/png")
-                    localStorage.setItem("url", png)
-                }
+                let phoneImg = new Image();
+                phoneImg.src = phoneIcon;
+                let emailImg = new Image();
+                emailImg.src = emailIcon;
+                let addressImg = new Image();
+                addressImg.src = addressIcon;
+
+                ctx.drawImage(addressImg, 50, 350, 50, 50)
+                ctx.drawImage(emailImg, 50, 280, 50, 50)
+                ctx.drawImage(phoneImg, 50, 210, 50, 50)
+
+                ctx.drawImage(img, 650, 170, 150, 150)
+                let png = canvas.toDataURL("image/png")
+                localStorage.setItem("url", png)
+
             } else if (arr.length === 2) {
                 let x = 125
                 let y = 200
@@ -143,38 +148,60 @@ class Card extends React.Component {
                     let img = new Image();
                     img.src = arr[a].img
                     img.alt = "demo"
-                    img.onload = function () {
-                        if (a === 0) {
-                            ctx.drawImage(img, 650, 80, 150, 150)
-                        } else if (a === 1) {
-                            ctx.drawImage(img, 650, 280, 150, 150)
-                        }
-                        let png = canvas.toDataURL("image/png")
-                        localStorage.setItem("url", png)
+
+                    let phoneImg = new Image();
+                    phoneImg.src = phoneIcon;
+                    let emailImg = new Image();
+                    emailImg.src = emailIcon;
+                    let addressImg = new Image();
+                    addressImg.src = addressIcon;
+
+                    ctx.drawImage(addressImg, 50, 350, 50, 50)
+                    ctx.drawImage(emailImg, 50, 280, 50, 50)
+                    ctx.drawImage(phoneImg, 50, 210, 50, 50)
+
+                    if (a === 0) {
+                        ctx.drawImage(img, 650, 80, 150, 150)
+                    } else if (a === 1) {
+                        ctx.drawImage(img, 650, 280, 150, 150)
                     }
+                    let png = canvas.toDataURL("image/png")
+                    localStorage.setItem("url", png)
+
                 }
             } else if (arr.length === 3) {
                 for (let a = 0; a < arr.length; a++) {
                     let img = new Image();
                     img.src = arr[a].img
                     img.alt = "demo"
-                    img.onload = function () {
-                        if (a === 0) {
-                            ctx.drawImage(img, 650, 40, 120, 120)
 
-                        } else if (a === 1) {
-                            ctx.drawImage(img, 650, 180, 120, 120)
+                    let phoneImg = new Image();
+                    phoneImg.src = phoneIcon;
+                    let emailImg = new Image();
+                    emailImg.src = emailIcon;
+                    let addressImg = new Image();
+                    addressImg.src = addressIcon;
 
-                        } else if (a === 2) {
-                            ctx.drawImage(img, 650, 320, 120, 120)
-                        }
-                        let png = canvas.toDataURL("image/png")
-                        localStorage.setItem("url", png)
+                    ctx.drawImage(addressImg, 50, 350, 50, 50)
+                    ctx.drawImage(emailImg, 50, 280, 50, 50)
+                    ctx.drawImage(phoneImg, 50, 210, 50, 50)
+
+                    if (a === 0) {
+                        ctx.drawImage(img, 650, 40, 120, 120)
+
+                    } else if (a === 1) {
+                        ctx.drawImage(img, 650, 180, 120, 120)
+
+                    } else if (a === 2) {
+                        ctx.drawImage(img, 650, 320, 120, 120)
                     }
+                    let png = canvas.toDataURL("image/png")
+                    localStorage.setItem("url", png)
+
                 }
             } else if (arr.length === 4) {
 
-                alert("Number of pictures 1-3")
+                alert("No more than three badges can be picked at one time")
                 this.setState({
                     mode: 1
                 })
@@ -288,6 +315,15 @@ class Card extends React.Component {
         console.log(this.state.imgs[index]);
     }
 
+    checkInfo(e) {
+        if (!(this.state.uname && this.state.email && this.state.address && this.state.phone)) {
+            alert("Please fill in each column. ")
+        }
+        else {
+            this.NextClick(e);
+        }
+    }
+
 
     render() {
 
@@ -363,7 +399,7 @@ class Card extends React.Component {
                     </div>
                     <div className="img-box-btn">
                         <button className="button-style" onClick={this.BackClick}>Back</button>
-                        <button className="button-style" onClick={this.NextClick}>Next</button>
+                        <button className="button-style" onClick={this.checkInfo}>Next</button>
                     </div>
                 </div>
             )
