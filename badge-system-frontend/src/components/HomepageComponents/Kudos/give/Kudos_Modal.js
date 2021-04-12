@@ -93,6 +93,10 @@ export const Kudos_Modal = ({ showModal, setShowModal }) => {
     if (kudosData.kudos > context.user.kudosBank) {
       window.alert("Can not send kudos more than" + context.user.kudosBank)
     }
+    else if (parseInt(kudosData.kudos) <= 0) {
+      window.alert("Can not send kudos equal to or less than zero")
+    }
+
     else {
       console.log("function call here");
       //context.loadUser(context.token);

@@ -19,7 +19,7 @@ class PdfPrenter extends Component {
         }
         this.setChecked = this.setChecked.bind(this);
     }
-    
+
 
     setChecked(e, index, img) {
         let imgs = this.state.imgs
@@ -30,38 +30,38 @@ class PdfPrenter extends Component {
     }
     pdfGenerate = (e, index, img) => {
         var doc = new jsPDF('landscape', 'px', 'a4', 'false');
-        
+
         doc.addImage(b10, 'PNG', 65, 20, 500, 400);
         doc.save('a.pdf');
     }
     render() {
-            return (
-                <div className="email-funtion-box" >
-                    <div className="email-funtion-title"><p>Select your Badges</p></div>
-                    <div className="modal-form-badges-selector">
+        return (
+            <div className="email-funtion-box" >
+                <div className="email-funtion-title"><p>Select your Badges</p></div>
+                <div className="modal-form-badges-selector">
 
-                        {
-                            this.state.imgs.map((item, index) => {
-                                return (
-                                    <div>
-                                        <div className="badges-select-block">
-                                            <img src={this.state.imgs[index].img} />
-                                            
-                                        </div>
-                                        <div style={{textAlign: 'center'}}>
-                                            <Button value={item.mode} onClick={this.pdfGenerate}>download</Button>
-                                        </div>
+                    {
+                        this.state.imgs.map((item, index) => {
+                            return (
+                                <div>
+                                    <div className="badges-select-block">
+                                        <img src={this.state.imgs[index].img} />
+
                                     </div>
-                                    
-                                )
-                            })
-                        }
+                                    <div style={{ textAlign: 'center' }}>
+                                        <Button value={item.mode} onClick={this.pdfGenerate}>download</Button>
+                                    </div>
+                                </div>
 
-                    </div>
-                    
-                </div >
-            )
-        
+                            )
+                        })
+                    }
+
+                </div>
+
+            </div >
+        )
+
     }
 }
 
