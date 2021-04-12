@@ -1,0 +1,201 @@
+@media (min-width: 992px){
+    .modal-lg{
+        max-width: 1200px;
+    }
+}
+@media (min-width: 576px){
+    .modal-dialog {
+        max-width: 1200px;
+        margin: 1.75rem auto;
+    }
+}
+
+.modal{
+    left:50%;
+    margin-left:-600px;
+}
+.card-box{
+     position: absolute;
+    top: 0%;
+    left: 35%;
+    margin-left:-25%; 
+    width: 600px;
+    /*width: 40vw;
+    box-shadow: none;*/
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+
+.img-box{
+    display: flex;
+    flex-direction: row;
+    margin-top:80px;
+}
+
+.img-box-column{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.img-box-btn{
+    /*display: flex;
+    flex-direction: row;*/
+    top: 5%;
+    justify-content: space-between;
+    margin: auto;
+    text-align: center;
+}
+
+.font-box{
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    line-height: 50px;
+    justify-content: space-between;
+}
+
+.font-box div:nth-child(2){
+    font-size: 50px;
+}
+.select-box{
+    width: 300px; 
+}
+.p-box{
+    width: 90%;
+    margin-left:7.5%;
+}
+.p-box-canvas{
+    border:1px solid gray;
+    width: 95%;
+    height: 70%;
+    background-color: #ffffff;
+}
+
+#dis-img{
+    display: none;
+}
+
+.img-box-btn{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+}
+
+.img-box-btn-2{
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+}
+.mode3-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-modal{
+    width: 800px;
+    height: 500px;
+}
+
+.modal-form-badges-selector {
+    position: relative;
+    margin:5% 10%;
+    background-color: #2e2e2e;
+    width: auto;
+    overflow-y: scroll;
+    height: 70%;
+    display: flex;
+    flex-wrap: wrap;
+} 
+
+.modal-form-badges-selector img {
+    margin-left: 1vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.modal-form-badges-selector::-webkit-scrollbar {
+    width: 10px;
+    height: 7px;
+}
+
+.modal-form-badges-selector::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px
+}
+
+.modal-form-badges-selector::-webkit-scrollbar-thumb {
+    background: #0d0c0c;
+    border: 0px none #ffffff;
+    border-radius: 5px;
+}
+
+.modal-form-badges-selector::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border: 0px none #ffffff;
+    border-radius: 100px;
+}
+
+.email-funtion-title{
+    margin-top: 2vh;
+    margin-left: 2vh;
+}
+
+.email-funtion-title p{
+    color:#ffffff
+} 
+
+
+
+.button-style{
+    border-radius: 0.3vw;
+    width: 5vw;
+    height: 5vh;
+    transition: 0.4s;
+    transition-property: all;
+    border: none;
+    font-size: 0.7vw;
+}
+.button-style-1{
+    margin-left: 80%;
+    border-radius: 0.3vw;
+    width: 5vw;
+    height: 5vh;
+    transition: 0.4s;
+    transition-property: all;
+    border: none;
+    font-size: 0.7vw;
+}
+
+
+.email-funtion-box{
+    margin-top: 0%;
+    width:80%;
+    height: 50vh;
+}
+
+.badges-select-block{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding:0px;
+    width: 33.333333%;
+    height: 80px;
+}
+
+.badge-display{
+    margin-left: 20%;
+}
+
+.check-box-div{
+    position: relative;
+    margin-left: 49%;
+} 
+
+.personalInfo-div{
+    margin-top: 10%;
+    width: 70%;
+    height: 10vh;
+}
