@@ -79,13 +79,13 @@ img{
 }
 
 .img-box-btn{
-    margin-top: 20%;
+    margin-top: -5%;
     display: flex;
     flex-direction: row;
 }
 
 .img-box-btn-2{
-    margin-top: 20%;
+    margin-top: 3%;
     display: flex;
     flex-direction: row;
 }

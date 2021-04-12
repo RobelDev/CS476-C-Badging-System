@@ -55,6 +55,7 @@ class Card extends React.Component {
         this.closeClick = this.closeClick.bind(this);
         this.setChecked = this.setChecked.bind(this);
         this.showImgInfo = this.showImgInfo.bind(this);
+        this.checkInfo = this.checkInfo.bind(this);
     }
 
     showImgInfo() {
@@ -179,7 +180,7 @@ class Card extends React.Component {
                 }
             } else if (arr.length === 4) {
 
-                alert("Number of pictures 1-3")
+                alert("No more than three badges can be picked at one time")
                 this.setState({
                     mode: 1
                 })
@@ -293,6 +294,15 @@ class Card extends React.Component {
         console.log(this.state.imgs[index]);
     }
 
+    checkInfo(e) {
+        if (!(this.state.uname && this.state.email && this.state.address && this.state.phone)) {
+            alert("Please fill in each column. ")
+        }
+        else {
+            this.NextClick(e);
+        }
+    }
+
 
     render() {
 
@@ -368,7 +378,7 @@ class Card extends React.Component {
                     </div>
                     <div className="img-box-btn">
                         <button className="button-style" onClick={this.BackClick}>Back</button>
-                        <button className="button-style" onClick={this.NextClick}>Next</button>
+                        <button className="button-style" onClick={this.checkInfo}>Next</button>
                     </div>
                 </div>
             )
