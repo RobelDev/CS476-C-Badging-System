@@ -17,21 +17,24 @@ class PdfPrenter extends Component {
             imgs: this.props.arr,
             image: ""
         }
-        this.setChecked = this.setChecked.bind(this);
+        this.pdfGenerate = this.pdfGenerate.bind(this);
     }
 
 
-    setChecked(e, index, img) {
-        let imgs = this.state.imgs
-        imgs[index].mode = !Boolean(imgs[index].mode)
-        this.setState({
-            imgs: imgs
-        })
-    }
-    pdfGenerate = (e, index, img) => {
+
+    pdfGenerate = (src) => {
+
+        /* imgs[index].mode = !Boolean(imgs[index].mode)
+         this.setState({
+             imgs: imgs
+         })*/
         var doc = new jsPDF('landscape', 'px', 'a4', 'false');
-
-        doc.addImage(b10, 'PNG', 65, 20, 500, 400);
+        /*for (let i in this.state.imgs) {
+            if (this.state.imgs[i].mode) {
+                doc.addImage(this.state.imgs[i], 'PNG', 65, 20, 500, 400);
+            }*/
+        //doc.addImage(b10, 'PNG', 65, 20, 500, 400);
+        doc.addImage(src, 'PNG', 65, 20, 500, 400);
         doc.save('a.pdf');
     }
     render() {
@@ -49,7 +52,7 @@ class PdfPrenter extends Component {
 
                                     </div>
                                     <div style={{ textAlign: 'center' }}>
-                                        <Button value={item.mode} onClick={this.pdfGenerate}>download</Button>
+                                        <Button value={item.mode} onClick={(e) => { this.pdfGenerate(this.state.imgs[index].img) }}>download</Button>
                                     </div>
                                 </div>
 
