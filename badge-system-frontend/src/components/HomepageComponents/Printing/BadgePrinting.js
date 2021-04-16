@@ -2,13 +2,10 @@ import React, { useContext, useRef, useEffect, useCallback } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 import { MdClose } from 'react-icons/md';
-import Printer from './Printer';
 import PdfPrenter from './pdfPrenter'
-import post from './post';
 import "./BadgePrinting.css";
 import BadgerContext from '../../../context/badger/BadgerContext';
 import logo from '../../../Assets/Team_Badgers_Logo.png';
-import BadgeObject from "../UserPanelComponents/BadgeObject"
 
 import b5 from '../../../Assets/5yrFull.png';
 import b10 from '../../../Assets/10yrFull.png';
@@ -18,7 +15,7 @@ import b25 from '../../../Assets/25yrFull.png';
 import b30 from '../../../Assets/30yrFull.png';
 import b35 from '../../../Assets/35yrFull.png';
 import b40 from '../../../Assets/40yr.png';
-import Post from './post';
+
 
 const Background = styled.div`
   width: 120%;
@@ -87,15 +84,8 @@ export const BadgePrinting = ({ showBadgePrintingModal, setShowBadgePrintingModa
     );
 
     var image = logo;
+
     const context = useContext(BadgerContext);
-
-    var listOfBadges = [];
-
-    const populateUserPanel = () => {
-       for (var index = 0; index < context.myBadges.length; index++) {
-           listOfBadges[index] = <Printer badgeData={ context.myBadges[index] } />
-       }
-    }
 
     const badgeArray = [];
 
