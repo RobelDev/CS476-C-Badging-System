@@ -18,6 +18,7 @@ import b40 from '../../../Assets/40yr.png'
 
 
 
+
 const Background = styled.div`
   width: 100%;
   height: 100%;

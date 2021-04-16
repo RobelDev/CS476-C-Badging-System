@@ -28,17 +28,13 @@ router.post("/create", middleware, async (req, res) => {
     let userG = await User.findOne({ email: receiver });
 
 
+
     if (!userG) {
             console.log("no user found");
-            return res.send("no user")
+            return res.json();
         }
 
-    
-
-    
     try {
-
-        
 
         const field = {
             user: userG.id,
@@ -53,26 +49,25 @@ router.post("/create", middleware, async (req, res) => {
     
         if( me.email == receiver ){
             console.log("you cant send badges to your self")
-            // return res.send("you cant send badges to your self")
+            return res.json()
         }
 
         var arr = [];
 
         badges && badges.map(bn => arr.push(bn.badgeName));
        
-        
-
         const resp = badges && badges.map( bn => { bn.badgeName == (badgeName) ? "exists" : "no"} );
 
+        let badgeToBeGiven = null;
 
         if(arr.indexOf(badgeName) > -1){
             console.log("Badge already exists/given ");
-            return res.send("Badge already exists");
+            
          }
          else{
 
          
-            const badgeToBeGiven = new Badge(field);
+            badgeToBeGiven = new Badge(field);
 
             await badgeToBeGiven.save();
 
@@ -94,22 +89,10 @@ router.post("/create", middleware, async (req, res) => {
 // work on this one /////////////////////////////////////////////////
 router.post("/kudos", middleware, async (req, res) => {
 
-
-
-
     const kudosReciever = await User.find(req.body.email).select("-password");
 
-    // const {
-    //     kudosBank,
-    // } = req.body;
-
-    // const field = {
-    //     user: req.user.id,
-    //     kudosBank,
-    // }
 
     try {
-
 
         const myBadge = await Badge.find({
             user: req.user.id,
@@ -117,11 +100,9 @@ router.post("/kudos", middleware, async (req, res) => {
 
         badges.kudosBank += req.body;
 
-
         res.json(badges);
 
     } catch (error) {
-
 
         console.error(error.message);
         res.status(500).send("Server Error");
@@ -169,29 +150,6 @@ router.get("/all", async (req, res) => {
     }
 })
 
-
-// get a single badge
-
-router.get("/me/:badge_id", async (req, res) => {
-
-    try {
-
-        const badge = await Badge.findById(req.params.badge_id).populate("user");
-
-        if (!badge) {
-            return res.status(400).json({ msg: "No property found" });
-        }
-
-        res.json(badge);
-
-    } catch (error) {
-
-
-        console.error(error.message);
-        res.status(500).send("Server Error");
-
-    }
-})
 
 
 module.exports = router;
