@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 //import { Button } from 'reactstrap';
 import "./pdfPrenter.css"
+import logo from '../../../Assets/Team_Badgers_Logo.png';
 import b5 from '../../../Assets/5yrFull.png'
 import b10 from '../../../Assets/10yrFull.png'
 import b15 from '../../../Assets/15yrFull.png'
@@ -34,8 +35,15 @@ class PdfPrenter extends Component {
 
     pdfGenerate = (src) => {
         var doc = new jsPDF('landscape', 'px', 'a4', 'false');
+        doc.addImage(logo, 'PNG', 10, 20, 50, 40);
+        doc.setFont("helvetica");
+        //doc.setFontType("bold");
+        doc.setFontSize(23);
+        doc.setTextColor(255,0,0);
+        doc.text(100, 100, 'This Badge Was Awarded To You For Your Work In State Farm');
+        doc.addPage();
         doc.addImage(src, 'PNG', 65, 20, 500, 400);
-        doc.save('badger.pdf');
+        doc.save('badge.pdf');
     }
 
     render() {
